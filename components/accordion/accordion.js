@@ -1,4 +1,4 @@
-import React from "react"
+import React from "react";
 import useResizeObserver from '@react-hook/resize-observer'
 
 const useSize = (target) => {
@@ -12,20 +12,20 @@ const useSize = (target) => {
     return size
 }
 
-export const FilterTemplate = ({ title, children }) => {
+export const Accordion = ({ title, children }) => {
     const [open, setOpen] = React.useState(false)
     const target = React.useRef(null)
     const size = useSize(target)
 
     return (
-        <section className="p-2 custom-border">
+        <div className="p-2 custom-border">
             <div className="p-2 text-2xl">
                 <button
-                    className="flex items-center justify-between w-full text-left "
+                    className="flex items-center justify-between w-full text-xl text-left text-gray-900 hover:text-gray-600 "
                     onClick={() => setOpen(!open)}
                 >{title}
                     <svg
-                        className="w-[10px]"
+                        className="w-[12px]"
                         xmlns="http://www.w3.org/2000/svg"
                         width="14"
                         height="14"
@@ -45,6 +45,6 @@ export const FilterTemplate = ({ title, children }) => {
                     {children}
                 </div>
             </div>
-        </section>
+        </div>
     )
 }

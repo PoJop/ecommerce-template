@@ -6,7 +6,7 @@ export const Main = ({ children }) => {
     return (
         <main className=" w-full  bg-[#f8f8f8]">
             <div className="m-auto max-w-[1200px] ">
-                <div className=" mt-[100px]">
+                <div className=" pt-[100px]">
                     {children}
                 </div>
             </div>

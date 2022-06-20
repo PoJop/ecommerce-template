@@ -7,14 +7,33 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+
+        'gray-950': '#222',
+        'gray-900': '#333',
+        'gray-600': '#666',
+        'gray-400': '#999',
         'dull-gray': '#e5e5e5',
-        'gray-500': '#666',
 
         'blue-800': '#1E87F0',
         'blue-700': '#0F7AE5',
+        'blue-100': '#1e87f0',
       },
       dropShadow: {
         '3xl': '0 5px 15px rgb(0 0 0 / 8%)',
+      },
+      fontSize: {
+        'xs': '.75rem',
+        'sm': '.875rem',
+        'tiny': '.875rem',
+        'base': '1rem',
+        'lg': '1.125rem',
+        'xl': '1.25rem',
+        '2xl': '1.5rem',
+        '3xl': '1.875rem',
+        '4xl': '2.625rem',
+        '5xl': '3rem',
+        '6xl': '4rem',
+        '7xl': '5rem',
       }
     },
   },

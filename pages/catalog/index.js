@@ -1,4 +1,5 @@
 
+import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs";
 import { Footer } from "../../components/layers/footer";
 import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
@@ -13,26 +14,20 @@ export default function Catalog() {
             <Header />
             <Main>
                 <CatalogProvider>
-                    <div>
-                        <>
-                            {/* Breadcrumbs */}
+                    <div className="p-4 mb-6">
+                        <Breadcrumbs breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops']} />
 
-                            <div>{''}</div>
-                        </>
-                        <>
-                            {/* Catalog title */}
+                        <div>
+                            <h1 className="text-4xl font-normal text-center text-gray-900 ">
+                                Laptops
+                            </h1>
+                        </div>
 
-                            <div>
-                                <h1 className="text-3xl text-center">Laptops</h1>
-                            </div>
-                        </>
-                        <>
-                            {/*  */}
-
-                            <div>
-                                <strong>{"12 items"}</strong>
-                            </div>
-                        </>
+                        <div className="flex justify-center">
+                            <strong className="text-sm font-normal text-gray-400">
+                                12 items
+                            </strong>
+                        </div>
                     </div>
 
                     <CatalogContainer />

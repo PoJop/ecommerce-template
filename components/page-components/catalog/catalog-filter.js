@@ -1,5 +1,4 @@
-import { FilterBrands } from "./filter-components/filter-brands"
-import { FilterPrice } from "./filter-components/filter-price"
+import { Accordion } from "../../accordion/accordion"
 
 export const CatalogFilter = () => {
 
@@ -7,8 +6,32 @@ export const CatalogFilter = () => {
         <>
             <aside className="overflow-y-hidden bg-white rounded-md ">
                 <div className="h-full overflow-y-auto ">
-                    <FilterPrice />
-                    <FilterBrands />
+                    <Accordion title={"Prices"}>
+                        212
+                    </Accordion>
+                    <Accordion title={"Brands"}>
+                        121
+                    </Accordion>
+                    <Accordion title={"Type"}>
+                        121
+                    </Accordion>
+                    <Accordion title={"Screen Size"}>
+                        121
+                    </Accordion>
+                    <Accordion title={"Screen Resolution"}>
+                        121
+                    </Accordion>
+                    <Accordion title={"CPU"}>
+                        121
+                    </Accordion>
+                    <Accordion title={"RAM"}>
+                        121
+                    </Accordion>
+                    <div className="p-4">
+                        <button className="w-full py-2 text-center border rounded-md border-[#e5e5e5] hover:border-[#bebebe]">
+                            RESET ALL FILTERS
+                        </button>
+                    </div>
                 </div>
             </aside>
         </>

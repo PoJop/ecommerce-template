@@ -11,11 +11,11 @@ export const CatalogContainer = () => {
     
 
     return (
-        <section className="flex flex-row lg:gap-6 p-[40px] ">
+        <section className="flex flex-row lg:gap-6 lg:p-[0px] ">
             <>
                 {/* Left, the filter panel */}
 
-                <div className="hidden lg:block basis-[35%] drop-shadow-3xl">
+                <div className="hidden lg:block basis-[30%] drop-shadow-3xl">
                     <CatalogFilter />
                 </div>
                 <div className="lg:hidden">

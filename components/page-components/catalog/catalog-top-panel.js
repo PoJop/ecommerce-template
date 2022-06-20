@@ -58,6 +58,7 @@ export const CatalogTopPanel = ({ openFilter, setOpenFilter }) => {
 const IconGrid = () => {
     return (
         <svg
+        className="w-[15px] h-[15px]"
             xmlns="http://www.w3.org/2000/svg"
             width="10"
             height="10"
@@ -74,6 +75,7 @@ const IconGrid = () => {
 const IconRow = () => {
     return (
         <svg
+            className="w-[15px] h-[15px]"
             xmlns="http://www.w3.org/2000/svg"
             width="10"
             height="10"
