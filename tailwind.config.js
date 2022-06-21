@@ -16,7 +16,6 @@ module.exports = {
 
         'blue-800': '#1E87F0',
         'blue-700': '#0F7AE5',
-        'blue-100': '#1e87f0',
       },
       dropShadow: {
         '3xl': '0 5px 15px rgb(0 0 0 / 8%)',

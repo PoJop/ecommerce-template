@@ -1,4 +1,6 @@
 import React from "react";
+import { Logo } from "../../../asset/logo";
+import { DesktopVertion } from "./desktop-vertion";
 
 
 export const Header = () => {
@@ -10,13 +12,9 @@ export const Header = () => {
             setScroll(window.scrollY)
         });
     }, [])
-    React.useEffect(() => {
-        console.log(scroll)
-    }, [scroll])
-
     return (
         <>
-            <header className="fixed top-0 left-0 w-full border-b border-dull-gray z-[900]">
+            <header className="fixed top-0 left-0 w-full  z-[900]">
                 <DevicesVertion />
                 <DesktopVertion scroll={scroll} />
             </header>
@@ -34,16 +32,13 @@ const DevicesVertion = () => {
         </>
     )
 }
-const DesktopVertion = ({ scroll }) => {
+
+
+export const Container = ({ children, className }) => {
 
     return (
-        <>
-            <div className={`hidden p-4 lg:block bg-gray-950  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
-
-            </div>
-            <div className="hidden p-4 lg:block bg-[#ffffff]">
-                DesktopVertion
-            </div>
-        </>
+        <div className={`m-auto max-w-[1200px] ${className}`}>
+            {children}
+        </div>
     )
-}
+} 

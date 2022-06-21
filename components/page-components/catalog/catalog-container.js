@@ -56,7 +56,7 @@ const MobileFilterPanel = ({ openFilter, setOpenFilter }) => {
             </div>
             <div
                 onClick={() => setOpenFilter(false)}
-                className={`fixed ${!openFilter && "hidden"}  z-[999] blur-sm top-0 left-0 w-screen h-screen bg-white transition duration-250 ${openFilter ? "opacity-30" : "opacity-0"}`}
+                className={`fixed ${!openFilter && "hidden"}  z-[999] blur-sm top-0 left-0 w-screen h-screen bg-[rgba(0,0,0,.1)] transition duration-250 ${openFilter ? "opacity-100" : "opacity-0"}`}
             />
         </>
     )
