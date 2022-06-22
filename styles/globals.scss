@@ -78,14 +78,17 @@ body::-webkit-scrollbar-thumb {
 
 .catalog-items {
   border-top: 1px solid #e5e5e5;
+
   &>article:nth-child(3n+1) {
     border-right: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
   }
+
   &>article:nth-child(3n+2) {
     border-right: 1px solid #e5e5e5;
     border-bottom: 1px solid #e5e5e5;
   }
+
   &>article:nth-child(3n+3) {
     border-bottom: 1px solid #e5e5e5;
   }

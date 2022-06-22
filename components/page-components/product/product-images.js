@@ -5,9 +5,13 @@ import Slider from "react-slick";
 export const ProductImeges = () => {
     const sliderRef = React.useRef(null)
     const [currentSlideIndex, setCurrentSlideIndex] = React.useState(1)
-
+    const [widthViewport, setWidthViewport] = React.useState(null)
+    React.useEffect(() => {
+        window.addEventListener("resize", setWidthViewport(window.innerWidth), false);
+    }, [])
     const settings = {
         infinite: true,
+        dots: widthViewport ? widthViewport < 640 : false,
         speed: 500,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -38,14 +42,14 @@ export const ProductImeges = () => {
                 <Slider {...settings} ref={sliderRef}  >
                     {arrImages.map((e, i) =>
                         <div key={i}>
-                            <figure className='px-16'>
-                                <img src={e} className="" />
+                            <figure className='w-full h-full px-2 py-4 md:px-12'>
+                                <img src={e} className="object-contain max-h-[700px] m-auto" />
                             </figure>
                         </div>
                     )}
                 </Slider>
             </div>
-            <div className="flex justify-center flex-[1_1_20%]">
+            <div className="hidden justify-center flex-[1_1_20%] sm:flex">
                 <div className="w-[60%] p-2">
                     <Slider {...settings2} >
                         {arrImages.map((e, i) =>

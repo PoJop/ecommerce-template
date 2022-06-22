@@ -12,17 +12,19 @@ export const ProductCard = ({ data }) => {
     return (
         <article className={`flex flex-row p-5 gap-4  ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
 
-            <div className="flex justify-end gap-2 text-white ">
-                <ul className="absolute">
-                    {['TOP SELLING'].map((e, i) =>
-                        <li key={i} 
-                        className={`px-[3px] text-[10px] bg-[#faa05a] rounded`}
-                        >{e}</li>
-                    )}
-                </ul>
-            </div>
-            <div className="p-2 flex-[1_0_80px] max-h-[120px]  md:max-h-[200px] max-w-[120px] md:max-w-none">
-                <img className="object-contain max-h-[120px] md:max-h-[175px] m-auto" src={image.url} />
+            <div>
+                <div className="flex justify-end gap-2 text-white ">
+                    <ul className="absolute">
+                        {['TOP SELLING'].map((e, i) =>
+                            <li key={i}
+                                className={`px-[3px] text-[10px] bg-[#faa05a] rounded`}
+                            >{e}</li>
+                        )}
+                    </ul>
+                </div>
+                <div className="p-2 flex-[1_0_80px] max-h-[120px]  md:max-h-[200px] max-w-[120px] md:max-w-none">
+                    <img className="object-contain max-h-[120px] md:max-h-[175px] m-auto" src={image.url} />
+                </div>
             </div>
             <div className={`flex flex-col ${productDisplayFormat === "row" && "md:flex-row"} gap-2 grow`}>
                 <div className="flex-[1_0_70%]">

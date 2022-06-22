@@ -21,7 +21,7 @@ export const DesktopVertion = ({ scroll }) => {
 
     return (
         <>
-            <div className={`hidden p-2 lg:block bg-gray-950  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
+            <div className={` hidden p-2 lg:block bg-gray-950  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
                 <Container>
                     <div className="flex justify-between">
                         <div></div>
@@ -124,7 +124,6 @@ export const DesktopVertion = ({ scroll }) => {
                     {Element}
                 </div>
             }
-            <CartPredview />
         </>
     )
 }

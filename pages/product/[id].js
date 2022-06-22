@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import React from "react";
+import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs";
 import { Footer } from "../../components/layers/footer";
 import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
@@ -20,6 +21,22 @@ export default function SingleProduct() {
         <>
             <Header />
             <Main >
+                <div className="py-6 mb-6 ">
+                    <Breadcrumbs breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops', 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)']} />
+
+                    <div>
+                        <h1 className="text-2xl font-normal text-center text-gray-900 lg:text-4xl ">
+                            {`Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)`}
+
+                        </h1>
+                    </div>
+
+                    <div className="flex justify-center">
+                        <strong className="text-sm font-normal text-gray-400">
+                            12 items
+                        </strong>
+                    </div>
+                </div>
                 <div className="bg-white drop-shadow-3xl">
                     <section className="border-b border-dull-gray px-[40px]">
                         <div className="flex flex-col lg:flex-row ">
@@ -40,7 +57,7 @@ export default function SingleProduct() {
 
 
                     <section className="h-[200vh]">
-                        <div  className="sticky overflow-hidden top-16">
+                        <div className="sticky overflow-hidden top-16">
                             <ul className="flex justify-center gap-6 py-4 overflow-x-auto">
                                 {tabs.map((e, i) =>
                                     <li key={i}>
