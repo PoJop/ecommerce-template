@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link"
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { CartIcon } from "../../../asset/icon";
+import { ArrowIcon, CartIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { CartPredview } from "../../cart-predview";
 
@@ -65,19 +65,9 @@ export const DesktopVertion = ({ scroll }) => {
                                         <Link href={e.path}>
                                             <a className="flex items-center gap-2 ">
                                                 {e.title.toUpperCase()}
-                                                <svg
-                                                    xmlns="http://www.w3.org/2000/svg"
-                                                    width="16"
-                                                    height="9"
-                                                    fill="none"
-                                                    viewBox="0 0 16 9"
-                                                    className={`${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}
-                                                >
-                                                    <path
-                                                        stroke="#999"
-                                                        d="M1.165.764L8 7.6m0 0l.236.235M8 7.6L14.835.764M8 7.6l-.236.235"
-                                                    ></path>
-                                                </svg>
+                                                <span className={`w-max ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
+                                                    <ArrowIcon />
+                                                </span>
                                             </a>
                                         </Link>
                                     </li>

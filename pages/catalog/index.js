@@ -13,25 +13,23 @@ export default function Catalog() {
         <>
             <Header />
             <Main>
-                <CatalogProvider>
-                    <div className="p-4 mb-6">
-                        <Breadcrumbs breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops']} />
+                <div className="p-4 mb-6">
+                    <Breadcrumbs breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops']} />
 
-                        <div>
-                            <h1 className="text-4xl font-normal text-center text-gray-900 ">
-                                Laptops
-                            </h1>
-                        </div>
-
-                        <div className="flex justify-center">
-                            <strong className="text-sm font-normal text-gray-400">
-                                12 items
-                            </strong>
-                        </div>
+                    <div>
+                        <h1 className="text-4xl font-normal text-center text-gray-900 ">
+                            Laptops
+                        </h1>
                     </div>
 
-                    <CatalogContainer />
-                </CatalogProvider>
+                    <div className="flex justify-center">
+                        <strong className="text-sm font-normal text-gray-400">
+                            12 items
+                        </strong>
+                    </div>
+                </div>
+
+                <CatalogContainer />
             </Main>
             <Footer />
         </>

@@ -15,6 +15,7 @@ module.exports = {
         'dull-gray': '#e5e5e5',
 
         'blue-800': '#1E87F0',
+        'blue-200': '#D8EAFC',
         'blue-700': '#0F7AE5',
       },
       dropShadow: {
