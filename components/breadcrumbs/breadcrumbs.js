@@ -15,7 +15,7 @@ export const Breadcrumbs = ({ breadcrumbs = [] }) => {
                     )}
                 </ul>
                 <div className="flex justify-center sm:hidden">
-                    <Link href={''}>
+                    <Link href={'#'}>
                         <a className="flex items-center gap-4 text-sm text-gray-400">
                             <svg className="w-[20px]" width="24" height="24" fill="none" viewBox="0 0 24 24">
                                 <path

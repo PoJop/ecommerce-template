@@ -15,7 +15,7 @@ export const DevicesVertion = ({ scroll }) => {
 
     return (
         <>
-            <div className="block p-2 lg:hidden bg-[#ffffff] border-b border-dull-gray">
+            <div className="block py-2 px-4 lg:hidden bg-[#ffffff] border-b border-dull-gray">
                 <Container className={"flex justify-between"}>
                     <div className="flex items-center gap-4">
                         <button onClick={() => { setBurgerMenu(true) }}>

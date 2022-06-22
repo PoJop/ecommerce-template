@@ -30,7 +30,7 @@ export const DesktopVertion = ({ scroll }) => {
                                 <ul className="flex gap-7">
                                     {["News", "FAQ", "Payment"].map((e, i) =>
                                         <li key={i}>
-                                            <Link href={''}>
+                                            <Link href={'#'}>
                                                 <a className="text-sm text-gray-400">{e}</a>
                                             </Link>
                                         </li>
@@ -62,7 +62,7 @@ export const DesktopVertion = ({ scroll }) => {
                                             setElement(<></>)
                                         }}
                                     >
-                                        <Link href={e.path}>
+                                        <Link href={'#'}>
                                             <a className="flex items-center gap-2 ">
                                                 {e.title.toUpperCase()}
                                                 <span className={`w-max ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
@@ -73,21 +73,21 @@ export const DesktopVertion = ({ scroll }) => {
                                     </li>
                                 )}
                                 <li>
-                                    <Link href={''}>
+                                    <Link href={'#'}>
                                         <a className="px-2 text-gray-400 hover:text-gray-600">
                                             BLOG
                                         </a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href={''}>
+                                    <Link href={'#'}>
                                         <a className="px-2 text-gray-400 hover:text-gray-600">
                                             ABOUT
                                         </a>
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href={''}>
+                                    <Link href={'#'}>
                                         <a className="px-2 text-gray-400 hover:text-gray-600">
                                             CONTACTS
                                         </a>

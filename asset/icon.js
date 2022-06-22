@@ -17,9 +17,9 @@ export const CartIcon = ({ color = '#ffff' }) => {
 export const BurgerMenuIcon = ({ color = '#ffff' }) => {
 
     return (
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <svg width="24" height="24"  fill="none" viewBox="0 0 24 24" >
             <path
-                stroke="currentColor"
+                stroke="#666"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 strokeWidth="1.5"
