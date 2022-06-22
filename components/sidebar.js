@@ -1,6 +1,7 @@
 import React from "react";
+import { CloseIcon } from "../asset/icon";
 
-export const Sidebar = ({ show, close, position = 'left', children }) => {
+export const Sidebar = ({ show, close, position = 'left', children, header = '' }) => {
     const [pos, setPos] = React.useState(null)
     React.useEffect(() => {
         switch (position) {
@@ -18,9 +19,14 @@ export const Sidebar = ({ show, close, position = 'left', children }) => {
         <>
             {close && position && pos &&
                 <>
-                    <aside style={{transform: `translateX(${!show ? pos : 0})`}} className={`fixed ${position === "left" ? "left-0" : "right-0"}  top-0 z-[1000] h-screen transition duration-150 ease-out`}>
+                    <aside style={{ transform: `translateX(${!show ? pos : 0})` }} className={`fixed ${position === "left" ? "left-0" : "right-0"}  top-0 z-[1000] h-screen transition duration-150 ease-out`}>
 
-                        <div className="flex flex-col h-screen bg-white drop-shadow-3xl lg:w-[350px]">
+                        <div className="flex flex-col h-screen bg-white drop-shadow-3xl w-[100vw] max-w-[270px] lg:max-w-[350px]  ">
+
+                            <header className={`flex justify-between px-4 py-3 border-b border-dull-gray `}>
+                                <h3 className="text-2xl text-gray-900">{header}</h3>
+                                <button onClick={() => close(false)}><CloseIcon /></button>
+                            </header>
                             {children}
                         </div>
                     </aside>

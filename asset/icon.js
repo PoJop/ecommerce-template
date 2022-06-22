@@ -59,3 +59,24 @@ export const ArrowIcon = ({ }) => {
         </svg>
     )
 }
+export const CloseIcon = ({ }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="15"
+            fill="none"
+            viewBox="0 0 14 15"
+        >
+            <path
+                fill="#666"
+                d="M.99.782L13.717 13.51l-.707.707L.282 1.49.99.782z"
+            ></path>
+            <path
+                fill="#666"
+                d="M13.717 1.49L.99 14.217l-.708-.707L13.01.782l.707.708z"
+            ></path>
+        </svg>
+    )
+}

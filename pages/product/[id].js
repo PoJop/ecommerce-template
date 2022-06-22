@@ -52,9 +52,9 @@ export default function SingleProduct() {
 
 
                     <section className="h-[50vh] py-4">
-                        <div className="sticky w-full overflow-x-hidden bg-white top-12">
+                        <div className="sticky w-full overflow-x-hidden bg-white top-14">
                             <div className="m-auto w-[100%] ">
-                                <ul className=" m-auto overflow-x-auto w-[100%] whitespace-nowrap text-center p-2">
+                                <ul className=" m-auto overflow-x-auto w-[100%] whitespace-nowrap text-center p-4">
                                     {tabs.map((e, i) =>
                                         <li key={i} className="inline line-through flex-shrink-1 mr-[5px] last:mr-[0]" >
                                             <button

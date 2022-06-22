@@ -26,7 +26,7 @@ export const DevicesVertion = ({ scroll }) => {
                     <div className="flex items-center gap-6">
                         <nav>
                             <ul>
-                                <li>
+                                <li className="flex align-middle">
                                     <button onClick={() => setPredview(true)}>
                                         <CartIcon color={"#666"} />
                                     </button>
@@ -36,7 +36,7 @@ export const DevicesVertion = ({ scroll }) => {
                     </div>
                 </Container>
                
-                <Sidebar close={setBurgerMenu} show={burgerMenu} position={"left"}>
+                <Sidebar close={setBurgerMenu} show={burgerMenu} position={"left"} header={"Menu"}>
                     <nav>
                         <ul>
                             <li>
