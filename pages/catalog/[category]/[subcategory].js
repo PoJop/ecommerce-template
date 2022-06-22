@@ -5,6 +5,7 @@ import { Footer } from "../../../components/layers/footer";
 import { Header } from "../../../components/layers/header/header";
 import { Main } from "../../../components/layers/main";
 import { CatalogContainer } from "../../../components/page-components/catalog/catalog-container";
+import { PageTitle } from "../../../components/layers/page-title";
 
 
 export default function Subcategory() {
@@ -18,21 +19,13 @@ export default function Subcategory() {
         <>
             <Header />
             <Main>
-                <div className="p-4 mb-6">
-                    <Breadcrumbs breadcrumbs={['Home', 'Catalog', category, subcategory]} />
-
-                    <div>
-                        <h1 className="text-2xl font-normal text-center text-gray-900 lg:text-4xl">
-                            Laptops
-                        </h1>
-                    </div>
-
+                <PageTitle title={'Laptops'} breadcrumbs={['Home', 'Catalog', category, subcategory]}>
                     <div className="flex justify-center">
                         <strong className="text-sm font-normal text-gray-400">
                             12 items
                         </strong>
                     </div>
-                </div>
+                </PageTitle>
 
                 <CatalogContainer />
             </Main>

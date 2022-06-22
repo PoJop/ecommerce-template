@@ -1,4 +1,5 @@
 import React from "react"
+import { FilterIcon } from "../../../asset/icon"
 import { useCatalog } from "../../../contextes/catalog-context"
 
 export const CatalogTopPanel = ({ openFilter, setOpenFilter }) => {
@@ -8,18 +9,18 @@ export const CatalogTopPanel = ({ openFilter, setOpenFilter }) => {
 
     return (
         <>
-            <div className="flex justify-between p-2 bg-white rounded-t-lg ">
+            <div className="flex flex-col items-center p-2 bg-white rounded-t-lg sm:flex-row sm:justify-between ">
                 <>
                     {/*Left side */}
 
-                    <div>1</div>
+                    <div></div>
 
                 </>
 
                 <>
                     {/*Right side*/}
 
-                    <div className={`flex flex-row-reverse gap-2`}>
+                    <div className={`flex flex-row-reverse gap-2  items-center `}>
 
                         <>
                             {/* List of product display formats, desktop only */}
@@ -42,8 +43,10 @@ export const CatalogTopPanel = ({ openFilter, setOpenFilter }) => {
                             {/* Button to open the filter panel, only devices */}
 
                             <div className=" lg:hidden">
-                                <button onClick={() => setOpenFilter(!openFilter)}>
-                                    Filter
+                                <button
+                                className="flex items-center gap-2 px-2 py-1 text-sm border rounded text gray-900 border-dull-gray"
+                                onClick={() => setOpenFilter(!openFilter)}>
+                                  <FilterIcon />  {"Filter".toUpperCase()}
                                 </button>
                             </div>
                         </>

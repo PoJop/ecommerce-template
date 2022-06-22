@@ -8,7 +8,9 @@ export default function Home() {
     <>
       <Header />
       <Main >
-        <div className="h-[100vh]"></div>
+        <div className="h-[100vh]">
+            <h1 className="pt-[25vh] text-5xl text-center text-gray-600">404</h1>
+        </div>
       </Main >
       <Footer />
     </>

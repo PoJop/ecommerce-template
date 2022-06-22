@@ -4,6 +4,7 @@ import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs";
 import { Footer } from "../../components/layers/footer";
 import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
+import { PageTitle } from "../../components/layers/page-title";
 import { ProductImeges } from "../../components/page-components/product/product-images";
 import { ProductInfo } from "../../components/page-components/product/product-info";
 import { RelatedProducts } from "../../components/related-products";
@@ -22,16 +23,11 @@ export default function SingleProduct() {
         <>
             <Header />
             <Main >
-                <div className="py-6 mb-6 rounded-md ">
-                    <Breadcrumbs breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops', 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)']} />
+                <PageTitle
+                    title={'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)'}
+                    breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops', 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)']}
+                />
 
-                    <div>
-                        <h1 className="text-2xl font-normal text-center text-gray-900 lg:text-4xl ">
-                            {`Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)`}
-
-                        </h1>
-                    </div>
-                </div>
                 <div className="bg-white rounded-md drop-shadow-3xl ">
                     <section className="border-b border-dull-gray px-4 lg:px-[40px]">
                         <div className="flex flex-col lg:flex-row ">
@@ -75,7 +71,7 @@ export default function SingleProduct() {
                     </section>
 
                 </div>
-                    <RelatedProducts />
+                <RelatedProducts />
             </Main >
             <Footer />
         </>

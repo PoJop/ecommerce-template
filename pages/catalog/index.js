@@ -6,6 +6,7 @@ import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
 import { CatalogContainer } from "../../components/page-components/catalog/catalog-container";
 import { CatalogProvider } from "../../contextes/catalog-context";
+import { PageTitle } from "../../components/layers/page-title";
 
 export default function Catalog() {
 
@@ -14,21 +15,14 @@ export default function Catalog() {
         <>
             <Header />
             <Main>
-                <div className="p-4 mb-6">
-                    <Breadcrumbs breadcrumbs={['Home', 'Catalog']} />
-
-                    <div>
-                        <h1 className="text-2xl font-normal text-center text-gray-900 lg:text-4xl ">
-                            Catalog
-                        </h1>
-                    </div>
-
+                <PageTitle title={'Catalog'} breadcrumbs={['Home', 'Catalog']}>
                     <div className="flex justify-center">
                         <strong className="text-sm font-normal text-gray-400">
                             1222 items
                         </strong>
                     </div>
-                </div>
+                </PageTitle>
+
                 <section className="flex lg:gap-4 h-[200vh] ">
                     <div className="hidden lg:block flex-[1_1_25%] sticky top-20 h-max bg-white drop-shadow-3xl rounded-md">1</div>
                     <div className="flex-[1_1_75%] h-full  rounded-md">

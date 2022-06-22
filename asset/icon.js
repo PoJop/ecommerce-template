@@ -17,7 +17,7 @@ export const CartIcon = ({ color = '#ffff' }) => {
 export const BurgerMenuIcon = ({ color = '#ffff' }) => {
 
     return (
-        <svg width="24" height="24"  fill="none" viewBox="0 0 24 24" >
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24" >
             <path
                 stroke="#666"
                 strokeLinecap="round"
@@ -77,6 +77,38 @@ export const CloseIcon = ({ }) => {
                 fill="#666"
                 d="M13.717 1.49L.99 14.217l-.708-.707L13.01.782l.707.708z"
             ></path>
+        </svg>
+    )
+}
+export const FilterIcon = ({ }) => {
+
+    return (
+        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <path
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+                d="M4.75 8h2.5M12.75 8h6.5M4.75 16h7.5M17.75 16h1.5"
+            ></path>
+            <circle
+                cx="10"
+                cy="8"
+                r="2.25"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+            ></circle>
+            <circle
+                cx="15"
+                cy="16"
+                r="2.25"
+                stroke="currentColor"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="1.5"
+            ></circle>
         </svg>
     )
 }
