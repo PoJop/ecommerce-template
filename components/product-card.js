@@ -10,7 +10,7 @@ export const ProductCard = ({ data }) => {
     const { productDisplayFormat } = useCatalog()
 
     return (
-        <article className={`flex flex-row p-5 gap-4  ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
+        <article className={`flex flex-row p-2 sm:p-5 gap-4  ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
 
             <div>
                 <div className="flex justify-end gap-2 text-white ">
@@ -22,11 +22,11 @@ export const ProductCard = ({ data }) => {
                         )}
                     </ul>
                 </div>
-                <div className="p-2 flex-[1_0_80px] max-h-[120px]  md:max-h-[200px] max-w-[120px] md:max-w-none">
-                    <img className="object-contain max-h-[120px] md:max-h-[175px] m-auto" src={image.url} />
+                <div className="p-1 sm:p-2 flex-[1_0_80px] flex h-full sm:max-h-[120px]  md:max-h-[200px] max-w-[120px] md:max-w-none">
+                    <img className="object-contain max-h-[120px] min-w-[90px] md:max-h-[175px] m-auto" src={image.url} />
                 </div>
             </div>
-            <div className={`flex flex-col ${productDisplayFormat === "row" && "md:flex-row"} gap-2 grow`}>
+            <div className={`flex flex-col p-2 ${productDisplayFormat === "row" && "md:flex-row"}  grow`}>
                 <div className="flex-[1_0_70%]">
                     {/* Product Label */}
                     <div>
@@ -35,7 +35,7 @@ export const ProductCard = ({ data }) => {
                     {/* Product title */}
                     <div>
                         <Link href={`/product/${id}`}>
-                            <a><h2 className="text-lg text-gray-600 cursor-pointer hover:text-blue-800">{title}</h2></a>
+                            <a><h2 className="text-base text-gray-600 cursor-pointer lg:text-lg hover:text-blue-800">{title}</h2></a>
                         </Link>
 
                     </div>
