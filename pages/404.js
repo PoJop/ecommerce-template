@@ -3,7 +3,7 @@ import { Header } from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
 
 
-export default function Home() {
+export default function Error() {
   return (
     <>
       <Header />
