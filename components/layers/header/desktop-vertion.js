@@ -5,6 +5,7 @@ import { Container } from "./header";
 import { ArrowIcon, CartIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { CartPredview } from "../cart-predview";
+import { PATH_HOME_PAGE } from "../../../config/path-config";
 
 export const DesktopVertion = ({ scroll }) => {
 
@@ -46,7 +47,9 @@ export const DesktopVertion = ({ scroll }) => {
             <div className="hidden p-4 lg:block bg-[#ffffff] border-b border-dull-gray">
                 <Container className={"flex justify-between"}>
                     <div className="flex items-center gap-6">
-                        <Logo />
+                        <Link href={PATH_HOME_PAGE}>
+                            <a><Logo /></a>
+                        </Link>
                         <nav>
                             <ul className="flex gap-4 text-sm">
                                 {arrNavDropDown.map((e, i) =>
@@ -66,7 +69,7 @@ export const DesktopVertion = ({ scroll }) => {
                                             <a className="flex items-center gap-2 ">
                                                 {e.title.toUpperCase()}
                                                 <span className={`w-max  ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
-                                                    <ArrowIcon className="w-[11px]"/>
+                                                    <ArrowIcon className="w-[11px]" />
                                                 </span>
                                             </a>
                                         </Link>

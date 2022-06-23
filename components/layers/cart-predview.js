@@ -1,5 +1,6 @@
 import Link from "next/link"
 import React from "react"
+import { PATH_CART_PAGE } from "../../config/path-config"
 import { useCart } from "../../contextes/cart-conrext"
 import { Sidebar } from "../templates/sidebar"
 
@@ -42,14 +43,14 @@ export const CartPredview = () => {
                 }
 
             </div>
-            <footer className="p-4 border-t border-dull-gray">
+            <div className="p-4 border-t border-dull-gray">
                 <div className="flex justify-between">
                     <strong className="text-xl font-normal text-gray-400">Subtotal</strong>
                     <output className="text-xl font-medium text-gray-900" >$122</output>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4">
-                    <Link href={''}>
-                        <a className="flex-[1_1_45%] min-w-[120px] transition-all text-center py-2 rounded text-gray-900 border border-[#9996] hover:border-gray-400">
+                    <Link href={PATH_CART_PAGE}>
+                        <a onClick={() => setPredview(false)} className="flex-[1_1_45%] min-w-[120px] transition-all text-center py-2 rounded text-gray-900 border border-[#9996] hover:border-gray-400">
                             {"view cart".toUpperCase()}</a>
                     </Link>
                     <Link href={''}>
@@ -57,7 +58,7 @@ export const CartPredview = () => {
                             {"checkout".toUpperCase()}</a>
                     </Link>
                 </div>
-            </footer>
+            </div>
         </Sidebar>
     )
 }

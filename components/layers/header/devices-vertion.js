@@ -5,6 +5,9 @@ import { BurgerMenuIcon, CartIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { Accordion } from "../../templates/accordion";
 import { Sidebar } from "../../templates/sidebar";
+import Link from "next/link";
+import { PATH_HOME_PAGE } from "../../../config/path-config"
+import { pages } from "../../../config/navigetion-config";
 
 export const DevicesVertion = ({ scroll }) => {
     const [burgerMenu, setBurgerMenu] = React.useState(false)
@@ -19,7 +22,10 @@ export const DevicesVertion = ({ scroll }) => {
                         <button onClick={() => { setBurgerMenu(true) }}>
                             <BurgerMenuIcon />
                         </button>
-                        <Logo />
+
+                        <Link href={PATH_HOME_PAGE}>
+                            <a><Logo /></a>
+                        </Link>
                     </div>
                     <div className="flex items-center gap-6">
                         <nav>
@@ -58,7 +64,15 @@ export const DevicesVertion = ({ scroll }) => {
                             </li>
                             <li>
                                 <Accordion title={"Pages"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
-
+                                    <ul>
+                                        {pages.map((e, i) =>
+                                            <li key={i} className="flex w-full ">
+                                                <Link href={e.path}>
+                                                    <a  className="flex-grow p-3 text-sm text-gray-400">{e.title}</a>
+                                                </Link>
+                                            </li>
+                                        )}
+                                    </ul>
                                 </Accordion>
                             </li>
                         </ul>

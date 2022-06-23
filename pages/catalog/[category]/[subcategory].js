@@ -14,15 +14,12 @@ export default function Subcategory() {
     const router = useRouter()
     const { category, subcategory } = router.query
     const [showFilter, setShowFilter] = React.useState(false)
-    React.useEffect(() => {
-        console.log(category, subcategory)
-    }, [category, subcategory])
 
     return (
         <>
             <Header />
             <Main>
-                <PageTitle title={'Laptops'} breadcrumbs={['Home', 'Catalog', category, subcategory]}>
+                <PageTitle>
                     <div className="flex justify-center">
                         <strong className="text-sm font-normal text-gray-400">
                             12 items

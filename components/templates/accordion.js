@@ -22,7 +22,7 @@ export const Accordion = ({ title, titleClass, children,  icon = 'plus' }) => {
         <div className="p-2 custom-border">
             <div className="p-2 text-2xl">
                 <button
-                    className={`flex items-center justify-between w-full text-xl text-left text-gray-900 hover:text-gray-600 ${titleClass}`}
+                    className={`flex items-center justify-between w-full text-left  hover:text-gray-600 ${titleClass}`}
                     onClick={() => setOpen(!open)}
                 >{title}
                     {icon === 'plus' &&
