@@ -107,7 +107,7 @@ const CartItem = () => {
                 <div className="flex-[1_1_65%] py-6">
                     <div className="text-sm text-gray-400">Laptop</div>
                     <Link href={"#"}>
-                        <a className="text-gray-600 text-[16px] hover:text-blue-800">Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)</a>
+                        <a className="text-gray-600 text-[16px] hover:text-blue-800">{`Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)`}</a>
                     </Link>
                 </div>
             </div>
