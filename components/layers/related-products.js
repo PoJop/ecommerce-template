@@ -1,9 +1,7 @@
 import React from "react";
-import Link from "next/link"
-import { ProductCard } from "./product-card";
-import { useCatalog } from "../contextes/catalog-context";
+import { useCatalog } from "../../contextes/catalog-context";
 import Slider from "react-slick";
-import { ArrowIcon } from "../asset/icon";
+import { ProductCard } from "../templates/product-card";
 
 export const RelatedProducts = ({ data }) => {
     const products = [

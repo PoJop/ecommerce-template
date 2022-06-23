@@ -1,8 +1,12 @@
 import Link from "next/link";
 import React from "react";
-
+import Skeleton from '@mui/material/Skeleton';
 export const Breadcrumbs = ({ breadcrumbs = [] }) => {
+    const [loading, setLoading] = React.useState(true)
 
+    React.useEffect(() => {
+        setTimeout(() => { setLoading(false) }, 2000)
+    }, [])
     return (
         <>
             <div>
@@ -11,7 +15,7 @@ export const Breadcrumbs = ({ breadcrumbs = [] }) => {
                         <li
                             className={`flex gap-4 text-sm ${breadcrumbs.length === i + 1 ? "text-gray-600" : "text-gray-400"}`}
                             key={i}
-                        >{e}</li>
+                        >{loading ? <Skeleton variant="text" animation="wave" width="70px" /> : <>{e}</>}</li>
                     )}
                 </ul>
                 <div className="flex justify-center sm:hidden">

@@ -1,16 +1,40 @@
-
-import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs";
 import Link from "next/link";
 import { Footer } from "../../components/layers/footer";
 import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
-import { CatalogContainer } from "../../components/page-components/catalog/catalog-container";
-import { CatalogProvider } from "../../contextes/catalog-context";
 import { PageTitle } from "../../components/layers/page-title";
+import AnchorLink from 'react-anchor-link-smooth-scroll'
+import React from "react";
 
 export default function Catalog() {
+    const categoryRef = React.useRef(null)
+    const arr = [
+        {
+            category: "Laptops & Tablets", subcategory: ['Laptops', 'Tablets', 'Peripherals', 'Keyboards', 'Accessories']
+        },
+        {
+            category: "Phones & Gadgets", subcategory: ['Smartphones', 'Mobile Phones', 'Smart watches', 'Charging and batteries', 'Accessories']
+        },
+        {
+            category: "TV & Video", subcategory: ['TV', 'Home Cinema', 'Satellite & Cable TV', 'Projectors', 'DVD & Blu - ray', 'Accessories',]
+        },
+        { category: "Games & Entertainment", subcategory: ['Gaming consoles', 'Games', 'Software', 'Joysticks & gamepads', 'Accessories'] },
+        { category: "Photo", subcategory: ['Cameras', 'Lenses', 'Accessories'] },
 
+    ]
+    // React.useEffect(() => {
+    //     if (categoryRef.current) {
 
+    //         categoryRef.current.querySelectorAll('.category').forEach(element => {
+    //             console.log(element)
+    //         });
+    //         window.addEventListener('scroll', () => {
+    //             categoryRef.current.querySelectorAll('.category').forEach(element => {
+    //                 console.log(element.scrollHeight  )
+    //             });
+    //         })
+    //     }
+    // }, [categoryRef])
     return (
         <>
             <Header />
@@ -24,25 +48,31 @@ export default function Catalog() {
                 </PageTitle>
 
                 <section className="flex lg:gap-4 h-[200vh] ">
-                    <div className="hidden lg:block flex-[1_1_25%] sticky top-20 h-max bg-white drop-shadow-3xl rounded-md">1</div>
+                    <div className="hidden lg:block flex-[1_1_25%] sticky top-20 h-max bg-white drop-shadow-3xl rounded-md">
+                        <ul className="flex flex-col gap-2 p-4 text-gray-400">
+                            {arr.map((e, i) =>
+                                <li key={i}> <AnchorLink offset='100' href={`#categoryAnchor${i}`}>{e.category}</AnchorLink></li>
+                            )}
+                        </ul>
+                    </div>
                     <div className="flex-[1_1_75%] h-full  rounded-md">
-                        <ul className="flex flex-col gap-5">
-                            <li className="bg-white rounded-md drop-shadow-3xl">
-                                <header className="p-4 custom-border" >Laptops-&-Tablets</header>
-                                <div>
-                                    <ul className="p-4">
-                                        <li>
-                                            <Link href={"/catalog/Laptops-&-Tablets/Laptops"}>
-                                                <a>Laptops</a>
-                                            </Link>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li className="bg-white rounded-md drop-shadow-3xl">1</li>
-                            <li className="bg-white rounded-md drop-shadow-3xl">1</li>
-                            <li className="bg-white rounded-md drop-shadow-3xl">1</li>
-                            <li className="bg-white rounded-md drop-shadow-3xl">1</li>
+                        <ul className="flex flex-col gap-5" ref={categoryRef}>
+                            {arr.map((e, i) =>
+                                <li key={i} id={`categoryAnchor${i}`} className="bg-white rounded-md category drop-shadow-3xl">
+                                    <header className="p-4 custom-border" >{e.category}</header>
+                                    <div>
+                                        <ul className="p-4">
+                                            {e.subcategory.map((e, i) =>
+                                                <li key={i}>
+                                                    <Link href={"/catalog/Laptops-&-Tablets/Laptops"}>
+                                                        <a>{e}</a>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                        </ul>
+                                    </div>
+                                </li>
+                            )}
                         </ul>
                     </div>
                 </section>

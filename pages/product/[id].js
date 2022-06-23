@@ -1,13 +1,12 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { Breadcrumbs } from "../../components/breadcrumbs/breadcrumbs";
 import { Footer } from "../../components/layers/footer";
 import { Header } from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
 import { PageTitle } from "../../components/layers/page-title";
+import { RelatedProducts } from "../../components/layers/related-products";
 import { ProductImeges } from "../../components/page-components/product/product-images";
 import { ProductInfo } from "../../components/page-components/product/product-info";
-import { RelatedProducts } from "../../components/related-products";
 
 
 

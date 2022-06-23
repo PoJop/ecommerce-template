@@ -2,7 +2,7 @@ import React from "react"
 import { FilterIcon } from "../../../asset/icon"
 import { useCatalog } from "../../../contextes/catalog-context"
 
-export const CatalogTopPanel = ({ openFilter, setOpenFilter }) => {
+export const SubcategoryTopPanel = ({ openFilter, setOpenFilter }) => {
 
     const { productDisplayFormat, setProductDisplayFormat } = useCatalog()
 

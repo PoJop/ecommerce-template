@@ -4,7 +4,7 @@ import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
 import { ArrowIcon, CartIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
-import { CartPredview } from "../../cart-predview";
+import { CartPredview } from "../cart-predview";
 
 export const DesktopVertion = ({ scroll }) => {
 

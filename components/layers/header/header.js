@@ -1,7 +1,7 @@
 import React from "react";
 import { Logo } from "../../../asset/logo";
 import { useCart } from "../../../contextes/cart-conrext";
-import { CartPredview } from "../../cart-predview";
+import { CartPredview } from "../cart-predview";
 import { DesktopVertion } from "./desktop-vertion";
 import { DevicesVertion } from "./devices-vertion";
 

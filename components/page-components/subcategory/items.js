@@ -1,7 +1,7 @@
 import { useCatalog } from "../../../contextes/catalog-context"
-import { ProductCard } from "../../product-card"
+import { ProductCard } from "../../templates/product-card"
 
-export const CatalogItems = () => {
+export const SubcategoryItems = () => {
 
     const products = [
         {

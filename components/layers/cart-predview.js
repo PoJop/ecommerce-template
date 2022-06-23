@@ -1,7 +1,7 @@
 import Link from "next/link"
 import React from "react"
-import { useCart } from "../contextes/cart-conrext"
-import { Sidebar } from "./sidebar"
+import { useCart } from "../../contextes/cart-conrext"
+import { Sidebar } from "../templates/sidebar"
 
 export const CartPredview = () => {
 

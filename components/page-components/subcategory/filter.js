@@ -1,6 +1,7 @@
-import { Accordion } from "../../accordion/accordion"
+import { Accordion } from "../../templates/accordion"
 
-export const CatalogFilter = () => {
+
+export const SubcategoryFilter = () => {
 
     return (
         <>

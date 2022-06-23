@@ -1,5 +1,5 @@
 import React from "react";
-import { CartIcon } from "../../asset/icon";
+import { CartIcon } from "../../../asset/icon";
 
 export const AddToCartBtn = () => {
 
