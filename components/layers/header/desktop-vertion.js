@@ -65,8 +65,8 @@ export const DesktopVertion = ({ scroll }) => {
                                         <Link href={'#'}>
                                             <a className="flex items-center gap-2 ">
                                                 {e.title.toUpperCase()}
-                                                <span className={`w-max ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
-                                                    <ArrowIcon />
+                                                <span className={`w-max  ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
+                                                    <ArrowIcon className="w-[11px]"/>
                                                 </span>
                                             </a>
                                         </Link>

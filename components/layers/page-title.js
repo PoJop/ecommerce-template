@@ -1,6 +1,7 @@
 import React from "react";
 import { Breadcrumbs } from "../templates/breadcrumbs";
 import Skeleton from '@mui/material/Skeleton';
+
 export const PageTitle = ({ children, title, breadcrumbs = [] }) => {
     const [loading, setLoading] = React.useState(true)
 

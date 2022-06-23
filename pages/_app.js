@@ -6,8 +6,6 @@ import Head from 'next/head';
 import { CatalogProvider } from '../contextes/catalog-context';
 
 function MyApp({ Component, pageProps }) {
-
-
   return (
     <>
       <CatalogProvider>

@@ -39,8 +39,8 @@ export const ProductCard = ({ data }) => {
                     }
                 </div>
             </div>
-            <div className={`flex flex-col p-2 ${productDisplayFormat === "row" && "md:flex-row"}  grow`}>
-                <div className="flex-[1_0_70%]">
+            <div className={`flex flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row"}  py-[20px]`}>
+                <div className="flex-[0_0_70%]">
                     {/* Product Label */}
                     <div>
                         {loading ?

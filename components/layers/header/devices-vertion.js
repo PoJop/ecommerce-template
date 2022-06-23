@@ -36,11 +36,13 @@ export const DevicesVertion = ({ scroll }) => {
 
                 <Sidebar close={setBurgerMenu} show={burgerMenu} position={"left"} header={"Menu"}>
                     <div className="p-4 custom-border">
-                        <a href="#" className="text-base font-bold text-gray-400">8 800 799 99 99</a>
-                        <div className="text-[.6875rem] text-gray-400">
-                            <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
-                            <div>Daily 10:00–22:00</div>
-                        </div>
+                        <address>
+                            <a href="#" className="text-base font-bold text-gray-400">8 800 799 99 99</a>
+                            <div className="text-[.6875rem] text-gray-400">
+                                <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
+                                <div>Daily 10:00–22:00</div>
+                            </div>
+                        </address>
                     </div>
                     <nav>
                         <ul>

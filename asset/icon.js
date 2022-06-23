@@ -42,10 +42,11 @@ export const StarIcon = ({ color = '#ffff' }) => {
         </svg>
     )
 }
-export const ArrowIcon = ({ }) => {
+export const ArrowIcon = ({ className }) => {
 
     return (
         <svg
+            className={`${className}`}
             xmlns="http://www.w3.org/2000/svg"
             width="16"
             height="9"
@@ -109,6 +110,24 @@ export const FilterIcon = ({ }) => {
                 strokeLinejoin="round"
                 strokeWidth="1.5"
             ></circle>
+        </svg>
+    )
+}
+export const DeleteIcon = ({ }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke="#f0506e"
+                strokeWidth="1.06"
+                d="M16 16L4 4M16 4L4 16"
+            ></path>
         </svg>
     )
 }
