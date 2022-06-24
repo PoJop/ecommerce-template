@@ -80,55 +80,55 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     const addItem = (date) => {
-        let storeCart = getStoreCart()
-        try {
-            storeCart.cart_items.push(
-                {
-                    id: storeCart.cart_items.length + 1,
-                    app_product_route: date.app_product_route,
-                    product_id: date.id,
-                    date_added: getDate(),
-                    Label: date.Label,
-                    title: date.title,
-                    quantity: date.quantity,
-                    image: {
-                        url: date.image.url
-                    },
-                    price: date.price,
-                }
-            )
-            setStoreCart(storeCart)
-        } catch (error) {
-            deleteStoreCart()
-        }
+        // let storeCart = getStoreCart()
+        // try {
+        //     storeCart.cart_items.push(
+        //         {
+        //             id: storeCart.cart_items.length + 1,
+        //             app_product_route: date.app_product_route,
+        //             product_id: date.id,
+        //             date_added: getDate(),
+        //             Label: date.Label,
+        //             title: date.title,
+        //             quantity: date.quantity,
+        //             image: {
+        //                 url: date.image.url
+        //             },
+        //             price: date.price,
+        //         }
+        //     )
+        //     setStoreCart(storeCart)
+        // } catch (error) {
+        //     deleteStoreCart()
+        // }
     }
     const deleteItem = (product_id) => {
         let storeCart = getStoreCart()
 
-        try {
-            let deleteItems = storeCart.cart_items.filter(el => el.product_id !== product_id)
+        // try {
+        //     let deleteItems = storeCart.cart_items.filter(el => el.product_id !== product_id)
 
-            setStoreCart({ ...storeCart, cart_items: deleteItems })
-        } catch (error) {
-            deleteStoreCart()
-        }
+        //     setStoreCart({ ...storeCart, cart_items: deleteItems })
+        // } catch (error) {
+        //     deleteStoreCart()
+        // }
     }
     const updateItem = () => { }
     const changeQuantity = (product_id, quantity) => {
         let storeCart = getStoreCart()
 
-        try {
-            let changeItem = storeCart.cart_items;
-            for (let i = 0; i < changeItem.length; i++) {
-                if (changeItem[i].product_id != product_id) continue;
+        // try {
+        //     let changeItem = storeCart.cart_items;
+        //     for (let i = 0; i < changeItem.length; i++) {
+        //         if (changeItem[i].product_id != product_id) continue;
 
-                changeItem[i].quantity = quantity;
-            }
-            storeCart.cart_items = changeItem
-            setStoreCart(storeCart)
-        } catch (error) {
-            deleteStoreCart()
-        }
+        //         changeItem[i].quantity = quantity;
+        //     }
+        //     storeCart.cart_items = changeItem
+        //     setStoreCart(storeCart)
+        // } catch (error) {
+        //     deleteStoreCart()
+        // }
     }
 
 
