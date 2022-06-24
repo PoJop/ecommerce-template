@@ -80,6 +80,7 @@ export const CartProvider = ({ children }) => {
     }, [])
 
     const addItem = (date) => {
+        let storeCart = getStoreCart()
         storeCart.cart_items.push(
             {
                 id: storeCart.cart_items.length + 1,
@@ -114,7 +115,6 @@ export const CartProvider = ({ children }) => {
         }
         storeCart.cart_items = changeItem
         setStoreCart(storeCart)
-
     }
 
 
