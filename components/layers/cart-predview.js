@@ -8,34 +8,34 @@ export const CartPredview = () => {
 
     const { cartItems, predview, setPredview } = useCart()
 
-
     return (
         <Sidebar close={setPredview} show={predview} position={"right"} header={"Cart"}>
 
             <div className="p-4">
-                {cartItems.length > 0 ? <ul>
-                    {cartItems.map((e, i) =>
-                        <li key={i} className="flex border-b border-dull-gray last:border-b-0">
-                            <div className="flex-[1_1_25%] p-2">
-                                <img src={e.image.url} />
-                            </div>
-                            <div className="flex-[1_1_75%]">
-                                <div>
-                                    <span className="text-[.6875rem] text-gray-400">{e.Label}</span>
-                                    <Link href={'#'}>
-                                        <a>
-                                            <h4 className="text-sm text-gray-600 hover:text-blue-800">{e.title}</h4>
-                                        </a>
-                                    </Link>
+                {cartItems && cartItems.length > 0 ?
+                    <ul>
+                        {cartItems.map((e, i) =>
+                            <li key={i} className="flex border-b border-dull-gray last:border-b-0">
+                                <div className="flex-[1_1_25%] p-2">
+                                    <img src={e.image.url} />
                                 </div>
-                                <div className="flex flex-wrap items-center gap-2">
-                                    <strong className="text-sm font-normal text-gray-600">${e.price}</strong>
-                                    <span className="text-[.6875rem] text-gray-400">{1}&#215;{e.price}</span>
+                                <div className="flex-[1_1_75%]">
+                                    <div>
+                                        <span className="text-[.6875rem] text-gray-400">{e.Label}</span>
+                                        <Link href={'#'}>
+                                            <a>
+                                                <h4 className="text-sm text-gray-600 hover:text-blue-800">{e.title}</h4>
+                                            </a>
+                                        </Link>
+                                    </div>
+                                    <div className="flex flex-wrap items-center gap-2">
+                                        <strong className="text-sm font-normal text-gray-600">${e.price}</strong>
+                                        <span className="text-[.6875rem] text-gray-400">{1}&#215;{e.price}</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </li>
-                    )}
-                </ul>
+                            </li>
+                        )}
+                    </ul>
                     :
                     <div>
                         <h4>Cart is empty</h4>
@@ -46,7 +46,7 @@ export const CartPredview = () => {
             <div className="p-4 border-t border-dull-gray">
                 <div className="flex justify-between">
                     <strong className="text-xl font-normal text-gray-400">Subtotal</strong>
-                    <output className="text-xl font-medium text-gray-900" >$122</output>
+                    <output className="text-xl font-medium text-gray-900" >{}</output>
                 </div>
                 <div className="flex flex-wrap gap-2 mt-4">
                     <Link href={PATH_CART_PAGE}>

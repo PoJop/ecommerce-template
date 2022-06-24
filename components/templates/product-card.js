@@ -4,6 +4,7 @@ import { AddToCartBtn } from "./buttons/add-to-cart-btn";
 import { FavoritesBtn } from "./buttons/favorites-btn";
 import { useCatalog } from "../../contextes/catalog-context";
 import Skeleton from '@mui/material/Skeleton';
+import { PATH_CATALOG_PAGE } from "../../config/path-config";
 
 export const ProductCard = ({ data }) => {
 
@@ -17,10 +18,10 @@ export const ProductCard = ({ data }) => {
     }, [])
 
     return (
-        <article className={`flex flex-row p-2 sm:p-5 gap-4  ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
+        <article className={`flex justify-between flex-row p-2 sm:p-5 gap-4 ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
 
-            <div >
-                <div className="flex justify-end gap-2 text-white ">
+            <div className={` max-h-[120px] h-full ${productDisplayFormat === "grid" && "grow"} ${productDisplayFormat === "row" && "w-[200px]"} `}>
+                <div className="flex justify-end gap-2 text-white">
                     <ul className="absolute">
                         {['TOP SELLING'].map((e, i) =>
                             <li key={i}
@@ -29,17 +30,17 @@ export const ProductCard = ({ data }) => {
                         )}
                     </ul>
                 </div>
-                <div className="p-1 sm:p-2 flex-[1_0_80px] flex h-full sm:max-h-[120px]  md:max-h-[200px] max-w-[120px] md:max-w-none">
+                <div className={`p-1 sm:p-2 flex-[1_0_80px] flex sm:max-h-[120px] max-w-[200px] md:max-w-none`}>
                     {loading ?
                         <div className="w-[100vw] h-[100vh] max-h-[120px] min-w-[90px] md:max-h-[200px]">
                             <Skeleton animation="wave" width="100%" height="100%" />
                         </div>
                         :
-                        <img className="object-contain max-h-[120px] min-w-[90px] md:max-h-[175px] m-auto" src={image.url} />
+                        <img className="object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto" src={image.url} />
                     }
                 </div>
             </div>
-            <div className={`flex flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row"}  py-[20px]`}>
+            <div className={`flex h-full w-full    flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row grow "}  grow md:grow-0 py-[20px]`}>
                 <div className="flex-[0_0_70%]">
                     {/* Product Label */}
                     <div>
@@ -56,7 +57,7 @@ export const ProductCard = ({ data }) => {
                                 <Skeleton variant="text" animation="wave" width="100%" />
                                 <Skeleton variant="text" animation="wave" width="100%" />
                             </> :
-                            <Link href={`/product/${id}`}>
+                            <Link href={`${PATH_CATALOG_PAGE}/${'Laptops-&-Tablets'}/${'Laptops'}/${id}`}>
                                 <a><h2 className="text-base text-gray-600 cursor-pointer lg:text-lg hover:text-blue-800">{title}</h2></a>
                             </Link>
                         }
@@ -74,7 +75,7 @@ export const ProductCard = ({ data }) => {
                     </div>
                     <div className="flex gap-2">
                         <FavoritesBtn />
-                        <AddToCartBtn />
+                        <AddToCartBtn data={data}/>
                     </div>
                 </div>
             </div>

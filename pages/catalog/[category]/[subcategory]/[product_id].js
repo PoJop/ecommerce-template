@@ -1,12 +1,12 @@
 import { useRouter } from "next/router";
 import React from "react";
-import { Footer } from "../../components/layers/footer";
-import { Header } from "../../components/layers/header/header";
-import { Main } from "../../components/layers/main";
-import { PageTitle } from "../../components/layers/page-title";
-import { RelatedProducts } from "../../components/layers/related-products";
-import { ProductImeges } from "../../components/page-components/product/product-images";
-import { ProductInfo } from "../../components/page-components/product/product-info";
+import { Footer } from "../../../../components/layers/footer";
+import { Header } from "../../../../components/layers/header/header";
+import { Main } from "../../../../components/layers/main";
+import { PageTitle } from "../../../../components/layers/page-title";
+import { RelatedProducts } from "../../../../components/layers/related-products";
+import { ProductImeges } from "../../../../components/page-components/product/product-images";
+import { ProductInfo } from "../../../../components/page-components/product/product-info";
 
 
 
@@ -24,7 +24,7 @@ export default function SingleProduct() {
             <Main >
                 <PageTitle
                     title={'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)'}
-                    breadcrumbs={['Home', 'Catalog', 'Laptops & Tablets', 'Laptops', 'Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)']}
+                    changelastBreadcrumb={{ breadcrumb: 'Apple MacBook Pro 15 Touch Bar MPTU2LL/A 256GB (Silver)' }}
                 />
 
                 <div className="bg-white rounded-md drop-shadow-3xl ">
@@ -38,7 +38,7 @@ export default function SingleProduct() {
                             <div className="lg:flex-[1_1_40%]">
                                 <div>
                                     <ProductInfo />
-                                    Product id {router.query.id}
+                                    Product id {router.query.product_id}
                                 </div>
                             </div>
                         </div>

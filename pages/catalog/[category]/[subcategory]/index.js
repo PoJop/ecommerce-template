@@ -1,13 +1,13 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { Footer } from "../../../components/layers/footer";
-import { Header } from "../../../components/layers/header/header";
-import { Main } from "../../../components/layers/main";
-import { PageTitle } from "../../../components/layers/page-title";
-import { SubcategoryFilter } from "../../../components/page-components/subcategory/filter";
-import { Sidebar } from "../../../components/templates/sidebar";
-import { SubcategoryTopPanel } from "../../../components/page-components/subcategory/top-panel";
-import { SubcategoryItems } from "../../../components/page-components/subcategory/items";
+import { Footer } from "../../../../components/layers/footer";
+import { Header } from "../../../../components/layers/header/header";
+import { Main } from "../../../../components/layers/main";
+import { PageTitle } from "../../../../components/layers/page-title";
+import { SubcategoryFilter } from "../../../../components/page-components/subcategory/filter";
+import { Sidebar } from "../../../../components/templates/sidebar";
+import { SubcategoryTopPanel } from "../../../../components/page-components/subcategory/top-panel";
+import { SubcategoryItems } from "../../../../components/page-components/subcategory/items";
 
 
 export default function Subcategory() {

@@ -7,9 +7,11 @@ import { QuantityInput } from "../components/templates/inputs/quantity-inp";
 import React from "react";
 import Link from "next/link";
 import { DeleteIcon } from "../asset/icon";
+import { useCart } from "../contextes/cart-conrext";
 
 export default function Error() {
 
+    const { cartItems, predview, setPredview } = useCart()
     return (
         <>
             <Header />
@@ -25,7 +27,9 @@ export default function Error() {
                         </header>
                         <div>
                             <ul>
-                                <CartItem />
+                                {cartItems && cartItems.map((e, i) =>
+                                    <CartItem key={i} data={e}/>
+                                )}
                             </ul>
                         </div>
                         <div className="p-4">
@@ -88,33 +92,31 @@ export default function Error() {
     )
 }
 
-const CartItem = () => {
+const CartItem = ({data}) => {
 
     const [quantity, setQuantity] = React.useState(1)
 
     return (
         <li className="flex flex-wrap px-5 py-3 lg:flex-nowrap custom-border lg:gap-[5%]">
             <div className="flex-[1_1_100%] lg:flex-[1_1_50%] flex gap-3">
-                <div className=" max-w-[250px] max-h-[140px] py-6 box-content	flex-[1_1_35%]">
-                    <Image
-                        src="https://chekromul.github.io/uikit-ecommerce-template/images/products/2/2-small.jpg"
-                        alt="Picture of the author"
-                        layout="responsive"
-                        height={1}
-                        width={2}
+                <div className="  h-[140px] py-6 box-content flex-[1_1_50%]">
+                    <img
+                    className="object-contain h-[140px] w-[450px] m-auto"
+                        src={data.image.url}
+                        alt=""
                     />
                 </div>
                 <div className="flex-[1_1_65%] py-6">
-                    <div className="text-sm text-gray-400">Laptop</div>
+                    <div className="text-sm text-gray-400">{data.label}</div>
                     <Link href={"#"}>
-                        <a className="text-gray-600 text-[16px] hover:text-blue-800">{`Apple MacBook Pro 15" Touch Bar MPTU2LL/A 256GB (Silver)`}</a>
+                        <a className="text-gray-600 text-[16px] hover:text-blue-800">{data.title}</a>
                     </Link>
                 </div>
             </div>
             <div className="flex-[1_1_33%] lg:flex-[1_1_15%] flex justify-center items-center">
                 <div className="text-center">
                     <div className="block text-sm text-gray-400 lg:hidden">Price</div>
-                    <div className="text-gray-600 text-[16px]">$1599.00</div>
+                    <div className="text-gray-600 text-[16px]">${data.price}</div>
                 </div>
             </div>
             <div className="flex-[1_1_33%] lg:flex-[1_1_15%] flex justify-center items-center">
@@ -125,7 +127,7 @@ const CartItem = () => {
                     <div className="block text-sm text-gray-400 lg:hidden">Sum</div>
                     <div className="text-gray-600 text-[16px]">
                         <span>$</span>
-                        <output>1599.00</output>
+                        <output>{data.price * quantity}</output>
                     </div>
                 </div>
                 <button>
