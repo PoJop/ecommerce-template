@@ -1,12 +1,13 @@
 import Link from "next/link"
 import React from "react"
+import { DeleteIcon } from "../../asset/icon"
 import { PATH_CART_PAGE } from "../../config/path-config"
 import { useCart } from "../../contextes/cart-conrext"
 import { Sidebar } from "../templates/sidebar"
 
 export const CartPredview = () => {
 
-    const { cartItems, predview, setPredview } = useCart()
+    const { cartItems, predview, setPredview, deleteItem } = useCart()
 
     return (
         <Sidebar close={setPredview} show={predview} position={"right"} header={"Cart"}>
@@ -16,7 +17,9 @@ export const CartPredview = () => {
                     {cartItems && cartItems.length > 0 ?
                         <ul>
                             {cartItems.map((e, i) =>
-                                <li key={i} className="flex border-b border-dull-gray last:border-b-0">
+                                <li
+                                    key={i}
+                                    className="flex p-2 border-b border-dull-gray last:border-b-0 cart-predview-item">
                                     <div className="flex-[1_1_25%] p-2">
                                         <img src={e.image.url} />
                                     </div>
@@ -33,6 +36,14 @@ export const CartPredview = () => {
                                             <strong className="text-sm font-normal text-gray-600">${e.price}</strong>
                                             <span className="text-[.6875rem] text-gray-400">{1}&#215;{e.price}</span>
                                         </div>
+                                    </div>
+                                    <div className="transition-all ">
+                                        <button
+                                            className="w-2 px-4 py-2"
+                                            onClick={() => {deleteItem(e.product_id) }}
+                                        >
+                                            <DeleteIcon />
+                                        </button>
                                     </div>
                                 </li>
                             )}

@@ -71,10 +71,10 @@ export const CartProvider = ({ children }) => {
     const createCart = (e) => setStoreCart(e)
 
     React.useEffect(() => { if (!getStoreCart()) createCart(cart) }, [])
-    React.useEffect(() => { 
+    React.useEffect(() => {
         let cart = getStoreCart()
         if (cart) setCartItems(cart.cart_items)
-     }, [])
+    }, [])
 
     const addItem = (date) => {
         let storeCart = getStoreCart()
@@ -98,7 +98,17 @@ export const CartProvider = ({ children }) => {
             console.error(error)
         }
     }
-    const deleteItem = () => { }
+    const deleteItem = (product_id) => {
+        let storeCart = getStoreCart()
+        
+        try {
+            let deleteItems = storeCart.cart_items.filter(el => el.product_id !== product_id)
+            
+            setStoreCart({...storeCart, cart_items: deleteItems})
+        } catch (error) {
+            console.error(error)
+        }
+    }
     const updateItem = () => { }
 
 
@@ -108,7 +118,8 @@ export const CartProvider = ({ children }) => {
                 predview,
                 setPredview,
                 cartItems,
-                addItem
+                addItem,
+                deleteItem
             }}
         >
             {children}

@@ -89,6 +89,22 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
+.cart-predview-item {
+  &> div:last-child {
+    opacity: 0;
+    &>button {
+      &> svg {
+        width: 15px;
+      }
+    }
+  }
+  &:hover {
+    &> div:last-child {
+      opacity: 1;
+    }
+  }
+}
+
 .catalog-items {
   border-top: 1px solid #e5e5e5;
 

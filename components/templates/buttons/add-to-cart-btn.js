@@ -8,17 +8,19 @@ export const AddToCartBtn = ({ data }) => {
     const { addItem, cartItems } = useCart()
     React.useEffect(() => {
         if (cartItems) {
-            for (let index = 0; index < cartItems.length; index++) {
-                if (cartItems[index].product_id === id) {
+            for (let index = 0; index <= cartItems.length; index++) {
+                if (cartItems[index]?.product_id === id) {
                     setDisabled(true)
                     break
+                } else {
+                    setDisabled(false)
                 }
             }
         }
     }, [cartItems])
-    const handlerAdd = () => {
-        addItem(data)
-    }
+
+    const handlerAdd = () => addItem(data)
+    
     return (
         <>
             <div>
