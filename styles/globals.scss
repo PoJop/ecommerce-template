@@ -31,7 +31,10 @@ a {
 .custom-border {
   border-bottom: 1px solid #e5e5e5;
 }
-
+.custom_100vh{
+  height: 100vh; /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100);
+}
 .icon-plus {
   height: 25px;
 
