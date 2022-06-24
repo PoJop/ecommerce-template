@@ -3,19 +3,20 @@ import Link from "next/link"
 import { AddToCartBtn } from "./buttons/add-to-cart-btn";
 import { FavoritesBtn } from "./buttons/favorites-btn";
 import { useCatalog } from "../../contextes/catalog-context";
-import Skeleton from '@mui/material/Skeleton';
 import { PATH_CATALOG_PAGE } from "../../config/path-config";
+import { useRouter } from "next/router";
 
 export const ProductCard = ({ data }) => {
 
     const { id, Label, title, image, price } = data
     const { productDisplayFormat } = useCatalog()
+    
+    const router = useRouter()
 
-    const [loading, setLoading] = React.useState(true)
-
-    React.useEffect(() => {
-        setTimeout(() => { setLoading(false) }, 2000)
-    }, [])
+    const extended_data = {
+        ...data,
+        app_product_route: !router.asPath.includes('[') && router.asPath + `/${id}`
+    }
 
     return (
         <article className={`flex justify-between flex-row p-2 sm:p-5 gap-4 ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
@@ -31,51 +32,34 @@ export const ProductCard = ({ data }) => {
                     </ul>
                 </div>
                 <div className={`p-1 sm:p-2 flex-[1_0_80px] flex sm:max-h-[120px] max-w-[200px] md:max-w-none`}>
-                    {loading ?
-                        <div className="w-[100vw] h-[100vh] max-h-[120px] min-w-[90px] md:max-h-[200px]">
-                            <Skeleton animation="wave" width="100%" height="100%" />
-                        </div>
-                        :
-                        <img className="object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto" src={image.url} />
-                    }
+
+                    <img className="object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto" src={image.url} />
+
                 </div>
             </div>
             <div className={`flex h-full w-full   flex-[1_0_60%]  flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row grow  md:flex-[1_0_80%]"}  grow md:grow-0 py-[20px]`}>
                 <div className="flex-[0_0_70%]">
                     {/* Product Label */}
                     <div>
-                        {loading ?
-                            <Skeleton variant="text" animation="wave" width="25%" /> :
-                            <strong className="font-normal text-gray-400 text-tiny">{Label}</strong>
-                        }
+                        <strong className="font-normal text-gray-400 text-tiny">{Label}</strong>
+
                     </div>
                     {/* Product title */}
                     <div>
-                        {loading ?
-                            <>
-                                <Skeleton variant="text" animation="wave" width="100%" />
-                                <Skeleton variant="text" animation="wave" width="100%" />
-                                <Skeleton variant="text" animation="wave" width="100%" />
-                            </> :
-                            <Link href={`${PATH_CATALOG_PAGE}/${'Laptops-&-Tablets'}/${'Laptops'}/${id}`}>
-                                <a><h2 className="text-base text-gray-600 cursor-pointer lg:text-lg hover:text-blue-800">{title}</h2></a>
-                            </Link>
-                        }
+                        <Link href={`${PATH_CATALOG_PAGE}/${'Laptops-&-Tablets'}/${'Laptops'}/${id}`}>
+                            <a><h2 className="text-base text-gray-600 cursor-pointer lg:text-lg hover:text-blue-800">{title}</h2></a>
+                        </Link>
                     </div>
                 </div>
                 <div className={`flex justify-between mt-2 flex-[1_0_30%] ${productDisplayFormat === "row" && "md:flex-col"}`}>
                     <div>
-                        {loading ?
-                            <Skeleton variant="text" animation="wave" width="70px" /> :
-                            <>
-                                {/* <del className="absolute">$999.00</del> */}
-                                <div className="text-xl font-medium text-gray-600">${price}</div>
-                            </>
-                        }
+                        {/* <del className="absolute">$999.00</del> */}
+                        <div className="text-xl font-medium text-gray-600">${price}</div>
+
                     </div>
                     <div className="flex gap-2">
                         <FavoritesBtn />
-                        <AddToCartBtn data={data}/>
+                        <AddToCartBtn data={extended_data} />
                     </div>
                 </div>
             </div>

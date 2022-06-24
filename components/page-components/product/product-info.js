@@ -1,16 +1,28 @@
 import React from "react";
 import Link from "next/link"
 import { StarIcon } from "../../../asset/icon";
+import { useCart } from "../../../contextes/cart-conrext";
+import { QuantityInput } from "../../templates/inputs/quantity-inp";
 
 export const ProductInfo = () => {
-    const [calc, setCalc] = React.useState(1)
+    const { changeQuantity } = useCart()
+
+    const [quantity, setQuantity] = React.useState(1)
+
+    // React.useEffect(() => {
+    //     if (!quantity) {
+    //         setQuantity(data.quantity)
+    //     } else {
+    //         changeQuantity(data.product_id, quantity)
+    //     }
+    // }, [data.quantity, quantity])
 
     return (
         <>
             <div className="flex flex-col gap-4 p-1 lg:p-4">
                 <div>
                     <Link href={'#'}>
-                        <a >
+                        <a>
                             <img className="h-[35px]" src="https://chekromul.github.io/uikit-ecommerce-template/images/brands/apple.svg" />
                         </a>
                     </Link>
@@ -42,22 +54,11 @@ export const ProductInfo = () => {
                         </div>
                         <div className="flex flex-wrap gap-2">
                             <div className="flex text-gray-400">
-                                <button
-                                    className="px-2"
-                                    onClick={() => setCalc(--calc)}
-                                >-</button>
-                                <input
-                                    className="p-2 w-[65px] align-middle text-center text-gray-600"
-                                    value={calc}
-                                    onChange={(e) => setCalc(e.target.value)} />
-                                <button
-                                    className="px-2"
-                                    onClick={() => setCalc(++calc)}
-                                >+</button>
+                                <QuantityInput quantity={quantity} setQuantity={setQuantity} />
                             </div>
                             <div>
                                 <button
-                                className="px-6 py-2 text-white bg-blue-800 rounded"
+                                    className="px-6 py-2 text-white bg-blue-800 rounded"
                                 >{"add to cart".toUpperCase()}</button>
                             </div>
                         </div>

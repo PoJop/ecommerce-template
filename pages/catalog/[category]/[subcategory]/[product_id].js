@@ -15,7 +15,7 @@ export default function SingleProduct() {
     const [tab, setTab] = React.useState(0)
     const tabs = ["OVERVIEW", "SPECIFICATIONS", "ACCESSORIES", "REVIEWS", "Q&A"]
     //   {router.query.id} 
-
+   
 
 
     return (

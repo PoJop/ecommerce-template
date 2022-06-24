@@ -14,7 +14,7 @@ export const QuantityInput = ({ quantity = 1, setQuantity = () => { } }) => {
         <>
             <div className="flex gap-2">
                 <button
-                    onClick={() => handlerChange(quantity - 1)}
+                    onClick={() => handlerChange(Number(quantity) - 1)}
                     disabled={quantity <= 1}
                 >
                     <svg
@@ -29,12 +29,12 @@ export const QuantityInput = ({ quantity = 1, setQuantity = () => { } }) => {
                 </button>
                 <input
                     className="w-[50px] focus-visible:outline-[#1e87f06b] transition-all p-2 text-center border border-dull-gray rounded text-gray-600 text-[16px]"
-                    value={quantity}
+                    value={quantity ? quantity : 0}
                     onBlur={() => { quantity.length === 0 && setQuantity(1) }}
                     onChange={(e) => handlerChange(e.target.value.replace(/[^0-9]/g,""))}
                 />
                 <button
-                    onClick={() => handlerChange(quantity + 1)}
+                    onClick={() => handlerChange(Number(quantity) + 1)}
                     disabled={quantity >= 999}
                 >
                     <svg

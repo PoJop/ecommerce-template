@@ -26,21 +26,21 @@ export const CartPredview = () => {
                                     <div className="flex-[1_1_75%]">
                                         <div>
                                             <span className="text-[.6875rem] text-gray-400">{e.Label}</span>
-                                            <Link href={'#'}>
-                                                <a>
+                                            <Link href={e.app_product_route}>
+                                                <a  onClick={() => setPredview(false)}>
                                                     <h4 className="text-sm text-gray-600 hover:text-blue-800">{e.title}</h4>
                                                 </a>
                                             </Link>
                                         </div>
                                         <div className="flex flex-wrap items-center gap-2">
                                             <strong className="text-sm font-normal text-gray-600">${e.price}</strong>
-                                            <span className="text-[.6875rem] text-gray-400">{1}&#215;{e.price}</span>
+                                            <span className="text-[.6875rem] text-gray-400">{e.quantity}&#215;{e.quantity * e.price}</span>
                                         </div>
                                     </div>
                                     <div className="transition-all ">
                                         <button
-                                            className="w-2 px-4 py-2"
-                                            onClick={() => {deleteItem(e.product_id) }}
+                                            className="w-2 py-2"
+                                            onClick={() => { deleteItem(e.product_id) }}
                                         >
                                             <DeleteIcon />
                                         </button>

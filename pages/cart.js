@@ -8,10 +8,22 @@ import React from "react";
 import Link from "next/link";
 import { DeleteIcon } from "../asset/icon";
 import { useCart } from "../contextes/cart-conrext";
+import { PATH_CATALOG_PAGE } from "../config/path-config";
 
 export default function Error() {
 
-    const { cartItems, predview, setPredview } = useCart()
+    const { cartItems, deleteItem, predview, setPredview } = useCart()
+    const [subtotal, setSubtotal] = React.useState(null)
+    const [promoCode, setPromoCode] = React.useState(0)
+    React.useEffect(() => {
+        if (cartItems) {
+            let sub = 0
+            for (let index = 0; index < cartItems.length; index++) {
+                sub = sub + cartItems[index].price * cartItems[index].quantity
+            }
+            setSubtotal(sub)
+        }
+    }, [cartItems])
     return (
         <>
             <Header />
@@ -19,17 +31,33 @@ export default function Error() {
                 <PageTitle title={"Cart"} breadcrumbs={['Home', 'Cart']} />
                 <section className="flex flex-col gap-4 pb-8 lg:flex-row">
                     <div className="flex-[1_1_75%] bg-white rounded-md  h-max drop-shadow-3xl">
-                        <header className="hidden gap-[5%] p-4 text-sm text-gray-400 custom-border lg:flex">
-                            <span className="flex-[1_1_50%] text-center">PRODUCT</span>
-                            <span className="flex-[1_1_15%] text-center">PRICE</span>
-                            <span className="flex-[1_1_15%] text-center">QUANTITY</span>
-                            <span className="flex-[1_1_18%] text-center">SUM</span>
-                        </header>
+                        {cartItems && cartItems.length > 0 &&
+                            <header className="hidden gap-[5%] p-4 text-sm text-gray-400 custom-border lg:flex">
+                                <span className="flex-[1_1_50%] text-center">PRODUCT</span>
+                                <span className="flex-[1_1_15%] text-center">PRICE</span>
+                                <span className="flex-[1_1_15%] text-center">QUANTITY</span>
+                                <span className="flex-[1_1_18%] text-center">SUM</span>
+                            </header>
+                        }
                         <div>
                             <ul>
-                                {cartItems && cartItems.map((e, i) =>
-                                    <CartItem key={i} data={e}/>
-                                )}
+                                {cartItems && <>
+                                    {cartItems.length > 0 ?
+                                        cartItems.map((e, i) =>
+                                            <CartItem key={i} data={e} />)
+                                        :
+                                        <div className="flex flex-col items-center justify-center py-8 custom-border">
+                                            <h4
+                                                className="mb-4 text-xl text-gray-900"
+                                            >Cart is empty</h4>
+                                            <Link href={PATH_CATALOG_PAGE}>
+                                                <a
+                                                    className="w-full max-w-[160px]  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white"
+                                                >Go to catalog</a>
+                                            </Link>
+                                        </div>
+                                    }
+                                </>}
                             </ul>
                         </div>
                         <div className="p-4">
@@ -57,7 +85,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Subtotal</div>
                                 <div className=" text-[16px] text-gray-600">
                                     <span>$</span>
-                                    <output>3148</output>
+                                    <output>{subtotal}</output>
                                 </div>
 
                             </div>
@@ -65,7 +93,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Subtotal</div>
                                 <div className=" text-[16px] text-red-light">
                                     <span>−$</span>
-                                    <output>29</output>
+                                    <output>{promoCode}</output>
                                 </div>
                             </div>
                         </div>
@@ -74,11 +102,11 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Total</div>
                                 <div className="text-2xl font-medium text-gray-900">
                                     <span>$</span>
-                                    <output>3119</output>
+                                    <output>{subtotal - promoCode}</output>
                                 </div>
                             </div>
                             <div className="flex w-full">
-                                <Link href={''}>
+                                <Link href={'#'}>
                                     <a className="w-full  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white">
                                         {"checkout".toUpperCase()}</a>
                                 </Link>
@@ -92,23 +120,32 @@ export default function Error() {
     )
 }
 
-const CartItem = ({data}) => {
+const CartItem = ({ data }) => {
+    const { deleteItem, changeQuantity } = useCart()
 
-    const [quantity, setQuantity] = React.useState(1)
+    const [quantity, setQuantity] = React.useState(null)
+
+    React.useEffect(() => {
+        if (!quantity) {
+            setQuantity(data.quantity)
+        } else {
+            changeQuantity(data.product_id, quantity)
+        }
+    }, [data.quantity, quantity])
 
     return (
         <li className="flex flex-wrap px-5 py-3 lg:flex-nowrap custom-border lg:gap-[5%]">
             <div className="flex-[1_1_100%] lg:flex-[1_1_50%] flex gap-3">
                 <div className="  h-[140px] py-6 box-content flex-[1_1_50%]">
                     <img
-                    className="object-contain h-[140px] w-[450px] m-auto"
+                        className="object-contain h-[140px] w-[450px] m-auto"
                         src={data.image.url}
                         alt=""
                     />
                 </div>
                 <div className="flex-[1_1_65%] py-6">
                     <div className="text-sm text-gray-400">{data.label}</div>
-                    <Link href={"#"}>
+                    <Link href={data.app_product_route}>
                         <a className="text-gray-600 text-[16px] hover:text-blue-800">{data.title}</a>
                     </Link>
                 </div>
@@ -130,7 +167,10 @@ const CartItem = ({data}) => {
                         <output>{data.price * quantity}</output>
                     </div>
                 </div>
-                <button>
+                <button
+                    className="w-2 py-2"
+                    onClick={() => { deleteItem(data.product_id) }}
+                >
                     <DeleteIcon />
                 </button>
             </div>

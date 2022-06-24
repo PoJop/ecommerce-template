@@ -82,6 +82,7 @@ export const CartProvider = ({ children }) => {
             storeCart.cart_items.push(
                 {
                     id: storeCart.cart_items.length + 1,
+                    app_product_route: date.app_product_route,
                     product_id: date.id,
                     date_added: getDate(),
                     Label: date.Label,
@@ -100,16 +101,32 @@ export const CartProvider = ({ children }) => {
     }
     const deleteItem = (product_id) => {
         let storeCart = getStoreCart()
-        
+
         try {
             let deleteItems = storeCart.cart_items.filter(el => el.product_id !== product_id)
-            
-            setStoreCart({...storeCart, cart_items: deleteItems})
+
+            setStoreCart({ ...storeCart, cart_items: deleteItems })
         } catch (error) {
             console.error(error)
         }
     }
     const updateItem = () => { }
+    const changeQuantity = (product_id, quantity) => {
+        let storeCart = getStoreCart()
+
+        try {
+            let changeItem = storeCart.cart_items;
+            for (let i = 0; i < changeItem.length; i++) {
+                if (changeItem[i].product_id != product_id) continue;
+
+                changeItem[i].quantity = quantity;
+            }
+            storeCart.cart_items = changeItem
+            setStoreCart(storeCart)
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
 
     return (
@@ -119,7 +136,8 @@ export const CartProvider = ({ children }) => {
                 setPredview,
                 cartItems,
                 addItem,
-                deleteItem
+                deleteItem,
+                changeQuantity
             }}
         >
             {children}
