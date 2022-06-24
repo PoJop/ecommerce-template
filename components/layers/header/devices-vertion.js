@@ -41,42 +41,46 @@ export const DevicesVertion = ({ scroll }) => {
                 </Container>
 
                 <Sidebar close={setBurgerMenu} show={burgerMenu} position={"left"} header={"Menu"}>
-                    <div className="p-4 custom-border">
-                        <address>
-                            <a href="#" className="text-base font-bold text-gray-400">8 800 799 99 99</a>
-                            <div className="text-[.6875rem] text-gray-400">
-                                <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
-                                <div>Daily 10:00–22:00</div>
-                            </div>
-                        </address>
+                    <div className="overflow-y-auto">
+
+
+                        <div className="p-4 custom-border">
+                            <address>
+                                <a href="#" className="text-base font-bold text-gray-400">8 800 799 99 99</a>
+                                <div className="text-[.6875rem] text-gray-400">
+                                    <div>St.&nbsp;Petersburg, Nevsky&nbsp;Prospect&nbsp;28</div>
+                                    <div>Daily 10:00–22:00</div>
+                                </div>
+                            </address>
+                        </div>
+                        <nav>
+                            <ul>
+                                <li>
+                                    <Accordion title={"Catalog"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
+
+                                    </Accordion>
+                                </li>
+                                <li>
+                                    <Accordion title={"Brands"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
+
+                                    </Accordion>
+                                </li>
+                                <li>
+                                    <Accordion title={"Pages"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
+                                        <ul>
+                                            {pages.map((e, i) =>
+                                                <li key={i} className="flex w-full ">
+                                                    <Link href={e.path}>
+                                                        <a className="flex-grow p-3 text-sm text-gray-400">{e.title}</a>
+                                                    </Link>
+                                                </li>
+                                            )}
+                                        </ul>
+                                    </Accordion>
+                                </li>
+                            </ul>
+                        </nav>
                     </div>
-                    <nav>
-                        <ul>
-                            <li>
-                                <Accordion title={"Catalog"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
-
-                                </Accordion>
-                            </li>
-                            <li>
-                                <Accordion title={"Brands"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
-
-                                </Accordion>
-                            </li>
-                            <li>
-                                <Accordion title={"Pages"} titleClass={"text-gray-400 text-sm"} icon={"Arrow"}>
-                                    <ul>
-                                        {pages.map((e, i) =>
-                                            <li key={i} className="flex w-full ">
-                                                <Link href={e.path}>
-                                                    <a  className="flex-grow p-3 text-sm text-gray-400">{e.title}</a>
-                                                </Link>
-                                            </li>
-                                        )}
-                                    </ul>
-                                </Accordion>
-                            </li>
-                        </ul>
-                    </nav>
                 </Sidebar>
             </div>
         </>

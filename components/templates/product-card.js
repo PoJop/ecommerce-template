@@ -20,7 +20,7 @@ export const ProductCard = ({ data }) => {
     return (
         <article className={`flex justify-between flex-row p-2 sm:p-5 gap-4 ${productDisplayFormat === "grid" && "md:flex-col"} hover:drop-shadow-xl bg-white transition-all `}>
 
-            <div className={` max-h-[120px] h-full ${productDisplayFormat === "grid" && "grow"} ${productDisplayFormat === "row" && "w-[200px]"} `}>
+            <div className={` max-h-[120px] w-full h-full ${productDisplayFormat === "grid" && "grow"} ${productDisplayFormat === "row" && "w-[200px]"} `}>
                 <div className="flex justify-end gap-2 text-white">
                     <ul className="absolute">
                         {['TOP SELLING'].map((e, i) =>
@@ -40,7 +40,7 @@ export const ProductCard = ({ data }) => {
                     }
                 </div>
             </div>
-            <div className={`flex h-full w-full    flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row grow "}  grow md:grow-0 py-[20px]`}>
+            <div className={`flex h-full w-full   flex-[1_0_60%]  flex-col gap-3 ${productDisplayFormat === "row" && "md:flex-row grow  md:flex-[1_0_80%]"}  grow md:grow-0 py-[20px]`}>
                 <div className="flex-[0_0_70%]">
                     {/* Product Label */}
                     <div>

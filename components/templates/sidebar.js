@@ -1,5 +1,6 @@
 import React from "react";
 import { CloseIcon } from "../../asset/icon";
+import { appOverflowHidden } from "../../utils/utils";
 
 export const Sidebar = ({ show, close, position = 'left', children, header = '' }) => {
     const [pos, setPos] = React.useState(null)
@@ -15,6 +16,7 @@ export const Sidebar = ({ show, close, position = 'left', children, header = '' 
                 break;
         }
     }, [position])
+    React.useEffect(() => { appOverflowHidden(show) }, [show])
     return (
         <>
             {close && position && pos &&
