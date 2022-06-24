@@ -12,7 +12,7 @@ import { pages } from "../../../config/navigetion-config";
 export const DevicesVertion = ({ scroll }) => {
     const [burgerMenu, setBurgerMenu] = React.useState(false)
 
-    const { predview, setPredview } = useCart()
+    const { predview, setPredview, cartItems } = useCart()
 
     return (
         <>
@@ -31,7 +31,12 @@ export const DevicesVertion = ({ scroll }) => {
                         <nav>
                             <ul>
                                 <li className="flex align-middle">
-                                    <button onClick={() => setPredview(true)}>
+                                    <button
+                                        className="flex flex-col items-center"
+                                        onClick={() => setPredview(true)}>
+                                        <span
+                                            className="absolute rounded-full text-white translate-x-[10px] translate-y-[-7px] px-[5px] bg-blue-800 text-[.625rem]"
+                                        >{cartItems && cartItems.length}</span>
                                         <CartIcon color={"#666"} />
                                     </button>
                                 </li>

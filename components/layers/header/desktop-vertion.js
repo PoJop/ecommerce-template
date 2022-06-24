@@ -12,7 +12,7 @@ export const DesktopVertion = ({ scroll }) => {
     const [dropDown, setDropDown] = React.useState({ open: false, index: 0 })
     const [Element, setElement] = React.useState(<></>)
 
-    const { predview, setPredview } = useCart()
+    const { predview, setPredview, cartItems } = useCart()
 
     const arrNavDropDown = [
         { title: "Catalog", path: '', element: <>1</> },
@@ -103,7 +103,12 @@ export const DesktopVertion = ({ scroll }) => {
                         <nav>
                             <ul>
                                 <li>
-                                    <button onClick={() => setPredview(true)}>
+                                    <button
+                                        className="flex flex-col items-center"
+                                        onClick={() => setPredview(true)}>
+                                        <span
+                                            className="absolute rounded-full text-white translate-x-[10px] translate-y-[-7px] px-[5px] bg-blue-800 text-[.625rem]"
+                                        >{cartItems && cartItems.length}</span>
                                         <CartIcon color={"#666"} />
                                     </button>
                                 </li>

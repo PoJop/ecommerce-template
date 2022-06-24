@@ -13,7 +13,8 @@ import { PATH_CATALOG_PAGE } from "../config/path-config";
 export default function Error() {
 
     const { cartItems, deleteItem, predview, setPredview } = useCart()
-    const [subtotal, setSubtotal] = React.useState(null)
+    const [subtotal, setSubtotal] = React.useState(0)
+    const [total, setTotal] = React.useState(0)
     const [promoCode, setPromoCode] = React.useState(0)
     React.useEffect(() => {
         if (cartItems) {
@@ -24,6 +25,9 @@ export default function Error() {
             setSubtotal(sub)
         }
     }, [cartItems])
+    React.useEffect(() => {
+        setTotal(subtotal - promoCode)
+    }, [subtotal,promoCode])
     return (
         <>
             <Header />
@@ -102,7 +106,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Total</div>
                                 <div className="text-2xl font-medium text-gray-900">
                                     <span>$</span>
-                                    <output>{subtotal - promoCode}</output>
+                                    <output>{total}</output>
                                 </div>
                             </div>
                             <div className="flex w-full">
