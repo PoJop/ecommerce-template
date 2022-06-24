@@ -61,6 +61,9 @@ export const CartProvider = ({ children }) => {
         if (typeof window === 'object')
             return JSON.parse(window.localStorage.getItem("cart"))
     }
+    const deleteStoreCart = () => {
+        if (typeof window === 'object')window.localStorage.removeItem("cart") 
+    }
 
     const setStoreCart = (e) => {
         if (typeof window === 'object') {
@@ -96,7 +99,7 @@ export const CartProvider = ({ children }) => {
             )
             setStoreCart(storeCart)
         } catch (error) {
-            console.error(error)
+            deleteStoreCart()
         }
     }
     const deleteItem = (product_id) => {
@@ -107,7 +110,7 @@ export const CartProvider = ({ children }) => {
 
             setStoreCart({ ...storeCart, cart_items: deleteItems })
         } catch (error) {
-            console.error(error)
+            deleteStoreCart()
         }
     }
     const updateItem = () => { }
@@ -124,7 +127,7 @@ export const CartProvider = ({ children }) => {
             storeCart.cart_items = changeItem
             setStoreCart(storeCart)
         } catch (error) {
-            console.error(error)
+            deleteStoreCart()
         }
     }
 
