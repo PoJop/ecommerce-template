@@ -5,6 +5,7 @@ import { FavoritesBtn } from "./buttons/favorites-btn";
 import { useCatalog } from "../../contextes/catalog-context";
 import { PATH_CATALOG_PAGE } from "../../config/path-config";
 import { useRouter } from "next/router";
+import { formatPrice } from "../../utils/utils";
 
 export const ProductCard = ({ data }) => {
 
@@ -15,6 +16,7 @@ export const ProductCard = ({ data }) => {
 
     const extended_data = {
         ...data,
+        quantity: 1,
         app_product_route: !router.asPath.includes('[') && router.asPath + `/${id}`
     }
 
@@ -54,7 +56,7 @@ export const ProductCard = ({ data }) => {
                 <div className={`flex justify-between mt-2 flex-[1_0_30%] ${productDisplayFormat === "row" && "md:flex-col"}`}>
                     <div>
                         {/* <del className="absolute">$999.00</del> */}
-                        <div className="text-xl font-medium text-gray-600">${price}</div>
+                        <div className="text-xl font-medium text-gray-600">${formatPrice(price)}</div>
 
                     </div>
                     <div className="flex gap-2">

@@ -9,6 +9,7 @@ import Link from "next/link";
 import { DeleteIcon } from "../asset/icon";
 import { useCart } from "../contextes/cart-conrext";
 import { PATH_CATALOG_PAGE } from "../config/path-config";
+import { formatPrice } from "../utils/utils";
 
 export default function Error() {
 
@@ -27,7 +28,7 @@ export default function Error() {
     }, [cartItems])
     React.useEffect(() => {
         setTotal(subtotal - promoCode)
-    }, [subtotal,promoCode])
+    }, [subtotal, promoCode])
     return (
         <>
             <Header />
@@ -89,7 +90,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Subtotal</div>
                                 <div className=" text-[16px] text-gray-600">
                                     <span>$</span>
-                                    <output>{subtotal}</output>
+                                    <output>{formatPrice(subtotal)}</output>
                                 </div>
 
                             </div>
@@ -97,7 +98,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Subtotal</div>
                                 <div className=" text-[16px] text-red-light">
                                     <span>−$</span>
-                                    <output>{promoCode}</output>
+                                    <output>{formatPrice(promoCode)}</output>
                                 </div>
                             </div>
                         </div>
@@ -106,7 +107,7 @@ export default function Error() {
                                 <div className="text-gray-400 text-[16px]">Total</div>
                                 <div className="text-2xl font-medium text-gray-900">
                                     <span>$</span>
-                                    <output>{total}</output>
+                                    <output>{formatPrice(total)}</output>
                                 </div>
                             </div>
                             <div className="flex w-full">
@@ -138,7 +139,7 @@ const CartItem = ({ data }) => {
     }, [data.quantity, quantity])
 
     return (
-        <li className="flex flex-wrap px-5 py-3 lg:flex-nowrap custom-border lg:gap-[5%]">
+        <li className="flex flex-wrap px-5 py-3 lg:flex-nowrap custom-border lg:gap-[5%] flex-col items-center vsm:flex-row gap-3 vsm:gap-0">
             <div className="flex-[1_1_100%] lg:flex-[1_1_50%] flex gap-3">
                 <div className="  h-[140px] py-6 box-content flex-[1_1_50%]">
                     <img
@@ -157,22 +158,22 @@ const CartItem = ({ data }) => {
             <div className="flex-[1_1_33%] lg:flex-[1_1_15%] flex justify-center items-center">
                 <div className="text-center">
                     <div className="block text-sm text-gray-400 lg:hidden">Price</div>
-                    <div className="text-gray-600 text-[16px]">${data.price}</div>
+                    <div className="text-gray-600 text-[16px]">${formatPrice(data.price)}</div>
                 </div>
             </div>
             <div className="flex-[1_1_33%] lg:flex-[1_1_15%] flex justify-center items-center">
                 <QuantityInput quantity={quantity} setQuantity={setQuantity} />
             </div>
-            <div className="flex-[1_1_33%] lg:flex-[1_1_18%] flex gap-2 sm:gap:0 sm:justify-between justify-end items-center">
+            <div className="flex-[1_1_33%] lg:flex-[1_1_18%] flex gap-2 sm:gap:0 sm:justify-between justify-end items-center flex-col vsm:flex-row">
                 <div className="text-center">
                     <div className="block text-sm text-gray-400 lg:hidden">Sum</div>
                     <div className="text-gray-600 text-[16px]">
                         <span>$</span>
-                        <output>{data.price * quantity}</output>
+                        <output>{formatPrice(Number(data.price) * Number(quantity))}</output>
                     </div>
                 </div>
                 <button
-                    className="w-2 py-2"
+                    className="py-2 "
                     onClick={() => { deleteItem(data.product_id) }}
                 >
                     <DeleteIcon />

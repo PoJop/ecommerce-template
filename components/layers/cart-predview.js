@@ -3,6 +3,7 @@ import React from "react"
 import { DeleteIcon } from "../../asset/icon"
 import { PATH_CART_PAGE } from "../../config/path-config"
 import { useCart } from "../../contextes/cart-conrext"
+import { formatPrice } from "../../utils/utils"
 import { Sidebar } from "../templates/sidebar"
 
 export const CartPredview = () => {
@@ -17,6 +18,7 @@ export const CartPredview = () => {
                     {cartItems && cartItems.length > 0 ?
                         <ul>
                             {cartItems.map((e, i) =>
+                            
                                 <li
                                     key={i}
                                     className="flex p-2 border-b border-dull-gray last:border-b-0 cart-predview-item">
@@ -33,8 +35,8 @@ export const CartPredview = () => {
                                             </Link>
                                         </div>
                                         <div className="flex flex-wrap items-center gap-2">
-                                            <strong className="text-sm font-normal text-gray-600">${e.price}</strong>
-                                            <span className="text-[.6875rem] text-gray-400">{e.quantity}&#215;{e.quantity * e.price}</span>
+                                            <strong className="text-sm font-normal text-gray-600">${formatPrice(e.price)}</strong>
+                                            <span className="text-[.6875rem] text-gray-400">{e.quantity}&#215;{formatPrice(Number(e.quantity) * Number(e.price))}</span>
                                         </div>
                                     </div>
                                     <div className="transition-all ">
