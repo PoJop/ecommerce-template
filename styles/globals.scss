@@ -149,3 +149,26 @@ body::-webkit-scrollbar-thumb {
 // button[disabled] {
 //   opacity: .3;
 // }
+
+.custom-input {
+  padding: 0 2rem;
+  height: 40px;
+  vertical-align: middle;
+  display: inline-block;
+  max-width: 100%;
+  width: 100%;
+  padding: 0 10px;
+  background: #fff;
+  color: #666;
+  border: 1px solid #e5e5e5;
+  transition: .2s ease-in-out;
+
+  &:focus-visible {}
+
+  &:focus {
+    outline: 0;
+    background-color: #fff;
+    color: #666;
+    border-color: #1e87f0;
+  }
+}
