@@ -1,7 +1,7 @@
 import React from "react";
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { BurgerMenuIcon, CartIcon, CustomerIcon } from "../../../asset/icon";
+import { BurgerMenuIcon, CartIcon, CustomerIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { Accordion } from "../../templates/accordion";
 import { Sidebar } from "../../templates/sidebar";
@@ -17,7 +17,7 @@ export const DevicesVertion = ({ scroll }) => {
 
     return (
         <>
-            <div className="block py-2 px-2 sm:px-7 lg:px-9 lg:hidden bg-[#ffffff] border-b border-dull-gray">
+            <div className="block py-2 px-3 sm:px-7 lg:px-9 lg:hidden bg-[#ffffff] border-b border-dull-gray">
                 <Container className={"flex justify-between"}>
                     <div className="flex items-center gap-4">
                         <button onClick={() => { setBurgerMenu(true) }}>
@@ -39,7 +39,7 @@ export const DevicesVertion = ({ scroll }) => {
                                         className="flex flex-col items-center"
                                         onClick={() => setPredview(true)}>
                                         <span
-                                            className="absolute rounded-full text-white translate-x-[10px] translate-y-[-7px] px-[5px] bg-blue-800 text-[.625rem]"
+                                            className="absolute rounded-full text-white translate-x-[8px] translate-y-[-7px] px-[5px] bg-blue-800 text-[.625rem]"
                                         >{cartItems && cartItems.length}</span>
                                         <CartIcon color={"#666"} />
                                     </button>
@@ -87,8 +87,61 @@ export const DevicesVertion = ({ scroll }) => {
                                         </ul>
                                     </Accordion>
                                 </li>
+                                {[
+                                    { title: 'Blog', path: '#' },
+                                    { title: 'About', path: '#' },
+                                    { title: 'Contacts', path: '#' },
+                                    { title: 'Compare', path: '#' },
+                                ].map((e, i) =>
+                                    <li key={i}>
+                                        <div className="p-4 custom-border">
+                                            <Link href={e.path}>
+                                                <a className="flex flex-grow w-full text-sm text-gray-400 ">
+                                                    {e.title}
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    </li>
+                                )}
                             </ul>
                         </nav>
+                        <nav>
+                            <ul className="py-3 custom-border">
+                                {[
+                                    { title: 'News', path: '#' },
+                                    { title: 'FAQ', path: '#' },
+                                    { title: 'Payment', path: '#' },
+                                ].map((e, i) =>
+                                    <li key={i}>
+                                        <div className="px-4 py-1">
+                                            <Link href={e.path}>
+                                                <a className="flex flex-grow w-full text-sm text-gray-400 ">
+                                                    {e.title}
+                                                </a>
+                                            </Link>
+                                        </div>
+                                    </li>
+                                )}
+                            </ul>
+                        </nav>
+                        <div>
+                            <ul className="flex justify-center gap-3 py-5">
+                                {[
+                                    { elem: <FacebookIcon color="#999"/>, path: '#' },
+                                    { elem: <TwitterIcon color="#999"/>, path: '#' },
+                                    { elem: <YoutubeIcon color="#999"/>, path: '#' },
+                                    { elem: <InstagramIcon color="#999"/>, path: '#' },
+                                ].map((e, i) =>
+                                    <li key={i}>
+                                        <a href={e.path}
+                                            className="text-sm opacity-50 hover:opacity-70"
+                                        >
+                                            {e.elem}
+                                        </a>
+                                    </li>
+                                )}
+                            </ul>
+                        </div>
                     </div>
                 </Sidebar>
             </div>

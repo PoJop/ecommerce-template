@@ -47,7 +47,7 @@ export default function Catalog() {
                     </div>
                 </PageTitle>
 
-                <section className="flex lg:gap-4 h-[200vh] ">
+                <section className="flex pb-8 lg:gap-4 ">
                     <div className="hidden lg:block flex-[1_1_25%] sticky top-20 h-max bg-white drop-shadow-3xl rounded-md">
                         <ul className="flex flex-col gap-2 p-4 text-gray-400">
                             {arr.map((e, i) =>

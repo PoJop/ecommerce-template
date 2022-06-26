@@ -2,7 +2,7 @@ import React from "react";
 import Link from "next/link"
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { ArrowIcon, CartIcon, CustomerIcon } from "../../../asset/icon";
+import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { PATH_CATALOG_PAGE, PATH_HOME_PAGE } from "../../../config/path-config";
 import { AccountBtn } from "./nav/account-btn";
@@ -25,7 +25,33 @@ export const DesktopVertion = ({ scroll }) => {
             <div className={` hidden p-2 lg:block bg-gray-950  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
                 <Container>
                     <div className="flex justify-between">
-                        <div></div>
+                        <div>
+                            <address>
+                                <ul className="flex gap-4">
+                                    <li>
+                                        <a
+                                            className="flex gap-2 text-sm text-white underline opacity-50 underline-offset-4 decoration-dotted hover:opacity-70"
+                                            href={`tel:${'88007999999'}`}>
+                                            <PhoneIcon /><span className="oblique">8 800 799 99 99</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <div
+                                            className="flex gap-2 text-sm text-white opacity-50"
+                                        >
+                                            <GeolocationIcon /><span>St. Petersburg, Nevsky Prospect 28</span>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            className="flex gap-2 text-sm text-white opacity-50"
+                                        >
+                                            <WatchIcon /><span>Daily 10:00–22:00</span>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </address>
+                        </div>
                         <div>
                             <nav>
                                 <ul className="flex gap-7">
@@ -103,7 +129,7 @@ export const DesktopVertion = ({ scroll }) => {
                         <nav>
                             <ul className="flex gap-7">
                                 <li className="flex align-middle">
-                                   <AccountBtn />
+                                    <AccountBtn />
                                 </li>
                                 <li>
                                     <button
