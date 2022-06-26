@@ -4,7 +4,6 @@ import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
 import { ArrowIcon, CartIcon, CustomerIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
-import { CartPredview } from "../cart-predview";
 import { PATH_CATALOG_PAGE, PATH_HOME_PAGE } from "../../../config/path-config";
 import { AccountBtn } from "./nav/account-btn";
 
@@ -17,8 +16,8 @@ export const DesktopVertion = ({ scroll }) => {
 
     const arrNavDropDown = [
         { title: "Catalog", path: PATH_CATALOG_PAGE, element: <>1</> },
-        { title: "Brands", path: '', element: <>2</> },
-        { title: "Pages", path: '', element: <>3</> },
+        { title: "Brands", path: '#', element: <>2</> },
+        { title: "Pages", path: '#', element: <>3</> },
     ]
 
     return (

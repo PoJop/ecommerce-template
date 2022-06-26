@@ -8,7 +8,7 @@ export const useCustomer = () => {
 
 export const CustomerProvider = ({ children }) => {
 
-    const [auth, setAuth] = React.useState(false)
+    const [auth, setAuth] = React.useState(true)
 
 
     return (

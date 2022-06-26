@@ -30,7 +30,7 @@ export const DevicesVertion = ({ scroll }) => {
                     </div>
                     <div className="flex items-center gap-6">
                         <nav>
-                            <ul>
+                            <ul className="flex gap-7">
                                 <li className="flex align-middle">
                                     <AccountBtn />
                                 </li>
