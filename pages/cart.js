@@ -8,7 +8,7 @@ import React from "react";
 import Link from "next/link";
 import { DeleteIcon } from "../asset/icon";
 import { useCart } from "../contextes/cart-conrext";
-import { PATH_CATALOG_PAGE } from "../config/path-config";
+import { PATH_CATALOG_PAGE, PATH_CHECKOUT_PAGE } from "../config/path-config";
 import { formatPrice } from "../utils/utils";
 
 export default function Error() {
@@ -111,7 +111,7 @@ export default function Error() {
                                 </div>
                             </div>
                             <div className="flex w-full">
-                                <Link href={'#'}>
+                                <Link href={PATH_CHECKOUT_PAGE}>
                                     <a className="w-full  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white">
                                         {"checkout".toUpperCase()}</a>
                                 </Link>

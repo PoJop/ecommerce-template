@@ -6,15 +6,18 @@ import { CustomerIcon } from "../../../../asset/icon";
 import Link from "next/link"
 
 export const AccountBtn = () => {
+
     const { auth } = useCustomer()
     const [menu, setMenu] = React.useState(false)
     const router = useRouter()
+
     const handler = () => {
         if (menu) {
             if (!auth) router.push(PATH_AUTH_PAGE)
             else router.push(PATH_ACCOUNT_PAGE)
         }
     }
+    
     return (
         <>
             <div
@@ -27,7 +30,7 @@ export const AccountBtn = () => {
                 >
                     <CustomerIcon color={"#666"} />
                 </button>
-                <aside className={`absolute w-[8.5rem] transition-all translate-y-[10px] lg:translate-y-[20px] pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
+                <aside className={`${menu ? "pointer-events-auto": "pointer-events-none	"} absolute w-[8.5rem] transition-all translate-y-[10px] lg:translate-y-[20px] pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
                     <div className="bg-white rounded-md h-max drop-shadow-3xl">
                         <nav className="w-full custom-border">
                             <ul className="flex flex-col p-3 text-gray-400">
