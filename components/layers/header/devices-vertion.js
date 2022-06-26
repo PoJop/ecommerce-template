@@ -1,13 +1,14 @@
 import React from "react";
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { BurgerMenuIcon, CartIcon } from "../../../asset/icon";
+import { BurgerMenuIcon, CartIcon, CustomerIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { Accordion } from "../../templates/accordion";
 import { Sidebar } from "../../templates/sidebar";
 import Link from "next/link";
 import { PATH_HOME_PAGE } from "../../../config/path-config"
 import { pages } from "../../../config/navigetion-config";
+import { AccountBtn } from "./nav/account-btn";
 
 export const DevicesVertion = ({ scroll }) => {
     const [burgerMenu, setBurgerMenu] = React.useState(false)
@@ -30,6 +31,9 @@ export const DevicesVertion = ({ scroll }) => {
                     <div className="flex items-center gap-6">
                         <nav>
                             <ul>
+                                <li className="flex align-middle">
+                                    <AccountBtn />
+                                </li>
                                 <li className="flex align-middle">
                                     <button
                                         className="flex flex-col items-center"

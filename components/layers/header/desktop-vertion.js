@@ -2,10 +2,11 @@ import React from "react";
 import Link from "next/link"
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { ArrowIcon, CartIcon } from "../../../asset/icon";
+import { ArrowIcon, CartIcon, CustomerIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { CartPredview } from "../cart-predview";
-import { PATH_HOME_PAGE } from "../../../config/path-config";
+import { PATH_CATALOG_PAGE, PATH_HOME_PAGE } from "../../../config/path-config";
+import { AccountBtn } from "./nav/account-btn";
 
 export const DesktopVertion = ({ scroll }) => {
 
@@ -15,7 +16,7 @@ export const DesktopVertion = ({ scroll }) => {
     const { predview, setPredview, cartItems } = useCart()
 
     const arrNavDropDown = [
-        { title: "Catalog", path: '', element: <>1</> },
+        { title: "Catalog", path: PATH_CATALOG_PAGE, element: <>1</> },
         { title: "Brands", path: '', element: <>2</> },
         { title: "Pages", path: '', element: <>3</> },
     ]
@@ -65,7 +66,7 @@ export const DesktopVertion = ({ scroll }) => {
                                             setElement(<></>)
                                         }}
                                     >
-                                        <Link href={'#'}>
+                                        <Link href={e.path}>
                                             <a className="flex items-center gap-2 ">
                                                 {e.title.toUpperCase()}
                                                 <span className={`w-max  ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
@@ -101,7 +102,10 @@ export const DesktopVertion = ({ scroll }) => {
                     </div>
                     <div className="flex items-center gap-6">
                         <nav>
-                            <ul>
+                            <ul className="flex gap-7">
+                                <li className="flex align-middle">
+                                   <AccountBtn />
+                                </li>
                                 <li>
                                     <button
                                         className="flex flex-col items-center"

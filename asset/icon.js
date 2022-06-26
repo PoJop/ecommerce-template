@@ -1,16 +1,19 @@
 export const CartIcon = ({ color = '#ffff' }) => {
 
     return (
-        <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <circle cx="7.3" cy="17.3" r="1.4" fill={color}></circle>
+            <circle cx="13.3" cy="17.3" r="1.4" fill={color}></circle>
             <path
+                fill="none"
                 stroke={color}
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="1.5"
-                d="M7.75 7.75h11.5l-1.637 6.958a2 2 0 01-1.947 1.542h-4.127a2 2 0 01-1.933-1.488L7.75 7.75zm0 0l-.75-3H4.75"
+                d="M0 2L3.2 4 5.3 12.5 16 12.5 18 6.5 8 6.5"
             ></path>
-            <circle cx="10" cy="19" r="1" fill={color}></circle>
-            <circle cx="17" cy="19" r="1" fill={color}></circle>
         </svg>
     )
 }
@@ -176,17 +179,43 @@ export const LockIcon = ({ }) => {
 
     return (
         <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="15"
-        height="15"
-        viewBox="0 0 20 20"
-      >
-        <path fill="none" stroke="#999" d="M3.5 8.5H16.5V18.5H3.5z"></path>
-        <path
-          fill="none"
-          stroke="#999"
-          d="M6.5 8V4.88C6.5 3.01 8.07 1.5 10 1.5s3.5 1.51 3.5 3.38V8"
-        ></path>
-      </svg>
+            xmlns="http://www.w3.org/2000/svg"
+            width="15"
+            height="15"
+            viewBox="0 0 20 20"
+        >
+            <path fill="none" stroke="#999" d="M3.5 8.5H16.5V18.5H3.5z"></path>
+            <path
+                fill="none"
+                stroke="#999"
+                d="M6.5 8V4.88C6.5 3.01 8.07 1.5 10 1.5s3.5 1.51 3.5 3.38V8"
+            ></path>
+        </svg>
+    )
+}
+export const CustomerIcon = ({ color = '#ffff' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <circle
+                cx="9.9"
+                cy="6.4"
+                r="4.4"
+                fill="none"
+                stroke={color}
+                strokeWidth="1.1"
+            ></circle>
+            <path
+                fill="none"
+                stroke={color}
+                strokeWidth="1.1"
+                d="M1.5 19c.8-4.5 4.3-7.8 8.5-7.8s7.7 3.4 8.5 8"
+            ></path>
+        </svg>
     )
 }

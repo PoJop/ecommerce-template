@@ -9,3 +9,10 @@ export const formatPrice = (price) => {
     if (!p.toString().includes('.')) return `${p}.00`
     else return `${p}`
 }
+
+
+let lastId = 0;
+export const newId = (prefix = 'id') => {
+    lastId++;
+    return `${prefix}${lastId}`;
+}
