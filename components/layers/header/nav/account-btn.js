@@ -1,7 +1,7 @@
 import React from "react";
 import { useCustomer } from "../../../../contextes/customer-context";
 import { useRouter } from 'next/router'
-import { PATH_ACCOUNT_PAGE, PATH_AUTH_PAGE } from "../../../../config/path-config";
+import { PATH_ACCOUNT_PAGE, PATH_AUTH_PAGE, PATH_BOOKMARK_ACC_FAVORITES, PATH_BOOKMARK_ACC_ORDERS, PATH_BOOKMARK_ACC_PERSONAL, PATH_BOOKMARK_ACC_SETTINGS } from "../../../../config/path-config";
 import { CustomerIcon } from "../../../../asset/icon";
 import Link from "next/link"
 
@@ -27,27 +27,27 @@ export const AccountBtn = () => {
                 >
                     <CustomerIcon color={"#666"} />
                 </button>
-                <aside className={`absolute w-[8.5rem] transition-all translate-y-[20px] pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
+                <aside className={`absolute w-[8.5rem] transition-all translate-y-[10px] lg:translate-y-[20px] pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
                     <div className="bg-white rounded-md h-max drop-shadow-3xl">
                         <nav className="w-full custom-border">
                             <ul className="flex flex-col p-3 text-gray-400">
                                 <li className="flex">
-                                    <Link href={PATH_ACCOUNT_PAGE + '#orders'}>
+                                    <Link href={PATH_ACCOUNT_PAGE + PATH_BOOKMARK_ACC_ORDERS}>
                                         <a className="w-full py-1 hover:text-gray-600">Orders</a>
                                     </Link>
                                 </li>
                                 <li className="flex">
-                                    <Link href={PATH_ACCOUNT_PAGE + '#favorites'}>
+                                    <Link href={PATH_ACCOUNT_PAGE + PATH_BOOKMARK_ACC_FAVORITES}>
                                         <a className="w-full py-1 hover:text-gray-600">Favorites</a>
                                     </Link>
                                 </li>
                                 <li className="flex">
-                                    <Link href={PATH_ACCOUNT_PAGE + '#info'}>
+                                    <Link href={PATH_ACCOUNT_PAGE + PATH_BOOKMARK_ACC_PERSONAL}>
                                         <a className="w-full py-1 hover:text-gray-600">Personal</a>
                                     </Link>
                                 </li>
                                 <li className="flex">
-                                    <Link href={PATH_ACCOUNT_PAGE + '#info'}>
+                                    <Link href={PATH_ACCOUNT_PAGE + PATH_BOOKMARK_ACC_SETTINGS}>
                                         <a className="w-full py-1 hover:text-gray-600">Settings</a>
                                     </Link>
                                 </li>

@@ -1,7 +1,5 @@
 import React from "react"
-import { Form } from "../components/templates/form/form"
 import { useCustomer } from "../contextes/customer-context"
-import { useValidation } from "../hooks/useValidation"
 import { useRouter } from 'next/router'
 import { PATH_ACCOUNT_PAGE } from "../config/path-config"
 import { Base64 } from 'js-base64';
