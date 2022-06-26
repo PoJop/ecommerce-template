@@ -251,3 +251,141 @@ export const LogOutIcon = () => {
         </svg>
     )
 }
+export const FacebookIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="#fff"
+        >
+            <path d="M11 10h2.6l.4-3h-3V5.3c0-.9.2-1.5 1.5-1.5H14V1.1c-.3 0-1-.1-2.1-.1C9.6 1 8 2.4 8 5v2H5.5v3H8v8h3v-8z"></path>
+        </svg>
+    )
+}
+export const TwitterIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="#fff"
+        >
+            <path d="M19 4.74a7.587 7.587 0 01-2.119.58 3.715 3.715 0 001.622-2.04 7.331 7.331 0 01-2.344.89A3.682 3.682 0 0013.464 3a3.698 3.698 0 00-3.596 4.539 10.482 10.482 0 01-7.614-3.86c-.318.54-.5 1.181-.5 1.86 0 1.281.651 2.411 1.643 3.071a3.654 3.654 0 01-1.674-.461v.04a3.71 3.71 0 002.963 3.631 4.083 4.083 0 01-1.668.06 3.701 3.701 0 003.451 2.569 7.467 7.467 0 01-4.587 1.57 6.44 6.44 0 01-.882-.05 10.439 10.439 0 005.662 1.66c6.792 0 10.508-5.629 10.508-10.5 0-.16-.004-.32-.013-.48A7.533 7.533 0 0019 4.74"></path>
+        </svg>
+    )
+}
+export const YoutubeIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="#fff"
+        >
+            <path d="M15 4.1c1 .1 2.3 0 3 .8.8.8.9 2.1.9 3.1.1 1.2.1 2.9.1 4-.1 1.1 0 2.4-.5 3.4-.5 1.1-1.4 1.5-2.5 1.6-1.2.1-8.6.1-11 0-1.1-.1-2.4-.1-3.2-1-.7-.8-.7-2-.8-3V8.9c0-1.1 0-2.4.5-3.4S3 4.3 4.1 4.2c1.2-.1 8.5-.2 10.9-.1zM8 7.5v6l5.5-3-5.5-3z"></path>
+        </svg>
+    )
+}
+export const InstagramIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="#fff"
+        >
+            <path d="M13.55 1H6.46C3.45 1 1 3.44 1 6.44v7.12c0 3 2.45 5.44 5.46 5.44h7.08c3.02 0 5.46-2.44 5.46-5.44V6.44c.01-3-2.44-5.44-5.45-5.44zm3.95 13c0 1.93-1.57 3.5-3.5 3.5H6c-1.93 0-3.5-1.57-3.5-3.5V6c0-1.93 1.57-3.5 3.5-3.5h8c1.93 0 3.5 1.57 3.5 3.5v8z"></path>
+            <circle cx="14.87" cy="5.26" r="1.09"></circle>
+            <path d="M10.03 5.45c-2.55 0-4.63 2.06-4.63 4.6 0 2.55 2.07 4.61 4.63 4.61s4.63-2.061 4.63-4.61a4.626 4.626 0 00-4.63-4.6zm.05 7.55c-1.66 0-3-1.34-3-2.99 0-1.65 1.34-2.99 3-2.99s3 1.34 3 2.99c0 1.65-1.34 2.99-3 2.99z"></path>
+        </svg>
+    )
+}
+export const PhoneIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke="#fff"
+                strokeWidth="1.01"
+                d="M6.189 13.611c1.945 1.914 4.908 4.628 7.678 4.646 2.603.018 4.333-2.016 4.333-2.016l-3.691-3.69-2.97 1.088-5.35-5.349 1.124-2.935L3.76 1.8S1.732 3.537 1.7 6.092c-.033 2.717 2.647 5.646 4.489 7.519"
+            ></path>
+        </svg>
+    )
+}
+export const EmailIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+            fill="#fff"
+        >
+            <path fill="none" stroke="#fff" d="M1.4 6.5L10 11 18.6 6.5"></path>
+            <path d="M1 4v12h18V4H1zm17 11H2V5h16v10z"></path>
+        </svg>
+    )
+}
+export const GeolocationIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke="#fff"
+                strokeWidth="1.01"
+                d="M10 .5C6.41.5 3.5 3.39 3.5 6.98 3.5 11.83 10 19 10 19s6.5-7.17 6.5-12.02C16.5 3.39 13.59.5 10 .5h0z"
+            ></path>
+            <circle cx="10" cy="6.8" r="2.3" fill="none" stroke="#fff"></circle>
+        </svg>
+    )
+}
+export const WatchIcon = () => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <circle
+                cx="10"
+                cy="10"
+                r="9"
+                fill="none"
+                stroke="#fff"
+                strokeWidth="1.1"
+            ></circle>
+            <path
+                fill="#fff" d="M9 4H10V11H9z"></path>
+            <path
+                fill="none"
+                stroke="#fff"
+                strokeWidth="1.1"
+                d="M13.018 14.197l-3.573-3.572"
+            ></path>
+        </svg>
+    )
+}

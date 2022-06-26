@@ -37,6 +37,11 @@ a {
   /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 100);
 }
+.min-custom_100vh {
+  min-height: 100vh;
+  /* Fallback for browsers that do not support Custom Properties */
+  min-height: calc(var(--vh, 1vh) * 100);
+}
 
 .icon-plus {
   height: 25px;
@@ -171,4 +176,8 @@ body::-webkit-scrollbar-thumb {
     color: #666;
     border-color: #1e87f0;
   }
+}
+
+address {
+  font-style: normal;
 }

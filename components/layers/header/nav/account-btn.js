@@ -30,7 +30,7 @@ export const AccountBtn = () => {
                 >
                     <CustomerIcon color={"#666"} />
                 </button>
-                <aside className={`${menu ? "pointer-events-auto": "pointer-events-none	"} absolute w-[8.5rem] transition-all translate-y-[10px] lg:translate-y-[20px] pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
+                <aside className={`${menu ? "pointer-events-auto": "pointer-events-none	"} absolute w-[8.5rem] transition-all translate-y-[30px] lg:translate-y-[20px] lg:pt-6 ${menu ? "opacity-100" : "opacity-0"}`}>
                     <div className="bg-white rounded-md h-max drop-shadow-3xl">
                         <nav className="w-full custom-border">
                             <ul className="flex flex-col p-3 text-gray-400">

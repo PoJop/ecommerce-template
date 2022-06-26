@@ -44,7 +44,7 @@ export const DesktopVertion = ({ scroll }) => {
             </div>
 
 
-            <div className="hidden p-4 lg:block bg-[#ffffff] border-b border-dull-gray">
+            <div className="hidden p-4 px-0 sm:px-7 lg:px-9 lg:block bg-[#ffffff] border-b border-dull-gray">
                 <Container className={"flex justify-between"}>
                     <div className="flex items-center gap-6">
                         <Link href={PATH_HOME_PAGE}>
