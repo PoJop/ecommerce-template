@@ -393,3 +393,29 @@ export const WatchIcon = () => {
         </svg>
     )
 }
+export const SearchIcon = ({color}) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 20 20"
+        >
+            <circle
+                cx="9"
+                cy="9"
+                r="7"
+                fill="none"
+                stroke={color}
+                strokeWidth="1.1"
+            ></circle>
+            <path
+                fill="none"
+                stroke={color}
+                strokeWidth="1.1"
+                d="M14 14l4 4-4-4z"
+            ></path>
+        </svg>
+    )
+}

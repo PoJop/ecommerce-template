@@ -5,7 +5,7 @@ import { Container } from "./header";
 import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_CATALOG_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config";
-import { AccountBtn } from "./nav/account-btn";
+import { AccountBtn } from "./nav-btns/account-btn";
 
 export const DesktopVertion = ({ scroll }) => {
 

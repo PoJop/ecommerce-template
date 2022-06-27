@@ -1,17 +1,19 @@
 import React from "react";
 import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
-import { BurgerMenuIcon, CartIcon, CustomerIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "../../../asset/icon";
+import { BurgerMenuIcon, CartIcon, CloseIcon, CustomerIcon, FacebookIcon, InstagramIcon, TwitterIcon, YoutubeIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { Accordion } from "../../templates/accordion";
 import { Sidebar } from "../../templates/sidebar";
 import Link from "next/link";
 import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_COMPARE_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config"
 import { pages } from "../../../config/navigetion-config";
-import { AccountBtn } from "./nav/account-btn";
+import { AccountBtn } from "./nav-btns/account-btn";
+import { SearchBtn } from "./nav-btns/search-btn";
 
 export const DevicesVertion = ({ scroll }) => {
     const [burgerMenu, setBurgerMenu] = React.useState(false)
+    const [search, setSearch] = React.useState(false)
 
     const { predview, setPredview, cartItems } = useCart()
 
@@ -31,6 +33,10 @@ export const DevicesVertion = ({ scroll }) => {
                     <div className="flex items-center gap-6">
                         <nav>
                             <ul className="flex gap-7">
+                                <li className="flex align-middle"
+                                >
+                                    <SearchBtn search={search} setSearch={setSearch} />
+                                </li>
                                 <li className="flex align-middle">
                                     <AccountBtn />
                                 </li>
@@ -145,6 +151,32 @@ export const DevicesVertion = ({ scroll }) => {
                     </div>
                 </Sidebar>
             </div>
+            {search &&
+                <div
+                    onMouseOver={() => setSearch(true)}
+                    onMouseOut={() => setSearch(false)}
+                    className="bg-white drop-shadow-xl"
+                >
+                    <form className="flex items-center p-3">
+                        <div className="grow">
+                            <input
+                                className="w-full p-1 text-xl text-gray-600 focus:outline-none"
+                                placeholder="Search..."
+                            />
+                        </div>
+                        <div>
+                            <button
+                                onClick={(e) => {
+                                    e.preventDefault()
+                                    setSearch(false)
+                                }}
+                            >
+                                <CloseIcon />
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            }
         </>
     )
 }
