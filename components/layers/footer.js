@@ -3,6 +3,7 @@ import { EmailIcon, FacebookIcon, GeolocationIcon, InstagramIcon, PhoneIcon, Twi
 import { Logo } from "../../asset/logo";
 import Link from "next/link";
 import { Container } from "./header/header";
+import { PATH_HOME_PAGE } from "../../config/path-config";
 
 
 export const Footer = () => {
@@ -13,7 +14,11 @@ export const Footer = () => {
                 <Container>
                     <div className="flex flex-col gap-10 lg:flex-row">
                         <div className="flex-[1_1_25%] flex flex-col gap-4">
-                            <div><Logo color="#fff" /></div>
+                            <div>
+                                <Link href={PATH_HOME_PAGE}>
+                                    <a><Logo color="#fff" /></a>
+                                </Link>
+                            </div>
                             <div>
                                 <p className="text-sm text-white opacity-70">
                                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut mauris eros. Nulla quis ante sed tortor efficitur facilisis.

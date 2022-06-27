@@ -5,6 +5,13 @@ export const PATH_CART_PAGE                     = '/cart'
 export const PATH_CATALOG_PAGE                  = '/catalog'
 export const PATH_CHECKOUT_PAGE                 = '/checkout'
 
+export const PATH_ABOUT_PAGE                    = '/about'
+export const PATH_CONTACTS_PAGE                 = '/contacts'
+export const PATH_BLOG_PAGE                     = '/blog'
+export const PATH_NEWS_PAGE                     = '/news'
+export const PATH_FAQ_PAGE                      = '/faq'
+export const PATH_DELIVERY_PAGE                 = '/delivery'
+
 export const PATH_BOOKMARK_ACC_ORDERS           = '#orders'
 export const PATH_BOOKMARK_ACC_FAVORITES        = '#favorites'
 export const PATH_BOOKMARK_ACC_PERSONAL         = '#personal'

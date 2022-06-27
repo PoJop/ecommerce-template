@@ -5,19 +5,19 @@ import { Main } from "../components/layers/main";
 import { useRouter } from 'next/router'
 import { useCustomer } from "../contextes/customer-context";
 import { Summary } from "../components/page-components/account/summary";
-import { AccountNavigation } from "../components/page-components/account/account-nav";
 import { Orders } from "../components/page-components/account/sections/orders";
 import { Favorites } from "../components/page-components/account/sections/favorites";
 import { Personal } from "../components/page-components/account/sections/personal";
 import { Settings } from "../components/page-components/account/sections/settings";
-import { PATH_BOOKMARK_ACC_FAVORITES, PATH_BOOKMARK_ACC_ORDERS, PATH_BOOKMARK_ACC_PERSONAL, PATH_BOOKMARK_ACC_SETTINGS } from "../config/path-config";
+import { PATH_ACCOUNT_PAGE, PATH_BOOKMARK_ACC_FAVORITES, PATH_BOOKMARK_ACC_ORDERS, PATH_BOOKMARK_ACC_PERSONAL, PATH_BOOKMARK_ACC_SETTINGS } from "../config/path-config";
+import { SidebarPagesNav } from "../components/templates/sidebar-pages-nav";
 
 
 
 export default function Account() {
 
     const { auth } = useCustomer()
-    const [accountSection, setAccountSection] = React.useState(PATH_BOOKMARK_ACC_ORDERS)
+    const [currentBookmark, setCurrentBookmark] = React.useState(PATH_BOOKMARK_ACC_ORDERS)
 
     const router = useRouter()
 
@@ -25,11 +25,11 @@ export default function Account() {
         let route = router.asPath
         let bookmark_i = route.indexOf('#')
         if (bookmark_i !== -1)
-            setAccountSection(route.substring(bookmark_i, route.length))
-        else setAccountSection(PATH_BOOKMARK_ACC_ORDERS)
+            setCurrentBookmark(route.substring(bookmark_i, route.length))
+        else setCurrentBookmark(PATH_BOOKMARK_ACC_ORDERS)
     }, [router])
 
-
+    let quantity = 1
     if (!auth) return <></>
 
     return (
@@ -40,25 +40,33 @@ export default function Account() {
                     <div className="flex flex-col gap-4 lg:flex-row">
                         <aside className="flex-[1_1_25%] lg:sticky lg:top-[80px] h-full bg-white rounded-md drop-shadow-3xl">
                             <Summary />
-                            <AccountNavigation accountSection={accountSection} />
+                            <SidebarPagesNav
+                                currentPath={currentBookmark}
+                                mainPath={PATH_ACCOUNT_PAGE}
+                                list={[
+                                    { title: "Orders", bookmark: PATH_BOOKMARK_ACC_ORDERS, elem: <>{quantity && <span>{`(${quantity})`}</span>}</> },
+                                    { title: "Favorites", bookmark: PATH_BOOKMARK_ACC_FAVORITES, elem: <>{quantity && <span>{`(${quantity})`}</span>}</> },
+                                    { title: "Personal Info", bookmark: PATH_BOOKMARK_ACC_PERSONAL },
+                                ]}
+                            />
                         </aside>
                         <section className="flex-[1_1_75%]  bg-white rounded-md  drop-shadow-3xl">
-                            {accountSection === PATH_BOOKMARK_ACC_ORDERS &&
+                            {currentBookmark === PATH_BOOKMARK_ACC_ORDERS &&
                                 <AccountSectionContent title={"Orders"}>
                                     <Orders />
                                 </AccountSectionContent>
                             }
-                            {accountSection === PATH_BOOKMARK_ACC_FAVORITES &&
+                            {currentBookmark === PATH_BOOKMARK_ACC_FAVORITES &&
                                 <AccountSectionContent title={"Favorites"}>
                                     <Favorites />
                                 </AccountSectionContent>
                             }
-                            {accountSection === PATH_BOOKMARK_ACC_PERSONAL &&
+                            {currentBookmark === PATH_BOOKMARK_ACC_PERSONAL &&
                                 <AccountSectionContent title={"Personal Info"}>
                                     <Personal />
                                 </AccountSectionContent>
                             }
-                            {accountSection === PATH_BOOKMARK_ACC_SETTINGS &&
+                            {currentBookmark === PATH_BOOKMARK_ACC_SETTINGS &&
                                 <AccountSectionContent title={"Settings"}>
                                     <Settings />
                                 </AccountSectionContent>
