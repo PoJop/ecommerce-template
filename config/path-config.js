@@ -11,6 +11,7 @@ export const PATH_BLOG_PAGE                     = '/blog'
 export const PATH_NEWS_PAGE                     = '/news'
 export const PATH_FAQ_PAGE                      = '/faq'
 export const PATH_DELIVERY_PAGE                 = '/delivery'
+export const PATH_COMPARE_PAGE                  = '/compare'
 
 export const PATH_BOOKMARK_ACC_ORDERS           = '#orders'
 export const PATH_BOOKMARK_ACC_FAVORITES        = '#favorites'

@@ -4,7 +4,7 @@ import { Logo } from "../../../asset/logo";
 import { Container } from "./header";
 import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
-import { PATH_CATALOG_PAGE, PATH_HOME_PAGE } from "../../../config/path-config";
+import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_CATALOG_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config";
 import { AccountBtn } from "./nav/account-btn";
 
 export const DesktopVertion = ({ scroll }) => {
@@ -55,10 +55,16 @@ export const DesktopVertion = ({ scroll }) => {
                         <div>
                             <nav>
                                 <ul className="flex gap-7">
-                                    {["News", "FAQ", "Payment"].map((e, i) =>
+                                    {[
+                                        { title: 'News', path: PATH_NEWS_PAGE },
+                                        { title: 'FAQ', path: PATH_FAQ_PAGE },
+                                        { title: 'Payment', path: PATH_CONTACTS_PAGE },
+                                    ].map((e, i) =>
                                         <li key={i}>
-                                            <Link href={'#'}>
-                                                <a className="text-sm text-gray-400">{e}</a>
+                                            <Link href={e.path}>
+                                                <a className="text-sm text-gray-400">
+                                                    {e.title}
+                                                </a>
                                             </Link>
                                         </li>
                                     )}
@@ -101,27 +107,19 @@ export const DesktopVertion = ({ scroll }) => {
                                         </Link>
                                     </li>
                                 )}
-                                <li>
-                                    <Link href={'#'}>
-                                        <a className="px-2 text-gray-400 hover:text-gray-600">
-                                            BLOG
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'#'}>
-                                        <a className="px-2 text-gray-400 hover:text-gray-600">
-                                            ABOUT
-                                        </a>
-                                    </Link>
-                                </li>
-                                <li>
-                                    <Link href={'#'}>
-                                        <a className="px-2 text-gray-400 hover:text-gray-600">
-                                            CONTACTS
-                                        </a>
-                                    </Link>
-                                </li>
+                                {[
+                                    { title: 'BLOG', path: PATH_BLOG_PAGE },
+                                    { title: 'ABOUT', path: PATH_ABOUT_PAGE },
+                                    { title: 'CONTACTS', path: PATH_CONTACTS_PAGE },
+                                ].map((e, i) =>
+                                    <li key={i}>
+                                        <Link href={e.path}>
+                                            <a className="px-2 text-gray-400 hover:text-gray-600">
+                                                {e.title.toLocaleUpperCase()}
+                                            </a>
+                                        </Link>
+                                    </li>
+                                )}
                             </ul>
                         </nav>
                     </div>

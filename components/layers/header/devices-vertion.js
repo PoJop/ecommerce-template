@@ -6,7 +6,7 @@ import { useCart } from "../../../contextes/cart-conrext";
 import { Accordion } from "../../templates/accordion";
 import { Sidebar } from "../../templates/sidebar";
 import Link from "next/link";
-import { PATH_HOME_PAGE } from "../../../config/path-config"
+import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_COMPARE_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config"
 import { pages } from "../../../config/navigetion-config";
 import { AccountBtn } from "./nav/account-btn";
 
@@ -88,10 +88,10 @@ export const DevicesVertion = ({ scroll }) => {
                                     </Accordion>
                                 </li>
                                 {[
-                                    { title: 'Blog', path: '#' },
-                                    { title: 'About', path: '#' },
-                                    { title: 'Contacts', path: '#' },
-                                    { title: 'Compare', path: '#' },
+                                    { title: 'Blog', path: PATH_BLOG_PAGE },
+                                    { title: 'About', path: PATH_ABOUT_PAGE },
+                                    { title: 'Contacts', path: PATH_CONTACTS_PAGE },
+                                    { title: 'Compare', path: PATH_COMPARE_PAGE },
                                 ].map((e, i) =>
                                     <li key={i}>
                                         <div className="p-4 custom-border">
@@ -108,9 +108,9 @@ export const DevicesVertion = ({ scroll }) => {
                         <nav>
                             <ul className="py-3 custom-border">
                                 {[
-                                    { title: 'News', path: '#' },
-                                    { title: 'FAQ', path: '#' },
-                                    { title: 'Payment', path: '#' },
+                                    { title: 'News', path: PATH_NEWS_PAGE },
+                                    { title: 'FAQ', path: PATH_FAQ_PAGE },
+                                    { title: 'Payment', path: PATH_CONTACTS_PAGE },
                                 ].map((e, i) =>
                                     <li key={i}>
                                         <div className="px-4 py-1">
@@ -127,10 +127,10 @@ export const DevicesVertion = ({ scroll }) => {
                         <div>
                             <ul className="flex justify-center gap-3 py-5">
                                 {[
-                                    { elem: <FacebookIcon color="#999"/>, path: '#' },
-                                    { elem: <TwitterIcon color="#999"/>, path: '#' },
-                                    { elem: <YoutubeIcon color="#999"/>, path: '#' },
-                                    { elem: <InstagramIcon color="#999"/>, path: '#' },
+                                    { elem: <FacebookIcon color="#999" />, path: '#' },
+                                    { elem: <TwitterIcon color="#999" />, path: '#' },
+                                    { elem: <YoutubeIcon color="#999" />, path: '#' },
+                                    { elem: <InstagramIcon color="#999" />, path: '#' },
                                 ].map((e, i) =>
                                     <li key={i}>
                                         <a href={e.path}
