@@ -68,6 +68,7 @@ const SignIn = () => {
     return (
         <>
             <form className="flex flex-col gap-4 " >
+                    <span>log: test, pass: test</span>
                 <div >
                     <label className="text-lg text-gray-900">
                         Email

@@ -1,4 +1,6 @@
 import React from 'react'
+import { cartItemJSON, cartJSON } from '../utils/json-generator';
+import { getLocalStorage, setLocalStorage } from '../utils/utils';
 
 const CartContext = React.createContext();
 
@@ -46,7 +48,7 @@ const cart = {
         show: false,
         shows: []
     },
-    creation_date: getDate(),
+    creation_date: new Date().getTime(),
     first_addition: null,
     last_addition: null,
     last_interaction: null,
@@ -57,44 +59,38 @@ export const CartProvider = ({ children }) => {
     const [predview, setPredview] = React.useState(false)
     const [cartItems, setCartItems] = React.useState()
 
-    const getStoreCart = () => {
-        if (typeof window === 'object')
-            return JSON.parse(window.localStorage.getItem("cart"))
+    const getStoreCart = () => getLocalStorage("cart")
+
+    const setStoreCart = (data) => {
+        setLocalStorage("cart", data)
+        setCartItems(data.cart_items)
     }
+
+    const createCart = (e) => setStoreCart(e)
+
     const deleteStoreCart = () => {
         if (typeof window === 'object') window.localStorage.removeItem("cart")
     }
 
-    const setStoreCart = (e) => {
-        if (typeof window === 'object') {
-            window.localStorage.setItem("cart", JSON.stringify(e))
-            setCartItems(e.cart_items)
-        }
-    }
-    const createCart = (e) => setStoreCart(e)
-
-    React.useEffect(() => { if (!getStoreCart()) createCart(cart) }, [])
     React.useEffect(() => {
-        let cart = getStoreCart()
-        if (cart) setCartItems(cart.cart_items)
+        let storeCart = getStoreCart()
+        if (storeCart) setCartItems(storeCart.cart_items)
+        else createCart(cartJSON())
     }, [])
 
     const addItem = (date) => {
         let storeCart = getStoreCart()
         storeCart.cart_items.push(
-            {
+            cartItemJSON({
                 id: storeCart.cart_items.length + 1,
-                app_product_route: date.app_product_route,
+                route: date.app_product_route,
                 product_id: date.id,
-                date_added: getDate(),
                 Label: date.Label,
                 title: date.title,
                 quantity: date.quantity,
-                image: {
-                    url: date.image.url
-                },
-                price: date.price,
-            }
+                image_url: date.image.url,
+                price: date.price
+            })
         )
         setStoreCart(storeCart)
     }

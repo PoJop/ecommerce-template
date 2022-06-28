@@ -9,7 +9,7 @@ import { Orders } from "../components/page-components/account/sections/orders";
 import { Favorites } from "../components/page-components/account/sections/favorites";
 import { Personal } from "../components/page-components/account/sections/personal";
 import { Settings } from "../components/page-components/account/sections/settings";
-import { PATH_ACCOUNT_PAGE, PATH_BOOKMARK_ACC_FAVORITES, PATH_BOOKMARK_ACC_ORDERS, PATH_BOOKMARK_ACC_PERSONAL, PATH_BOOKMARK_ACC_SETTINGS } from "../config/path-config";
+import { PATH_ACCOUNT_PAGE, PATH_AUTH_PAGE, PATH_BOOKMARK_ACC_FAVORITES, PATH_BOOKMARK_ACC_ORDERS, PATH_BOOKMARK_ACC_PERSONAL, PATH_BOOKMARK_ACC_SETTINGS } from "../config/path-config";
 import { SidebarPagesNav } from "../components/templates/sidebar-pages-nav";
 
 
@@ -28,6 +28,10 @@ export default function Account() {
             setCurrentBookmark(route.substring(bookmark_i, route.length))
         else setCurrentBookmark(PATH_BOOKMARK_ACC_ORDERS)
     }, [router])
+
+    React.useEffect(() => {
+        if(!auth) router.push(PATH_AUTH_PAGE)
+    }, [])
 
     let quantity = 1
     if (!auth) return <></>

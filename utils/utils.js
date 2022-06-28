@@ -16,3 +16,13 @@ export const newId = (prefix = 'id') => {
     lastId++;
     return `${prefix}${lastId}`;
 }
+
+export const getLocalStorage = (name) => {
+    if (typeof window === 'object')
+        return JSON.parse(window.localStorage.getItem(name))
+}
+export const setLocalStorage = (name, data) => {
+    if (typeof window === 'object') {
+        window.localStorage.setItem(name, JSON.stringify(data))
+    }
+}

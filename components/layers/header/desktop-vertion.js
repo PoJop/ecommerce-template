@@ -5,12 +5,15 @@ import { Container } from "./header";
 import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../asset/icon";
 import { useCart } from "../../../contextes/cart-conrext";
 import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_CATALOG_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config";
-import { AccountBtn } from "./nav-btns/account-btn";
+import { AccountBtn } from "./components/account-btn";
+import { SearchPanel } from "./components/search-panel";
+import { SearchBtn } from "./components/search-btn";
 
 export const DesktopVertion = ({ scroll }) => {
 
     const [dropDown, setDropDown] = React.useState({ open: false, index: 0 })
     const [Element, setElement] = React.useState(<></>)
+    const [search, setSearch] = React.useState(false)
 
     const { predview, setPredview, cartItems } = useCart()
 
@@ -127,6 +130,9 @@ export const DesktopVertion = ({ scroll }) => {
                         <nav>
                             <ul className="flex gap-7">
                                 <li className="flex align-middle">
+                                    <SearchBtn search={search} setSearch={setSearch}  type="desk"/>
+                                </li>
+                                <li className="flex align-middle">
                                     <AccountBtn />
                                 </li>
                                 <li>
@@ -149,6 +155,8 @@ export const DesktopVertion = ({ scroll }) => {
                     {Element}
                 </div>
             }
+
+            {/* <SearchPanel search={search} setSearch={setSearch} className={"hidden lg:block"} type="desk" /> */}
         </>
     )
 }
