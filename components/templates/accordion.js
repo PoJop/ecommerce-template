@@ -1,6 +1,6 @@
 import React from "react";
 import useResizeObserver from '@react-hook/resize-observer'
-import { ArrowIcon } from "../../asset/icon";
+import { ArrowIcon, PlusIcon } from "../../asset/icon";
 
 const useSize = (target) => {
     const [size, setSize] = React.useState()
@@ -13,10 +13,15 @@ const useSize = (target) => {
     return size
 }
 
-export const Accordion = ({ title, titleClass, children, icon = 'plus' }) => {
+export const Accordion = ({ title, titleClass, children, icon = 'plus', openDefault = false }) => {
+
     const [open, setOpen] = React.useState(false)
     const target = React.useRef(null)
     const size = useSize(target)
+
+    React.useEffect(() => {
+        setOpen(openDefault)
+    },[openDefault])
 
     return (
         <div className="p-2 custom-border">
@@ -26,22 +31,12 @@ export const Accordion = ({ title, titleClass, children, icon = 'plus' }) => {
                     onClick={() => setOpen(!open)}
                 >{title}
                     {icon === 'plus' &&
-                        <div>
-                            <svg
-                                className="w-[12px]"
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="14"
-                                height="14"
-                                fill="none"
-                                viewBox="0 0 14 14"
-                            >
-                                <path fill="#666666" d="M0 6H14V8H0z"></path>
-                                <path fill="#666666" d="M8 0H22V2H8z" transform={`rotate(${open ? "-90 0 2" : "90 8 0"} )`}></path>
-                            </svg>
+                        <div className="opacity-50">
+                            <PlusIcon open={open} />
                         </div>
                     }
                     {icon === 'Arrow' &&
-                        <span style={{ transform: `rotate(${open ? "0" : "90deg"} )` }} className="transition-all">
+                        <span style={{ transform: `rotate(${open ? "0" : "90deg"} )` }} className="transition-all ">
                             <ArrowIcon />
                         </span>
                     }

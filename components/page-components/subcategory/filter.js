@@ -7,25 +7,25 @@ export const SubcategoryFilter = () => {
         <>
             <aside className="overflow-y-hidden bg-white rounded-md ">
                 <div className="h-full overflow-y-auto ">
-                    <Accordion title={"Prices"}>
+                    <Accordion title={"Prices"} titleClass={"text-xl"} openDefault={true}>
                         212
                     </Accordion>
-                    <Accordion title={"Brands"}>
+                    <Accordion title={"Brands"} titleClass={"text-xl"} openDefault={true}>
                         121
                     </Accordion>
-                    <Accordion title={"Type"}>
+                    <Accordion title={"Type"} titleClass={"text-xl"} openDefault={true}>
                         121
                     </Accordion>
-                    <Accordion title={"Screen Size"}>
+                    <Accordion title={"Screen Size"} titleClass={"text-xl"}>
                         121
                     </Accordion>
-                    <Accordion title={"Screen Resolution"}>
+                    <Accordion title={"Screen Resolution"} titleClass={"text-xl"}>
                         121
                     </Accordion>
-                    <Accordion title={"CPU"}>
+                    <Accordion title={"CPU"} titleClass={"text-xl"}>
                         121
                     </Accordion>
-                    <Accordion title={"RAM"}>
+                    <Accordion title={"RAM"} titleClass={"text-xl"}>
                         121
                     </Accordion>
                     <div className="p-4">

@@ -45,6 +45,22 @@ export const StarIcon = ({ color = '#ffff' }) => {
         </svg>
     )
 }
+export const PlusIcon = ({ className, open }) => {
+
+    return (
+        <svg
+            className="w-[12px]"
+            xmlns="http://www.w3.org/2000/svg"
+            width="14"
+            height="14"
+            fill="none"
+            viewBox="0 0 14 14"
+        >
+            <path fill="#666666" d="M0 6H14V8H0z"></path>
+            <path fill="#666666" d="M8 0H22V2H8z" transform={`rotate(${open ? "-90 0 2" : "90 8 0"} )`}></path>
+        </svg>
+    )
+}
 export const ArrowIcon = ({ className }) => {
 
     return (
@@ -393,7 +409,7 @@ export const WatchIcon = () => {
         </svg>
     )
 }
-export const SearchIcon = ({color}) => {
+export const SearchIcon = ({ color }) => {
 
     return (
         <svg
@@ -415,6 +431,95 @@ export const SearchIcon = ({color}) => {
                 stroke={color}
                 strokeWidth="1.1"
                 d="M14 14l4 4-4-4z"
+            ></path>
+        </svg>
+    )
+}
+export const BenefitsStarIcon = ({ color = '#666' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke={color}
+                strokeWidth="1.01"
+                d="M10 2L12.63 7.27 18.5 8.12 14.25 12.22 15.25 18 10 15.27 4.75 18 5.75 12.22 1.5 8.12 7.37 7.27z"
+            ></path>
+        </svg>
+    )
+}
+export const BenefitsPhoneIcon = ({ color = '#666' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke={color}
+                strokeWidth="1.01"
+                d="M6.189 13.611c1.945 1.914 4.908 4.628 7.678 4.646 2.603.018 4.333-2.016 4.333-2.016l-3.691-3.69-2.97 1.088-5.35-5.349 1.124-2.935L3.76 1.8S1.732 3.537 1.7 6.092c-.033 2.717 2.647 5.646 4.489 7.519"
+            ></path>
+        </svg>
+    )
+}
+export const BenefitsGelocationIcon = ({ color = '#666' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 20 20"
+        >
+            <path
+                fill="none"
+                stroke={color}
+                strokeWidth="1.01"
+                d="M10 .5C6.41.5 3.5 3.39 3.5 6.98 3.5 11.83 10 19 10 19s6.5-7.17 6.5-12.02C16.5 3.39 13.59.5 10 .5h0z"
+            ></path>
+            <circle cx="10" cy="6.8" r="2.3" fill="none" stroke={color}></circle>
+        </svg>
+    )
+}
+export const BenefitsMessageIcon = ({ color = '#666' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 20 20"
+        >
+            <path fill="none" stroke={color} d="M2 0.5L19.5 0.5 19.5 13"></path>
+            <path fill={color} d="M5 19.71V15H0V2h18v13H9.71L5 19.71zM1 14h5v3.29L9.29 14H17V3H1v11z"></path>
+        </svg>
+    )
+}
+export const BenefitsSmileyIcon = ({ color = '#666' }) => {
+
+    return (
+        <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="50"
+            height="50"
+            viewBox="0 0 20 20"
+        >
+            <circle cx="13" cy="7" r="1" fill={color}></circle>
+            <circle cx="7" cy="7" r="1" fill={color}></circle>
+            <circle cx="10" cy="10" r="8.5" fill="none" stroke={color}></circle>
+            <path
+                fill="none"
+                stroke={color}
+                d="M14.6 11.4c-.7 1.9-2.5 3.1-4.6 3.1-2.1 0-3.9-1.2-4.6-3.1"
             ></path>
         </svg>
     )

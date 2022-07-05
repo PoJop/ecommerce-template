@@ -8,6 +8,7 @@ import { SubcategoryFilter } from "../../../../components/page-components/subcat
 import { Sidebar } from "../../../../components/templates/sidebar";
 import { SubcategoryTopPanel } from "../../../../components/page-components/subcategory/top-panel";
 import { SubcategoryItems } from "../../../../components/page-components/subcategory/items";
+import { usePagination } from "../../../../hooks/usePagination";
 
 
 export default function Subcategory() {
@@ -27,31 +28,33 @@ export default function Subcategory() {
                     </div>
                 </PageTitle>
 
-                <section className="flex flex-row lg:gap-6 lg:p-[0px] ">
-                    <>
-                        {/* Left, the filter panel */}
+                <section className="pb-8 ">
+                    <div className="flex flex-row lg:gap-6 lg:p-[0px] ">
+                        <>
+                            {/* Left, the filter panel */}
 
-                        <div className="hidden lg:block basis-[30%] drop-shadow-3xl">
-                            <SubcategoryFilter />
-                        </div>
-                        <div className="lg:hidden">
-
-                            <Sidebar close={setShowFilter} show={showFilter} position={"left"} header={"Filter"}>
+                            <div className="hidden lg:block basis-[30%] drop-shadow-3xl">
                                 <SubcategoryFilter />
-                            </Sidebar>
-                        </div>
-                    </>
-
-                    <>
-                        {/* Right, a list of products */}
-
-                        <div className=" basis-full">
-                            <div className="drop-shadow-3xl">
-                                <SubcategoryTopPanel openFilter={showFilter} setOpenFilter={setShowFilter} />
-                                <SubcategoryItems />
                             </div>
-                        </div>
-                    </>
+                            <div className="lg:hidden">
+
+                                <Sidebar close={setShowFilter} show={showFilter} position={"left"} header={"Filter"}>
+                                    <SubcategoryFilter />
+                                </Sidebar>
+                            </div>
+                        </>
+
+                        <>
+                            {/* Right, a list of products */}
+
+                            <div className=" basis-full">
+                                <div className="drop-shadow-3xl">
+                                    <SubcategoryTopPanel openFilter={showFilter} setOpenFilter={setShowFilter} />
+                                    <SubcategoryItems />
+                                </div>
+                            </div>
+                        </>
+                    </div>
                 </section>
             </Main>
             <Footer />

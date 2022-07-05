@@ -32,7 +32,7 @@ export default function Error() {
     return (
         <>
             <Header />
-            <Main >
+            <Main benefits={true}>
                 <PageTitle title={"Cart"} breadcrumbs={['Home', 'Cart']} />
                 <section className="flex flex-col gap-4 pb-8 lg:flex-row">
                     <div className="flex-[1_1_75%] bg-white rounded-md  h-max drop-shadow-3xl">
