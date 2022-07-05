@@ -1,5 +1,5 @@
 import React from "react";
-import { Benefits } from "../templates/Benefits";
+import { Benefits } from "../templates/benefits.js";
 
 
 
