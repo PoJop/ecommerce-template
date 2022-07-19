@@ -1,8 +1,6 @@
-import { Footer } from "../components/layers/footer";
+import { Footer } from "../components/layers/footer/footer";
 import { Header } from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
-import { PageTitle } from "../components/layers/page-title";
-import Image from 'next/image'
 import { QuantityInput } from "../components/templates/inputs/quantity-inp";
 import React from "react";
 import Link from "next/link";
@@ -10,6 +8,7 @@ import { DeleteIcon } from "../asset/icon";
 import { useCart } from "../contextes/cart-conrext";
 import { PATH_CATALOG_PAGE, PATH_CHECKOUT_PAGE } from "../config/path-config";
 import { formatPrice } from "../utils/utils";
+import { Container } from "../components/wrappers/container";
 
 export default function Error() {
 
@@ -32,93 +31,94 @@ export default function Error() {
     return (
         <>
             <Header />
-            <Main benefits={true}>
-                <PageTitle title={"Cart"} breadcrumbs={['Home', 'Cart']} />
-                <section className="flex flex-col gap-4 pb-8 lg:flex-row">
-                    <div className="flex-[1_1_75%] bg-white rounded-md  h-max drop-shadow-3xl">
-                        {cartItems && cartItems.length > 0 &&
-                            <header className="hidden gap-[5%] p-4 text-sm text-gray-400 custom-border lg:flex">
-                                <span className="flex-[1_1_50%] text-center">PRODUCT</span>
-                                <span className="flex-[1_1_15%] text-center">PRICE</span>
-                                <span className="flex-[1_1_15%] text-center">QUANTITY</span>
-                                <span className="flex-[1_1_18%] text-center">SUM</span>
-                            </header>
-                        }
-                        <div>
-                            <ul>
-                                {cartItems && <>
-                                    {cartItems.length > 0 ?
-                                        cartItems.map((e, i) =>
-                                            <CartItem key={i} data={e} />)
-                                        :
-                                        <div className="flex flex-col items-center justify-center py-8 custom-border">
-                                            <h4
-                                                className="mb-4 text-xl text-gray-900"
-                                            >Cart is empty</h4>
-                                            <Link href={PATH_CATALOG_PAGE}>
-                                                <a
-                                                    className="w-full max-w-[160px]  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white"
-                                                >Go to catalog</a>
-                                            </Link>
-                                        </div>
-                                    }
-                                </>}
-                            </ul>
+            <Main benefits={true} pageTitle={true} pageTitleProps={{ title: "Cart", breadcrumbs: ['Home', 'Cart'] }}>
+                <Container>
+                    <section className="flex flex-col gap-4 pb-8 lg:flex-row">
+                        <div className="flex-[1_1_75%] bg-white rounded-md  h-max drop-shadow-3xl">
+                            {cartItems && cartItems.length > 0 &&
+                                <header className="hidden gap-[5%] p-4 text-sm text-gray-400 custom-border lg:flex">
+                                    <span className="flex-[1_1_50%] text-center">PRODUCT</span>
+                                    <span className="flex-[1_1_15%] text-center">PRICE</span>
+                                    <span className="flex-[1_1_15%] text-center">QUANTITY</span>
+                                    <span className="flex-[1_1_18%] text-center">SUM</span>
+                                </header>
+                            }
+                            <div>
+                                <ul>
+                                    {cartItems && <>
+                                        {cartItems.length > 0 ?
+                                            cartItems.map((e, i) =>
+                                                <CartItem key={i} data={e} />)
+                                            :
+                                            <div className="flex flex-col items-center justify-center py-8 custom-border">
+                                                <h4
+                                                    className="mb-4 text-xl text-gray-900"
+                                                >Cart is empty</h4>
+                                                <Link href={PATH_CATALOG_PAGE}>
+                                                    <a
+                                                        className="w-full max-w-[160px]  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white"
+                                                    >Go to catalog</a>
+                                                </Link>
+                                            </div>
+                                        }
+                                    </>}
+                                </ul>
+                            </div>
+                            <div className="p-4">
+                                <label className="flex items-center gap-2 text-sm text-gray-900">
+                                    Promo Code
+                                    <div className="flex items-center px-3 text-center border border-dull-gray rounded text-gray-600 text-[16px]">
+                                        <input
+                                            className="w-[100px] p-2 focus-visible:outline-none" />
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            viewBox="0 0 20 20"
+                                        >
+                                            <path fill="none" stroke="#999" d="M10 5L15 9.5 10 14"></path>
+                                            <path fill="none" stroke="#999" d="M4 9.5L15 9.5"></path>
+                                        </svg>
+                                    </div>
+                                </label>
+                            </div>
                         </div>
-                        <div className="p-4">
-                            <label className="flex items-center gap-2 text-sm text-gray-900">
-                                Promo Code
-                                <div className="flex items-center px-3 text-center border border-dull-gray rounded text-gray-600 text-[16px]">
-                                    <input
-                                        className="w-[100px] p-2 focus-visible:outline-none" />
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        width="20"
-                                        height="20"
-                                        viewBox="0 0 20 20"
-                                    >
-                                        <path fill="none" stroke="#999" d="M10 5L15 9.5 10 14"></path>
-                                        <path fill="none" stroke="#999" d="M4 9.5L15 9.5"></path>
-                                    </svg>
-                                </div>
-                            </label>
-                        </div>
-                    </div>
-                    <aside className=" py-1 flex-[1_1_25%] sticky bg-white rounded-md top-20 h-max drop-shadow-3xl">
-                        <div className="p-3 custom-border">
-                            <div className="flex justify-between p-2">
-                                <div className="text-gray-400 text-[16px]">Subtotal</div>
-                                <div className=" text-[16px] text-gray-600">
-                                    <span>$</span>
-                                    <output>{formatPrice(subtotal)}</output>
-                                </div>
+                        <aside className=" py-1 flex-[1_1_25%] sticky bg-white rounded-md top-20 h-max drop-shadow-3xl">
+                            <div className="p-3 custom-border">
+                                <div className="flex justify-between p-2">
+                                    <div className="text-gray-400 text-[16px]">Subtotal</div>
+                                    <div className=" text-[16px] text-gray-600">
+                                        <span>$</span>
+                                        <output>{formatPrice(subtotal)}</output>
+                                    </div>
 
-                            </div>
-                            <div className="flex justify-between p-2">
-                                <div className="text-gray-400 text-[16px]">Subtotal</div>
-                                <div className=" text-[16px] text-red-light">
-                                    <span>−$</span>
-                                    <output>{formatPrice(promoCode)}</output>
+                                </div>
+                                <div className="flex justify-between p-2">
+                                    <div className="text-gray-400 text-[16px]">Subtotal</div>
+                                    <div className=" text-[16px] text-red-light">
+                                        <span>−$</span>
+                                        <output>{formatPrice(promoCode)}</output>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="p-3">
-                            <div className="flex justify-between p-2">
-                                <div className="text-gray-400 text-[16px]">Total</div>
-                                <div className="text-2xl font-medium text-gray-900">
-                                    <span>$</span>
-                                    <output>{formatPrice(total)}</output>
+                            <div className="p-3">
+                                <div className="flex justify-between p-2">
+                                    <div className="text-gray-400 text-[16px]">Total</div>
+                                    <div className="text-2xl font-medium text-gray-900">
+                                        <span>$</span>
+                                        <output>{formatPrice(total)}</output>
+                                    </div>
+                                </div>
+                                <div className="flex w-full">
+                                    <Link href={PATH_CHECKOUT_PAGE}>
+                                        <a className="w-full  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white">
+                                            {"checkout".toUpperCase()}</a>
+                                    </Link>
                                 </div>
                             </div>
-                            <div className="flex w-full">
-                                <Link href={PATH_CHECKOUT_PAGE}>
-                                    <a className="w-full  min-w-[120px] transition-all text-center  bg-[#1e80e9c5] hover:bg-blue-800 py-2 rounded text-white">
-                                        {"checkout".toUpperCase()}</a>
-                                </Link>
-                            </div>
-                        </div>
-                    </aside>
-                </section>
+                        </aside>
+                    </section>
+                </Container>
             </Main >
             <Footer />
         </>

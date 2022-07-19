@@ -22,6 +22,10 @@ function MyApp({ Component, pageProps }) {
       document.documentElement.style.setProperty('--vh', `${vh}px`);
     });
   }, [])
+  const [DOMContentLoaded, setDOMContentLoaded] = React.useState(false)
+  React.useEffect(() => {
+    document.addEventListener("DOMContentLoaded", setDOMContentLoaded(true));
+  }, [])
   return (
     <>
       <CustomerProvider>
@@ -30,7 +34,10 @@ function MyApp({ Component, pageProps }) {
             <Head>
               <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
             </Head>
-            <Component {...pageProps} />
+            {!DOMContentLoaded ?
+              <>Loading...</> :
+              <Component {...pageProps} />
+            }
           </CartProvider>
         </CatalogProvider>
       </CustomerProvider>

@@ -1,12 +1,12 @@
-import { Footer } from "../components/layers/footer";
+import { Footer } from "../components/layers/footer/footer";
 import { Header } from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
-import { PageTitle } from "../components/layers/page-title";
 import React from "react";
 import Link from "next/link";
 import { useCart } from "../contextes/cart-conrext";
 import { formatPrice } from "../utils/utils";
 import { LockIcon, MasterCardIcon, VisaIcon } from "../asset/icon";
+import { Container } from "../components/wrappers/container";
 
 export default function Checkout() {
     const [shippingTab, setShippingTab] = React.useState(1)
@@ -15,178 +15,179 @@ export default function Checkout() {
     return (
         <>
             <Header />
-            <Main >
-                <PageTitle title={"Checkout"} breadcrumbs={['Checkout']} />
-                <section className="flex flex-col gap-8 pb-8 lg:flex-row">
-                    <div className="flex-[1_1_75%]">
-                        <form className="flex flex-col gap-8">
-                            <section className="flex flex-col gap-4 ">
-                                <div className="px-4 sm:px-0">
-                                    <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
-                                        <span className="text-gray-400">1.&nbsp;</span>
-                                        Contact Information
-                                    </h2>
-                                </div>
-                                <div className="flex flex-col gap-4 p-5 bg-white rounded-md h-max drop-shadow-3xl">
-                                    <div className="flex flex-col gap-4 sm:flex-row">
-                                        <div className="flex-[1_1_50%]">
-                                            <label className="flex flex-col">
-                                                <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
-                                                    First Name
-                                                    <strong></strong>
-                                                </span>
-                                                <input
-                                                    className="rounded custom-input"
-                                                />
-                                            </label>
-                                        </div>
-                                        <div className="flex-[1_1_50%]">
-                                            <label className="flex flex-col">
-                                                <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
-                                                    Last Name
-                                                    <strong></strong>
-                                                </span>
-                                                <input
-                                                    className="rounded custom-input"
-                                                />
-                                            </label>
-                                        </div>
+            <Main pageTitle={true} pageTitleProps={{ title: "Checkout", breadcrumbs: ['Checkout'] }}>
+                <Container>
+                    <section className="flex flex-col gap-8 pb-8 lg:flex-row">
+                        <div className="flex-[1_1_75%]">
+                            <form className="flex flex-col gap-8">
+                                <section className="flex flex-col gap-4 ">
+                                    <div className="px-4 sm:px-0">
+                                        <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
+                                            <span className="text-gray-400">1.&nbsp;</span>
+                                            Contact Information
+                                        </h2>
                                     </div>
-                                    <div className="flex flex-col gap-4 sm:flex-row">
-                                        <div className="flex-[1_1_50%]">
-                                            <label className="flex flex-col">
-                                                <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
-                                                    Phone Number
-                                                    <strong></strong>
-                                                </span>
-                                                <input
-                                                    className="rounded custom-input"
-                                                />
-                                            </label>
-                                        </div>
-                                        <div className="flex-[1_1_50%]">
-                                            <label className="flex flex-col">
-                                                <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
-                                                    Email
-                                                    <strong></strong>
-                                                </span>
-                                                <input
-                                                    className="rounded custom-input"
-                                                />
-                                            </label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </section>
-                            <section className="flex flex-col gap-4 ">
-                                <div className="px-4 sm:px-0">
-                                    <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
-                                        <span className="text-gray-400">2.&nbsp;</span>
-                                        Shipping
-                                    </h2>
-                                </div>
-                                <div className="p-5 bg-white rounded-md h-max drop-shadow-3xl">
-                                    <div className="flex flex-col gap-5 sm:flex-row">
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${shippingTab === 1 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setShippingTab(1)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 1 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                    <div className="flex flex-col gap-4 p-5 bg-white rounded-md h-max drop-shadow-3xl">
+                                        <div className="flex flex-col gap-4 sm:flex-row">
+                                            <div className="flex-[1_1_50%]">
+                                                <label className="flex flex-col">
+                                                    <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
+                                                        First Name
+                                                        <strong></strong>
+                                                    </span>
+                                                    <input
+                                                        className="rounded custom-input"
+                                                    />
+                                                </label>
                                             </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">pick up from store</div>
-                                                <div className="text-[.6875rem] text-gray-400">Free, tomorrow</div>
+                                            <div className="flex-[1_1_50%]">
+                                                <label className="flex flex-col">
+                                                    <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
+                                                        Last Name
+                                                        <strong></strong>
+                                                    </span>
+                                                    <input
+                                                        className="rounded custom-input"
+                                                    />
+                                                </label>
                                             </div>
                                         </div>
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7 rounded border border-dull-gray transition-all ${shippingTab === 2 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setShippingTab(2)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 2 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                        <div className="flex flex-col gap-4 sm:flex-row">
+                                            <div className="flex-[1_1_50%]">
+                                                <label className="flex flex-col">
+                                                    <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
+                                                        Phone Number
+                                                        <strong></strong>
+                                                    </span>
+                                                    <input
+                                                        className="rounded custom-input"
+                                                    />
+                                                </label>
                                             </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">delivery in city</div>
-                                                <div className="text-[.6875rem] text-gray-400">Free, tomorrow</div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${shippingTab === 3 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setShippingTab(3)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 3 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
-                                            </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">regional delivery</div>
-                                                <div className="text-[.6875rem] text-gray-400">Via Russian Post or postal courier services. Sending to any country</div>
+                                            <div className="flex-[1_1_50%]">
+                                                <label className="flex flex-col">
+                                                    <span className="text-gray-900 after:content-['*'] after:ml-0.5 after:text-red-500">
+                                                        Email
+                                                        <strong></strong>
+                                                    </span>
+                                                    <input
+                                                        className="rounded custom-input"
+                                                    />
+                                                </label>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="py-3 h-[50vh]">
-                                        {shippingTab === 1 && <>1</>}
-                                        {shippingTab === 2 && <>2</>}
-                                        {shippingTab === 3 && <>3</>}
+                                </section>
+                                <section className="flex flex-col gap-4 ">
+                                    <div className="px-4 sm:px-0">
+                                        <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
+                                            <span className="text-gray-400">2.&nbsp;</span>
+                                            Shipping
+                                        </h2>
                                     </div>
-                                </div>
-                            </section>
-                            <section className="flex flex-col gap-4 ">
-                                <div className="px-4 sm:px-0">
-                                    <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
-                                        <span className="text-gray-400">3.&nbsp;</span>
-                                        Payment
-                                    </h2>
-                                </div>
-                                <div className="bg-white rounded-md h-max drop-shadow-3xl">
-                                    <div className="flex flex-col gap-5 p-5 sm:flex-row custom-border">
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${payment === 1 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setPayment(1)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 1 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                    <div className="p-5 bg-white rounded-md h-max drop-shadow-3xl">
+                                        <div className="flex flex-col gap-5 sm:flex-row">
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${shippingTab === 1 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setShippingTab(1)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 1 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">pick up from store</div>
+                                                    <div className="text-[.6875rem] text-gray-400">Free, tomorrow</div>
+                                                </div>
                                             </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">payment upon receipt</div>
-                                                <div className="text-[.6875rem] text-gray-400">Cash, credit card</div>
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7 rounded border border-dull-gray transition-all ${shippingTab === 2 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setShippingTab(2)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 2 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">delivery in city</div>
+                                                    <div className="text-[.6875rem] text-gray-400">Free, tomorrow</div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${shippingTab === 3 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setShippingTab(3)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${shippingTab === 3 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">regional delivery</div>
+                                                    <div className="text-[.6875rem] text-gray-400">Via Russian Post or postal courier services. Sending to any country</div>
+                                                </div>
                                             </div>
                                         </div>
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7 rounded border border-dull-gray transition-all ${payment === 2 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setPayment(2)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 2 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
-                                            </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">online by card</div>
-                                                <div className="text-[.6875rem] text-gray-400">Visa, MasterCard</div>
-                                            </div>
-                                        </div>
-                                        <div
-                                            className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${payment === 3 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
-                                            onClick={() => setPayment(3)}
-                                        >
-                                            <div className="flex justify-center mb-[0.55rem]">
-                                                <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 3 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
-                                            </div>
-                                            <div className="text-center">
-                                                <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">electronic payment</div>
-                                                <div className="text-[.6875rem] text-gray-400">PayPal, Yandex.Money, QIWI</div>
-                                            </div>
+                                        <div className="py-3 h-[50vh]">
+                                            {shippingTab === 1 && <>1</>}
+                                            {shippingTab === 2 && <>2</>}
+                                            {shippingTab === 3 && <>3</>}
                                         </div>
                                     </div>
-                                    <div className="flex flex-col items-center justify-center gap-3 p-5 text-center sm:flex-row">
-                                        <div className="flex text-sm text-gray-400 "><div><LockIcon /></div>Security of payments is is provided by secure protocols</div>
-                                        <div className="flex gap-3"><VisaIcon /><MasterCardIcon /></div>
+                                </section>
+                                <section className="flex flex-col gap-4 ">
+                                    <div className="px-4 sm:px-0">
+                                        <h2 className="text-[1.5rem] lg:text-[2rem] text-gray-900">
+                                            <span className="text-gray-400">3.&nbsp;</span>
+                                            Payment
+                                        </h2>
                                     </div>
-                                </div>
-                            </section>
-                        </form>
-                    </div>
-                    <CheckoutInfo />
-                </section>
+                                    <div className="bg-white rounded-md h-max drop-shadow-3xl">
+                                        <div className="flex flex-col gap-5 p-5 sm:flex-row custom-border">
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${payment === 1 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setPayment(1)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 1 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">payment upon receipt</div>
+                                                    <div className="text-[.6875rem] text-gray-400">Cash, credit card</div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7 rounded border border-dull-gray transition-all ${payment === 2 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setPayment(2)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 2 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">online by card</div>
+                                                    <div className="text-[.6875rem] text-gray-400">Visa, MasterCard</div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                className={`flex-[1_1_33%] cursor-pointer flex justify-center flex-col py-3 px-7  rounded border border-dull-gray transition-all ${payment === 3 ? "border-blue-800" : "hover:bg-[#f8f8f8]"}`}
+                                                onClick={() => setPayment(3)}
+                                            >
+                                                <div className="flex justify-center mb-[0.55rem]">
+                                                    <span className={`block  w-[16px] h-[16px] rounded-full  border border-dull-gray transition-all ${payment === 3 ? "border-blue-800  shadow-[inset_0px_0px_0px_5px_#1E87F0]" : ""}`} />
+                                                </div>
+                                                <div className="text-center">
+                                                    <div className="text-sm text-gray-600 uppercase mb-[0.35rem]">electronic payment</div>
+                                                    <div className="text-[.6875rem] text-gray-400">PayPal, Yandex.Money, QIWI</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div className="flex flex-col items-center justify-center gap-3 p-5 text-center sm:flex-row">
+                                            <div className="flex text-sm text-gray-400 "><div><LockIcon /></div>Security of payments is is provided by secure protocols</div>
+                                            <div className="flex gap-3"><VisaIcon /><MasterCardIcon /></div>
+                                        </div>
+                                    </div>
+                                </section>
+                            </form>
+                        </div>
+                        <CheckoutInfo />
+                    </section>
+                </Container>
             </Main >
             <Footer />
         </>

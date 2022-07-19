@@ -26,3 +26,9 @@ export const setLocalStorage = (name, data) => {
         window.localStorage.setItem(name, JSON.stringify(data))
     }
 }
+
+export const hiddenPageScrolling = (hidden) => {
+    if (typeof window === 'object') {
+        document.querySelector('html').style.cssText = `overflow: ${hidden ? "hidden" : "auto"};`;
+    }
+}

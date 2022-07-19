@@ -1,27 +1,31 @@
 import React from "react";
 import Link from "next/link"
-import { Logo } from "../../../asset/logo";
-import { Container } from "./header";
-import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../asset/icon";
-import { useCart } from "../../../contextes/cart-conrext";
-import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_CATALOG_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../config/path-config";
-import { AccountBtn } from "./components/account-btn";
-import { SearchPanel } from "./components/search-panel";
-import { SearchBtn } from "./components/search-btn";
+import { Logo } from "../../../../asset/logo";
+import { Container } from "../header";
+import { ArrowIcon, CartIcon, CustomerIcon, GeolocationIcon, PhoneIcon, WatchIcon } from "../../../../asset/icon";
+import { useCart } from "../../../../contextes/cart-conrext";
+import { PATH_ABOUT_PAGE, PATH_BLOG_PAGE, PATH_CATALOG_PAGE, PATH_CONTACTS_PAGE, PATH_FAQ_PAGE, PATH_HOME_PAGE, PATH_NEWS_PAGE } from "../../../../config/path-config";
+import { AccountBtn } from "../components/account-btn";
+import { SearchPanel } from "../components/search-panel";
+import { SearchBtn } from "../components/search-btn";
+import { DropDownNav } from "./components/drop-down-nav";
+import { hiddenPageScrolling } from "../../../../utils/utils";
 
 export const DesktopVertion = ({ scroll }) => {
 
-    const [dropDown, setDropDown] = React.useState({ open: false, index: 0 })
-    const [Element, setElement] = React.useState(<></>)
+    const [dropDown, setDropDown] = React.useState({
+        open: false,
+        index: 0,
+        element: <></>,
+    })
+
+    React.useEffect(() => {
+        hiddenPageScrolling(dropDown.open)
+    }, [dropDown.open])
+    
     const [search, setSearch] = React.useState(false)
 
     const { predview, setPredview, cartItems } = useCart()
-
-    const arrNavDropDown = [
-        { title: "Catalog", path: PATH_CATALOG_PAGE, element: <>1</> },
-        { title: "Brands", path: '#', element: <>2</> },
-        { title: "Pages", path: '#', element: <>3</> },
-    ]
 
     return (
         <>
@@ -40,7 +44,7 @@ export const DesktopVertion = ({ scroll }) => {
                                     </li>
                                     <li>
                                         <div
-                                            className="flex gap-2 text-sm text-white opacity-50"
+                                            className="flex gap-2 text-sm text-white underline opacity-50 underline-offset-4 decoration-dotted"
                                         >
                                             <GeolocationIcon /><span>St. Petersburg, Nevsky Prospect 28</span>
                                         </div>
@@ -87,29 +91,12 @@ export const DesktopVertion = ({ scroll }) => {
                         </Link>
                         <nav>
                             <ul className="flex gap-4 text-sm">
-                                {arrNavDropDown.map((e, i) =>
-                                    <li
-                                        key={i}
-                                        className="px-2 text-gray-400 transition-all cursor-pointer hover:text-gray-600"
-                                        onMouseOver={() => {
-                                            setDropDown({ ...dropDown, open: true, index: i })
-                                            setElement(e.element)
-                                        }}
-                                        onMouseOut={() => {
-                                            setDropDown({ ...dropDown, open: false })
-                                            setElement(<></>)
-                                        }}
-                                    >
-                                        <Link href={e.path}>
-                                            <a className="flex items-center gap-2 ">
-                                                {e.title.toUpperCase()}
-                                                <span className={`w-max  ${dropDown.open && dropDown.index === i && "rotate-180"} transition-all  `}>
-                                                    <ArrowIcon className="w-[11px]" />
-                                                </span>
-                                            </a>
-                                        </Link>
-                                    </li>
-                                )}
+
+                                <DropDownNav
+                                    dropDown={dropDown}
+                                    setDropDown={setDropDown}
+                                />
+
                                 {[
                                     { title: 'BLOG', path: PATH_BLOG_PAGE },
                                     { title: 'ABOUT', path: PATH_ABOUT_PAGE },
@@ -130,7 +117,7 @@ export const DesktopVertion = ({ scroll }) => {
                         <nav>
                             <ul className="flex gap-7">
                                 <li className="flex align-middle">
-                                    <SearchBtn search={search} setSearch={setSearch}  type="desk"/>
+                                    <SearchBtn search={search} setSearch={setSearch} type="desk" />
                                 </li>
                                 <li className="flex align-middle">
                                     <AccountBtn />
@@ -150,9 +137,17 @@ export const DesktopVertion = ({ scroll }) => {
                     </div>
                 </Container>
             </div>
-            {dropDown &&
-                <div className="bg-white drop-shadow-xl">
-                    {Element}
+            {dropDown.open &&
+                <div
+                    className="bg-white drop-shadow-xl"
+                    onMouseOver={() => {
+                        setDropDown({ ...dropDown, open: true, })
+                    }}
+                    onMouseOut={() => {
+                        setDropDown({ ...dropDown, open: false, })
+                    }}
+                >
+                    {dropDown.element}
                 </div>
             }
 

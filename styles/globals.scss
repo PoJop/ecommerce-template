@@ -1,7 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+@import "./swiper.scss";
 html,
 body {
   padding: 0;
@@ -203,3 +203,4 @@ address {
 .swiper-pagination {
   position: relative !important;
 }
+

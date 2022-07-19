@@ -1,5 +1,5 @@
 import React from "react";
-import { Breadcrumbs } from "../templates/breadcrumbs";
+import { Breadcrumbs } from "./breadcrumbs";
 import Skeleton from '@mui/material/Skeleton';
 
 

@@ -1,16 +1,13 @@
-import { Footer } from "../components/layers/footer";
+import { Footer } from "../components/layers/footer/footer";
 import { Header } from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
-import { PageTitle } from "../components/layers/page-title";
-import { RightSideber } from "../components/page-components/faq/right-sideber";
 
 
-export default function Delivery() {
+export default function Compare() {
     return (
         <>
             <Header />
-            <Main >
-                <PageTitle />
+            <Main pageTitle={true}>
                 <section className="flex gap-4 pb-8">
                  
                 </section>

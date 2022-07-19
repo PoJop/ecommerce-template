@@ -1,8 +1,8 @@
 import React from "react";
 import { Logo } from "../../../asset/logo";
 import { useCart } from "../../../contextes/cart-conrext";
-import { CartPredview } from "../cart-predview";
-import { DesktopVertion } from "./desktop-vertion";
+import { CartPredview } from "../../templates/cart-predview";
+import { DesktopVertion } from "./desktop-vertion/desktop-vertion";
 import { DevicesVertion } from "./devices-vertion";
 
 
@@ -26,7 +26,6 @@ export const Header = () => {
         </>
     )
 }
-
 
 export const Container = ({ children, className }) => {
 

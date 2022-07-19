@@ -6,6 +6,7 @@ import { useCatalog } from "../../contextes/catalog-context";
 import { PATH_CATALOG_PAGE } from "../../config/path-config";
 import { useRouter } from "next/router";
 import { formatPrice } from "../../utils/utils";
+import { LoadableImage } from "./img/loadable-image";
 
 export const ProductCard = ({ data }) => {
 
@@ -86,12 +87,16 @@ const ProductLabels = () => {
 const ProductImage = ({ image }) => {
 
     return (
-        <div className={`p-1 sm:p-2 flex-[1_0_80px] flex sm:max-h-[120px] max-w-[200px] md:max-w-none`}>
-            <img
-                className="object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto"
-                src={image.url}
-                alt="#"
-            />
-        </div>
+        // <div className={`p-1 sm:p-2 flex-[1_0_80px] flex sm:max-h-[120px] max-w-[200px] md:max-w-none`}>
+            <LoadableImage 
+            className={`p-1 sm:p-2 flex-[1_0_80px] flex sm:max-h-[120px] max-w-[200px] md:max-w-none`} 
+            className2={"object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto"}
+            src={image.url} alt="#"/>
+            // {/* <img
+                // className="object-contain max-h-[120px] h-[120px] min-w-[90px] md:max-h-[175px] m-auto"
+                // src={image.url}
+                // alt="#"
+            // /> */}
+        // </div>
     )
 }

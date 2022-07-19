@@ -1,15 +1,13 @@
-import { Footer } from "../components/layers/footer";
+import { Footer } from "../components/layers/footer/footer";
 import { Header } from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
-import { PageTitle } from "../components/layers/page-title";
 
 
 export default function About() {
     return (
         <>
             <Header />
-            <Main >
-                <PageTitle />
+            <Main benefits={true} pageTitle={true}>
                 <div className="h-[100vh]"></div>
             </Main >
             <Footer />

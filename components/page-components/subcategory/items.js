@@ -4,7 +4,7 @@ import { usePagination } from "../../../hooks/usePagination"
 import { Pagination } from "../../templates/pagination"
 import { ProductCard } from "../../templates/product-card"
 
-export const SubcategoryItems = () => {
+const SubcategoryItems = () => {
 
     const products = [
         {
@@ -305,3 +305,4 @@ export const SubcategoryItems = () => {
     )
 }
 
+export default SubcategoryItems

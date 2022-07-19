@@ -4,7 +4,7 @@ import { DeleteIcon } from "../../asset/icon"
 import { PATH_CART_PAGE, PATH_CHECKOUT_PAGE } from "../../config/path-config"
 import { useCart } from "../../contextes/cart-conrext"
 import { formatPrice } from "../../utils/utils"
-import { Sidebar } from "../templates/sidebar"
+import { Sidebar } from "./sidebar"
 
 export const CartPredview = () => {
 

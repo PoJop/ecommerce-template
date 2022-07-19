@@ -1,7 +1,7 @@
 import React from "react";
 import { useCatalog } from "../../contextes/catalog-context";
 import Slider from "react-slick";
-import { ProductCard } from "../templates/product-card";
+import { ProductCard } from "./product-card";
 
 export const RelatedProducts = ({ data }) => {
     const products = [

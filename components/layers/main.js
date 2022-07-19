@@ -1,17 +1,36 @@
 import React from "react";
 import { Benefits } from "../templates/benefits.js";
+import { PageTitle } from "../templates/page-title"
 
 
+export const Main = ({ children, benefits = false, padding = "default", pageTitle = false, pageTitleProps }) => {
 
-export const Main = ({ children, benefits = false }) => {
+    const [headerHeight, setHeaderHeight] = React.useState()
+
+    React.useEffect(() => {
+        setHeaderHeight(`${document.querySelector('header').clientHeight}px`)
+        window.addEventListener('resize', () => {
+            setHeaderHeight(`${document.querySelector('header').clientHeight}px`)
+        })
+    }, [])
+
+    const paddingValues = {
+        "default": { paddingTop: headerHeight },
+        "none": { padding: "auto" },
+    }[padding]
+
+    let paddingStyles = paddingValues ? paddingValues : { padding: padding }
 
     return (
         <main className=" w-full bg-[#f8f8f8]">
             <div className="w-full min-custom_100vh ">
-                <div className="m-auto max-w-[1200px] lg:max-w-[1256px]">
-                    <div className=" pt-[50px] lg:pt-[130px] px-0 sm:px-7 lg:px-9">
-                        {children}
-                    </div>
+                <div style={paddingStyles}>
+                    {headerHeight &&
+                        <>
+                            {pageTitle && <PageTitle {...pageTitleProps} />}
+                            {children}
+                        </>
+                    }
                 </div>
             </div>
             {benefits && <Benefits />}
