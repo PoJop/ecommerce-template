@@ -161,9 +161,9 @@ const SeeCategories = () => {
     <section className="py-[40px]">
       <ul className="grid grid-cols-1 p-4 vsm:grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-[15px]">
         {categories.map((elem, index) =>
-          <Link href={"#"}>
+          <Link href={"#"} key={index}>
             <a className="transition-all">
-              <li key={index} className="flex flex-col items-center justify-center p-3 text-gray-400 hover:text-gray-600 transition-all hover:shadow-[0_14px_25px_rgb(0_0_0/16%)] cursor-pointer ">
+              <li className="flex flex-col items-center justify-center p-3 text-gray-400 hover:text-gray-600 transition-all hover:shadow-[0_14px_25px_rgb(0_0_0/16%)] cursor-pointer ">
                 <div className="">
                   <figure className="w-[180px] h-[140px] lg:w-[150px] lg:h-[110px]">
                     <img
@@ -260,7 +260,7 @@ const LatestNews = () => {
               description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sodales eget ipsum id aliquam. Nam consectetur interdum nibh eget sodales. Cras volutpat efficitur ornare."
             },
           ].map((elem, index) =>
-            <li className="border-b border-[#e5e5e5] last:border-none  mt-[10px]">
+            <li key={index} className="border-b border-[#e5e5e5] last:border-none  mt-[10px]">
               <article className="mb-[10px]">
                 <div><time className="text-sm text-gray-400">{elem.date}</time></div>
                 <Link href={'#'}><a><h3 className="text-2xl text-gray-900 mt-[5px] mb-[10px]">{elem.title}</h3></a></Link>
