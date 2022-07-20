@@ -1,6 +1,6 @@
 import React, { Suspense } from "react";
 import { useRouter } from "next/router";
-import { Header } from "../../../../components/layers/header/header";
+import Header from "../../../../components/layers/header/header";
 import { Main } from "../../../../components/layers/main";
 import { SubcategoryFilter } from "../../../../components/page-components/subcategory/filter";
 import { Sidebar } from "../../../../components/templates/sidebar";

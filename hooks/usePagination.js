@@ -10,7 +10,6 @@ export const usePagination = (dataItems, currentQuantityItems) => {
     React.useEffect(() => {
         if (dataItems, currentQuantityItems) {
             let quantity = dataItems.length / currentQuantityItems
-            console.log(quantity)
             setPages(quantity <= 1 ? 0 : quantity)
         }
     }, [dataItems, currentQuantityItems])

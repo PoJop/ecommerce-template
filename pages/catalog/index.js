@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import AnchorLink from 'react-anchor-link-smooth-scroll'
 
-import { Header } from "../../components/layers/header/header";
+import Header from "../../components/layers/header/header";
 import { Main } from "../../components/layers/main";
 import { Footer } from "../../components/layers/footer/footer";
 import { Container } from "../../components/wrappers/container";

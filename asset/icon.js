@@ -73,7 +73,6 @@ export const ArrowIcon = ({ className }) => {
             viewBox="0 0 16 9"
         >
             <path
-                stroke="#999"
                 d="M1.165.764L8 7.6m0 0l.236.235M8 7.6L14.835.764M8 7.6l-.236.235"
             ></path>
         </svg>
@@ -344,7 +343,7 @@ export const PhoneIcon = () => {
         </svg>
     )
 }
-export const EmailIcon = () => {
+export const EmailIcon = ({ className = "w-[15px]" }) => {
 
     return (
         <svg
@@ -353,7 +352,7 @@ export const EmailIcon = () => {
             height="20"
             viewBox="0 0 20 20"
             fill="#fff"
-            className="w-[15px]"
+            className={className}
         >
             <path fill="none" stroke="#fff" d="M1.4 6.5L10 11 18.6 6.5"></path>
             <path d="M1 4v12h18V4H1zm17 11H2V5h16v10z"></path>

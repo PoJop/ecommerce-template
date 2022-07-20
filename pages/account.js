@@ -1,6 +1,6 @@
 import React from "react";
 import { Footer } from "../components/layers/footer/footer";
-import { Header } from "../components/layers/header/header";
+import Header from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
 import { useRouter } from 'next/router'
 import { useCustomer } from "../contextes/customer-context";

@@ -22,16 +22,16 @@ export const DesktopVertion = ({ scroll }) => {
     React.useEffect(() => {
         hiddenPageScrolling(dropDown.open)
     }, [dropDown.open])
-    
+
     const [search, setSearch] = React.useState(false)
 
     const { predview, setPredview, cartItems } = useCart()
 
     return (
         <>
-            <div className={` hidden p-2 lg:block bg-gray-950  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
+            <div className={` hidden p-2 lg:block bg-gray-950  px-0 sm:px-7 lg:px-10  transition-all duration-[80ms] ${scroll > 30 && "h-0 overflow-hidden p-0"}`}>
                 <Container>
-                    <div className="flex justify-between">
+                    <div className="flex justify-between ">
                         <div>
                             <address>
                                 <ul className="flex gap-4">
@@ -83,7 +83,7 @@ export const DesktopVertion = ({ scroll }) => {
             </div>
 
 
-            <div className="hidden p-4 px-0 sm:px-7 lg:px-9 lg:block bg-[#ffffff] border-b border-dull-gray">
+            <div className="hidden p-3 px-0 sm:px-7 lg:px-10 lg:block bg-[#ffffff] border-b border-dull-gray">
                 <Container className={"flex justify-between"}>
                     <div className="flex items-center gap-6">
                         <Link href={PATH_HOME_PAGE}>

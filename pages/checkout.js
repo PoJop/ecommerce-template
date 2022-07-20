@@ -1,5 +1,5 @@
 import { Footer } from "../components/layers/footer/footer";
-import { Header } from "../components/layers/header/header";
+import Header from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
 import React from "react";
 import Link from "next/link";
@@ -14,7 +14,7 @@ export default function Checkout() {
 
     return (
         <>
-            <Header />
+            <Header  key={'header'}/>
             <Main pageTitle={true} pageTitleProps={{ title: "Checkout", breadcrumbs: ['Checkout'] }}>
                 <Container>
                     <section className="flex flex-col gap-8 pb-8 lg:flex-row">

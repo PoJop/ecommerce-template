@@ -2,11 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 @import "./swiper.scss";
+
 html,
 body {
   padding: 0;
   margin: 0;
   font-family: "Roboto", "Helvetica Neue", Arial, sans-serif;
+}
+input:focus-visible {
+  outline: 0px;
 }
 
 #__next {
@@ -133,8 +137,7 @@ body::-webkit-scrollbar-thumb {
 
 
 
-.catalog-items {
-  border-top: 1px solid #e5e5e5;
+.catalog-items-3 {
 
   &>article:nth-child(3n+1) {
     border-right: 1px solid #e5e5e5;
@@ -150,6 +153,34 @@ body::-webkit-scrollbar-thumb {
     border-bottom: 1px solid #e5e5e5;
   }
 }
+.catalog-items-4 {
+
+  &>article:nth-child(4n+1) {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  &>article:nth-child(4n) {
+    border-left: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+  &>article:nth-child(3n) {
+    border-bottom: 1px solid #e5e5e5;
+  }
+  &>article:nth-child(2n) {
+    border-right: 1px solid #e5e5e5;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  // &>article:nth-child(3n+2) {
+  //   border-right: 1px solid #e5e5e5;
+  //   border-bottom: 1px solid #e5e5e5;
+  // }
+
+  // &>article:nth-child(3n+3) {
+  //   border-bottom: 1px solid #e5e5e5;
+  // }
+}
+
 
 .logo {
   height: 40px;
@@ -204,3 +235,16 @@ address {
   position: relative !important;
 }
 
+.partition-redirect-btn-hover {
+
+  &>svg {
+    transition: all 0.1s ease-out;
+    transform: rotate(-90deg) translateY(0px);
+  }
+
+  &:hover {
+    &>svg {
+      transform: rotate(-90deg) translateY(4px);
+    }
+  }
+}

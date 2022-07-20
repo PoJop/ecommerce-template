@@ -12,12 +12,10 @@ export const LoadableImage = (props) => {
     const isVisible = useOnScreen(containerRef);
 
     React.useEffect(() => {
-        console.log(isVisible)
         if (!isVisible ) return //|| isLoaded
 
         if (imageRef.current) {
             imageRef.current.onload = () => {
-                console.log("img onload")
                 setIsLoaded(true)
                 onLoad()
             }

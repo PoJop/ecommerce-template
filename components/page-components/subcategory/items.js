@@ -3,8 +3,19 @@ import { useCatalog } from "../../../contextes/catalog-context"
 import { usePagination } from "../../../hooks/usePagination"
 import { Pagination } from "../../templates/pagination"
 import { ProductCard } from "../../templates/product-card"
+import useResizeObserver from '@react-hook/resize-observer'
 
-const SubcategoryItems = () => {
+const useSize = (target) => {
+    const [size, setSize] = React.useState()
+
+    React.useLayoutEffect(() => {
+        setSize(target.current.getBoundingClientRect())
+    }, [target])
+
+    useResizeObserver(target, (entry) => setSize(entry.contentRect))
+    return size
+}
+const SubcategoryItems = ({ buttonLoadMore = true, pagination = true }) => {
 
     const products = [
         {
@@ -261,26 +272,39 @@ const SubcategoryItems = () => {
         },
     ]
 
-    const [quantityItems, setQuantityItems] = React.useState(9)
+    const [quantityItems, setQuantityItems] = React.useState(8)
+    const [grid, setGrid] = React.useState(4)
 
     const { productDisplayFormat } = useCatalog()
     const { showItems, currentPage, setCurrentPage, pages } = usePagination(products, quantityItems)
-  
-  
+    const target = React.useRef(null)
+    const size = useSize(target)
+
+    const changeGrid = () => {
+        let maxWidth = size?.width > 960
+        setGrid(maxWidth ? 4 : 3)
+        setQuantityItems(maxWidth ? 8 : 9)
+    }
+    React.useEffect(() => changeGrid, [size])
+
+    const styleGridCols = {
+        "3": "md:grid-cols-3 catalog-items-3",
+        "4": "md:grid-cols-4 catalog-items-4"
+    }[`${grid}`]
 
     return (
         <>
-            <div className={`rounded-b-lg bg-white `}>
+            <div className={`rounded-b-lg bg-white `} ref={target}>
                 <>
                     {/* List of products */}
 
-                    <div className={`catalog-items grid grid-cols-1 ${productDisplayFormat === "grid" && "md:grid-cols-3"}`} >
+                    <div className={`grid grid-cols-1 ${productDisplayFormat === "grid" && styleGridCols}`} >
                         {showItems && showItems.map((e, i) => <ProductCard key={i} data={e} />)}
                     </div>
                 </>
 
                 <>
-                    {pages > 0 &&
+                    {buttonLoadMore && pages > 0 &&
                         <div>
                             <button
                                 className="w-full py-3 text-gray-900"
@@ -299,10 +323,10 @@ const SubcategoryItems = () => {
             <>
                 {/* Pagination */}
 
-                    <Pagination pages={pages}  currentPage={currentPage} setCurrentPage={setCurrentPage}/>
+                {pagination && <Pagination pages={pages} currentPage={currentPage} setCurrentPage={setCurrentPage} />}
             </>
         </>
     )
 }
 
-export default SubcategoryItems
+export default React.memo(SubcategoryItems)

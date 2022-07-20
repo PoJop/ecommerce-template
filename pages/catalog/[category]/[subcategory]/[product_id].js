@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import Head from "next/head";
 
 import { Footer } from "../../../../components/layers/footer/footer";
-import { Header } from "../../../../components/layers/header/header";
+import Header from "../../../../components/layers/header/header";
 import { Main } from "../../../../components/layers/main";
 
 import { RelatedProducts } from "../../../../components/templates/related-products";

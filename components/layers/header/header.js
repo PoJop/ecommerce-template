@@ -6,7 +6,7 @@ import { DesktopVertion } from "./desktop-vertion/desktop-vertion";
 import { DevicesVertion } from "./devices-vertion";
 
 
-export const Header = () => {
+const Header = () => {
 
     const [scroll, setScroll] = React.useState(0)
     const { predview, setPredview } = useCart()
@@ -26,6 +26,7 @@ export const Header = () => {
         </>
     )
 }
+export default React.memo(Header)
 
 export const Container = ({ children, className }) => {
 

@@ -18,8 +18,10 @@ export const Container = ({ padding = "default", width = "default", className, c
 
 
     return (
-        <div className={`${paddingStyles} ${widthStyles} ${className}`}>
-            {children}
+        <div className={`${className}`}>
+            <div className={`${paddingStyles} ${widthStyles} ${className} w-full h-full`}>
+                {children}
+            </div>
         </div>
     )
 }
