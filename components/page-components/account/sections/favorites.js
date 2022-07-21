@@ -1,6 +1,6 @@
 import React from "react"
 import { useCatalog } from "../../../../contextes/catalog-context"
-import { ProductCard } from "../../../templates/product-card"
+import { ProductCard } from "../../../templates/product-card/product-card"
 
 export const Favorites = () => {
     const products = [

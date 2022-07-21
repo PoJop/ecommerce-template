@@ -8,7 +8,10 @@ export const SubcategoryFilter = () => {
             <aside className="overflow-y-hidden bg-white rounded-md ">
                 <div className="h-full overflow-y-auto ">
                     <Accordion title={"Prices"} titleClass={"text-xl"} openDefault={true}>
-                        212
+                        <div>
+                            <PriceInput label="from" />
+                            <PriceInput label="to" />
+                        </div>
                     </Accordion>
                     <Accordion title={"Brands"} titleClass={"text-xl"} openDefault={true}>
                         121
@@ -36,5 +39,16 @@ export const SubcategoryFilter = () => {
                 </div>
             </aside>
         </>
+    )
+}
+
+
+const PriceInput = ({ label }) => {
+
+    return (
+        <div>
+            <label htmlFor="price-input">{label}</label>
+            <input id="price-input" />
+        </div>
     )
 }
