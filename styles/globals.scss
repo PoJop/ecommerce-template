@@ -161,6 +161,7 @@ body::-webkit-scrollbar-thumb {
   }
   &>article:nth-child(4n) {
     border-left: 1px solid #e5e5e5;
+    border-right: none !important;
     border-bottom: 1px solid #e5e5e5;
   }
   &>article:nth-child(3n) {

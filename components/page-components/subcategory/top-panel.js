@@ -9,7 +9,7 @@ export const SubcategoryTopPanel = ({ openFilter, setOpenFilter }) => {
 
     return (
         <>
-            <div className="flex flex-col items-center p-2 bg-white rounded-t-lg sm:flex-row sm:justify-between ">
+            <div className="flex flex-col items-center p-2 bg-white rounded-t-lg sm:flex-row sm:justify-between border-b border-[#e5e5e5]">
                 <>
                     {/*Left side */}
 

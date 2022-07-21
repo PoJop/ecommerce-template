@@ -1,7 +1,7 @@
 import React from "react";
 import { useCatalog } from "../../contextes/catalog-context";
 import Slider from "react-slick";
-import { ProductCard } from "./product-card";
+import { ProductCard } from "./product-card/product-card";
 
 export const RelatedProducts = ({ data }) => {
     const products = [
@@ -87,25 +87,12 @@ export const RelatedProducts = ({ data }) => {
             <div className="pb-10">
                 <div className="p-4">
                     <h2 className="text-2xl text-gray-900">Related Products</h2>
-                    {/* <div>
-                    <button onClick={() => {
-                        setCurrentSlideIndex(currentSlideIndex - 1)
-                        // sliderRef.current.slickGoTo( 2)
-                    }}><ArrowIcon /></button>
-                    <button onClick={() => {
-                        setCurrentSlideIndex(currentSlideIndex + 1)
-                        // sliderRef.current.slickGoTo(1)
-                    }}><ArrowIcon /></button>
-                </div> */}
                 </div>
                 <div className="drop-shadow-3xl ">
                     <Slider {...settings} ref={sliderRef} slidesToShow={widthViewport > 1024 && 4 || widthViewport > 768 && 3 || widthViewport < 768 && 1}  >
                         {products.map((e, i) => <ProductCard key={e.id} data={e} />)}
                     </Slider>
                 </div>
-                {/* <div className={`catalog-items grid grid-cols-1 ${productDisplayFormat === "grid" && "md:grid-cols-3"}`} >
-                {products.map((e, i) => <ProductCard key={e.id} data={e} />)}
-            </div> */}
             </div>
         </>
     )

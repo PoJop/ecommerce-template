@@ -10,6 +10,7 @@ import { RelatedProducts } from "../../../../components/templates/related-produc
 import { ProductImeges } from "../../../../components/page-components/product/product-images";
 import { ProductInfo } from "../../../../components/page-components/product/product-info";
 import { Container } from "../../../../components/wrappers/container";
+import SubcategoryItems from "../../../../components/page-components/subcategory/items";
 
 
 
@@ -29,16 +30,19 @@ export default function SingleProduct() {
                 breadcrumbs: ['Apple MacBook Pro 15 Touch Bar MPTU2LL/A 256GB (Silver)']
             }}>
 
-                <Container className="bg-white rounded-md drop-shadow-3xl ">
+                <Container>
+                    <div className="bg-white rounded-md drop-shadow-3xl ">
 
-                    <ProductWelcome />
+                        <ProductWelcome />
 
-                    <ProductInfoNavigation />
+                        <ProductInfoNavigation />
 
-                    <RelatedProducts />
+                    </div>
 
                 </Container>
-
+                <Container>
+                    <RelatedProducts />
+                </Container>
             </Main >
             <Footer />
         </>
@@ -47,7 +51,7 @@ export default function SingleProduct() {
 
 
 const ProductWelcome = () => {
-    
+
     const router = useRouter()
 
     return (
@@ -66,36 +70,45 @@ const ProductWelcome = () => {
 
 const ProductInfoNavigation = () => {
 
-    const [tab, setTab] = React.useState(0)
+    const [tab, setTab] = React.useState("overview")
 
     const handlerChangeTab = (index) => setTab(index)
 
     const tabButtonStyle = (index) => tab === index
         ? "bg-blue-800 text-white"
         : "text-gray-500 opacity-70 hover:opacity-100"
-
+    React.useEffect(() => {
+        console.log("rerender")
+    }, [])
     return (
-        <section className="h-[54vh] py-4">
-            <div className="sticky overflow-x-hidden bg-white top-14 m-auto w-[100%]">
-                <ul className=" m-auto overflow-x-auto w-[100%] whitespace-nowrap text-center p-4">
-                    {["OVERVIEW", "SPECIFICATIONS", "ACCESSORIES", "REVIEWS", "Q&A"].map((e, i) =>
+        <section className="min-h-[54vh] ">
+            <div className="sticky z-[300] overflow-x-hidden bg-white top-14 m-auto w-[100%]">
+                <ul className="m-auto overflow-x-auto w-[100%] whitespace-nowrap text-center p-4">
+                    {["overview", "specifications", "accessories", "reviews", "q&a"].map((e, i) =>
                         <li key={i} className="inline line-through flex-shrink-1 mr-[5px] last:mr-[0]" >
                             <button
-                                className={`rounded-md transition-all py-[2px] px-2 ${tabButtonStyle(i)}`}
-                                onClick={() => handlerChangeTab(i)}>
-                                {e.toUpperCase()}
+                                className={`rounded-md transition-all py-[2px] px-2 ${tabButtonStyle(e)}`}
+                                onClick={() => handlerChangeTab(e)}>
+                                {e}
                             </button>
                         </li>
                     )}
                 </ul>
             </div>
-            <div className="p-4">
-                {tab === 0 && <>1</>}
-                {tab === 1 && <>2</>}
-                {tab === 2 && <>3</>}
-                {tab === 3 && <>4</>}
-                {tab === 4 && <>5</>}
+            <div className="">
+                {tab === "overview" && <>1</>}
+                {tab === "specifications" && <>2</>}
+                {tab === "accessories" && <Accessories />}
+                {tab === "reviews" && <>4</>}
+                {tab === "q&a" && <>5</>}
             </div>
         </section>
+    )
+}
+
+const Accessories = () => {
+
+    return (
+        <SubcategoryItems buttonLoadMore={false} pagination={false} />
     )
 }

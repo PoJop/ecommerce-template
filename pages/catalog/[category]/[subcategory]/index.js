@@ -20,11 +20,6 @@ export default function Subcategory() {
         <>
             <Header />
             <Main benefits={true} pageTitle={true}>
-                <div className="flex justify-center">
-                    <strong className="text-sm font-normal text-gray-400">
-                        12 items
-                    </strong>
-                </div>
                 <Container>
                     <section className="pb-8 ">
                         <div className="flex flex-row lg:gap-6 lg:p-[0px] ">
@@ -49,7 +44,7 @@ export default function Subcategory() {
                                     <div className="drop-shadow-3xl">
                                         <SubcategoryTopPanel openFilter={showFilter} setOpenFilter={setShowFilter} />
                                         <Suspense fallback={<div>Загрузка...</div>}>
-                                            <SubcategoryItems />
+                                            <SubcategoryItems observer={false}/>
                                         </Suspense>
                                     </div>
                                 </div>

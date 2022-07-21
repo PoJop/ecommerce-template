@@ -23,6 +23,11 @@ export const PageTitle = ({ children, title = '', changelastBreadcrumb }) => {
                         </>}
 
                     </h1>
+                    <div className="flex justify-center">
+                        <strong className="text-sm font-normal text-gray-400">
+                            1222 items
+                        </strong>
+                    </div>
                 </div>
                 {children}
             </div>

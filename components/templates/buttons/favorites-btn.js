@@ -1,14 +1,14 @@
 import React from "react";
 
-export const FavoritesBtn = () => {
+export const FavoritesBtn = ({text = false}) => {
 
     return (
         <>
-            <div className=" cursor-pointer w-[36px] h-[36px] flex justify-center align-middle">
-                <button>
-                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24">
+            <div className="flex align-middle cursor-pointer ">
+                <button className="flex items-center text-sm text-[#f0506e]">
+                    <svg width="24" height="24" fill="none" viewBox="0 0 24 24" className="w-[26px]  h-[26px]">
                         <path
-                            stroke="currentColor"
+                            stroke="#f0506e"
                             strokeLinecap="round"
                             strokeLinejoin="round"
                             strokeWidth="1.5"
@@ -16,6 +16,7 @@ export const FavoritesBtn = () => {
                             clipRule="evenodd"
                         ></path>
                     </svg>
+                    {text && <span>Add to favorites</span>}
                 </button>
             </div>
         </>

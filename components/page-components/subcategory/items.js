@@ -2,7 +2,7 @@ import React from "react"
 import { useCatalog } from "../../../contextes/catalog-context"
 import { usePagination } from "../../../hooks/usePagination"
 import { Pagination } from "../../templates/pagination"
-import { ProductCard } from "../../templates/product-card"
+import { ProductCard } from "../../templates/product-card/product-card"
 import useResizeObserver from '@react-hook/resize-observer'
 
 const useSize = (target) => {
@@ -15,7 +15,7 @@ const useSize = (target) => {
     useResizeObserver(target, (entry) => setSize(entry.contentRect))
     return size
 }
-const SubcategoryItems = ({ buttonLoadMore = true, pagination = true }) => {
+const SubcategoryItems = ({ buttonLoadMore = true, pagination = true, observer = true }) => {
 
     const products = [
         {
@@ -272,7 +272,7 @@ const SubcategoryItems = ({ buttonLoadMore = true, pagination = true }) => {
         },
     ]
 
-    const [quantityItems, setQuantityItems] = React.useState(8)
+    const [quantityItems, setQuantityItems] = React.useState(9)
     const [grid, setGrid] = React.useState(4)
 
     const { productDisplayFormat } = useCatalog()
@@ -285,12 +285,14 @@ const SubcategoryItems = ({ buttonLoadMore = true, pagination = true }) => {
         setGrid(maxWidth ? 4 : 3)
         setQuantityItems(maxWidth ? 8 : 9)
     }
-    React.useEffect(() => changeGrid, [size])
+    React.useEffect(() => {
+        if (observer) changeGrid()
+    }, [size])
 
     const styleGridCols = {
         "3": "md:grid-cols-3 catalog-items-3",
         "4": "md:grid-cols-4 catalog-items-4"
-    }[`${grid}`]
+    }[`${observer ? grid : "3"}`]
 
     return (
         <>

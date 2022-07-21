@@ -18,11 +18,7 @@ export default function Catalog() {
         <>
             <Header />
             <Main benefits={true} pageTitle={true} pageTitleProps={{ title: "Catalog", breadcrumbs: ['Home', 'Catalog'] }}>
-                <div className="flex justify-center">
-                    <strong className="text-sm font-normal text-gray-400">
-                        1222 items
-                    </strong>
-                </div>
+             
 
                 <Container>
                     <section className="flex pb-8 lg:gap-4 ">
@@ -45,14 +41,19 @@ export default function Catalog() {
                                         id={`categoryAnchor${i}`}
                                         className="bg-white rounded-md category drop-shadow-3xl"
                                     >
-                                        <header className="p-4 custom-border">{e.category}</header>
+                                        <header className="p-4 custom-border">
+                                            <Link href={"#"}>
+                                                <a className=" text-gray-900 hover:text-[#1e87f0]">{e.category}</a>
+                                            </Link>
+                                        </header>
                                         <ul className="p-4">
                                             {e.subcategory.map((e, i) =>
                                                 <li // subcategory
                                                     key={i}
+                                                    className="mb-2 last:mb-0"
                                                 >
                                                     <Link href={"/catalog/Laptops-&-Tablets/Laptops"}>
-                                                        <a>{e}</a>
+                                                        <a className="text-[#1e87f0] hover:text-[#0f6ecd]">{e}</a>
                                                     </Link>
                                                 </li>
                                             )}

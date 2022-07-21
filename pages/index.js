@@ -1,6 +1,8 @@
 import React from "react";
 import Head from 'next/head'
 
+import { useCatalog } from "../contextes/catalog-context";
+
 import Header from "../components/layers/header/header";
 import { Main } from "../components/layers/main";
 import { Footer } from "../components/layers/footer/footer";
@@ -21,7 +23,10 @@ import "swiper/css/pagination";
 import { Pagination } from "swiper";
 
 export default function Home() {
-
+  const {setProductDisplayFormat} = useCatalog()
+  React.useEffect(() => {
+    setProductDisplayFormat("grid")
+  },[])
 
   return (
     <>
@@ -213,7 +218,7 @@ const Blog = () => {
         ].map((elem, index) =>
           <article
             key={index}
-            className="flex-[1_0_100%] sm:flex-[1_0_45%] first:mr-[30px] flex flex-col transition-all cursor-pointer rounded  shadow-[0_5px_15px_rgb(0_0_0/8%)] hover:shadow-[0_14px_25px_rgb(0_0_0/16%)]"
+            className="flex-[1_0_100%] sm:flex-[1_0_45%] first:mb-[30px] sm:first:mb-[0px] sm:first:mr-[30px] flex flex-col transition-all cursor-pointer rounded  shadow-[0_5px_15px_rgb(0_0_0/8%)] hover:shadow-[0_14px_25px_rgb(0_0_0/16%)]"
           >
             <div className="object-cover h-[50vw]  max-h-[420px] sm:h-[25vw] sm:max-h-[300px]">
               <img src={elem.image} className="object-cover w-full h-full rounded-t" />
@@ -302,7 +307,7 @@ const SubscribeForUpdates = () => {
   }, [focusInput])
 
   return (
-    <sectino>
+    <section>
       <div className="text-center text-[#fff] px-[20px] pt-[20px]">
         <div className="text-1.4xl">Subscribe for updates</div>
         <div className="opacity-70">Be aware of new products and special offers.</div>
@@ -319,14 +324,14 @@ const SubscribeForUpdates = () => {
               className={` bg-transparent  text-[rgba(255,255,255,.7)] h-[40px] w-full `}
             />
           </div>
-          <div className="pt-[15px] sm:pl-[15px]">
+          <div className="pt-[15px] sm:pt-0 sm:pl-[15px]">
             <button className="bg-[#fff] text-gray-600 h-full rounded px-[30px] text-sm min-h-[38px]">
               SUBSCRIBE
             </button>
           </div>
         </form>
       </div>
-    </sectino>
+    </section>
   )
 }
 
