@@ -26,7 +26,7 @@ export default function Subcategory() {
                             <>
                                 {/* Left, the filter panel */}
 
-                                <div className="hidden lg:block basis-[30%] drop-shadow-3xl">
+                                <div className="hidden lg:block basis-[33%] drop-shadow-3xl">
                                     <SubcategoryFilter />
                                 </div>
                                 <div className="lg:hidden">
